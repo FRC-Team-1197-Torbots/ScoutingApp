@@ -1,0 +1,2 @@
+# ScoutingApp
+New Scouting Application
