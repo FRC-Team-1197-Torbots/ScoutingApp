@@ -19,11 +19,25 @@ public class ScoutingAppMain {
 		
 		Controllers.poll();
 		
+		int controllernum = -1;
+		
 		for(int i = 0; i < Controllers.getControllerCount(); i++) {
 			System.out.println(Controllers.getController(i).getName());
+			
+			//For now we are only looking for the first controller
+			if(Controllers.getController(i).getName().contains("Controller")) {
+				controllernum = i;
+				break;
+			}
 		}
 		
-		controller = Controllers.getController(0);
+		if(controllernum >= 0) {
+			controller = Controllers.getController(controllernum);
+		} else {
+			System.err.println("There is no recognized controller");
+			return;
+		}
+		
 		
 		while(true) {
 			controller.poll();
