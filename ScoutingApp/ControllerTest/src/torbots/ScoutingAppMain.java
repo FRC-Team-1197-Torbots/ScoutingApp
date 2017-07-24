@@ -34,7 +34,7 @@ public class ScoutingAppMain {
 		if(controllernum >= 0) {
 			controller = Controllers.getController(controllernum);
 		} else {
-			System.err.println("There is no recognized controller");
+			System.err.println("There is no  recognized controller");
 			return;
 		}
 		
