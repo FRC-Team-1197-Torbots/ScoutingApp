@@ -72,17 +72,18 @@ public class Scout : MonoBehaviour
             }
             else if (child.name.Contains("Shots"))
             {
-                score.GetComponent<Text>().text = (NumberOfShots * (1.0f/3.0f)).ToString();
+                score.GetComponent<Text>().text = (NumberOfShots * (1.0f / 3.0f)).ToString();
                 presses.GetComponent<Text>().text = NumberOfShots.ToString();
             }
             else if (child.name.Contains("Climb"))
             {
-                
-                if(Climb)
+
+                if (Climb)
                 {
                     presses.GetComponent<Text>().text = "Climbed";
                     score.GetComponent<Text>().text = "50";
-                } else
+                }
+                else
                 {
                     presses.GetComponent<Text>().text = "Not Climbed";
                     score.GetComponent<Text>().text = "0";
@@ -90,16 +91,25 @@ public class Scout : MonoBehaviour
             }
             else if (child.name.Contains("Result"))
             {
-                if(Result)
+                if (Result)
                 {
                     score.GetComponent<Text>().text = "2";
                     presses.GetComponent<Text>().text = "Win";
-                } else
+                }
+                else
                 {
                     score.GetComponent<Text>().text = "0";
                     presses.GetComponent<Text>().text = "Lose";
                 }
             }
         }
+    }
+
+    public void Clear()
+    {
+        NumberOfGears = 0;
+        NumberOfShots = 0;
+        Climb = false;
+        Result = false;
     }
 }
