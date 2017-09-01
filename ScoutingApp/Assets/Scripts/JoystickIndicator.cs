@@ -15,11 +15,17 @@ public class JoystickIndicator : MonoBehaviour {
 
 	public void LightOn()
     {
-        image.color = Color.green;
+        if(image != null)
+        {
+            image.color = Color.green;
+        }        
     }
 
     public void LightOff()
     {
-        image.color = Color.yellow;
+        if(image != null)
+        {
+            image.color = Color.yellow;
+        }        
     }
 }
