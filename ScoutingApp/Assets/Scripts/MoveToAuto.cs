@@ -4,22 +4,18 @@ using UnityEngine;
 
 public class MoveToAuto : MonoBehaviour {
 
-    public GameObject MatchesPanel;
-    public GameObject AutoPanel;
+    
+    private MatchInfo info;
 
 	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	void Awake () {
+        info = FindObjectOfType<MatchInfo>();
 	}
 
     public void OnClick()
     {
-        MatchesPanel.SetActive(false);
-        AutoPanel.SetActive(true);
+        info.TransitionToAuto();
+        //MatchesPanel.SetActive(false);
+        //AutoPanel.SetActive(true);
     }
 }

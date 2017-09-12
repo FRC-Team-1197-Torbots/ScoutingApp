@@ -10,30 +10,98 @@ public class MatchInfo : MonoBehaviour
     private List<Match> Matches;
     public Text ErrorText;
     public Text[] Inputs;
-    public GameObject MatchesPanel;
     public Text MatchNumberText;
     public Text CurrentMatchText;
 
     private int MatchNumber;
+    private string[] AutoCats = { "# of Gears", "Baseline Crossed", "# of shots"};
+    private string[] TeleCats = { "# of Gears", "Shooting %", "# of shots",
+                                    "Climb", "Team Result"};
 
     public Data[] data;
+    private Scout[] scouts;
+
+    [Header("Panels")]
+    public GameObject MatchesPanel;
+    public GameObject AutoPanel;
+
+    public enum STATE
+    {
+        PREMATCH,AUTO,TELE
+    };
+
+    private STATE m_state;
 
     #region UNITY Functions
     void Awake()
     {
+        m_state = STATE.PREMATCH;
+
         MatchNumber = 0;
 
         data = new Data[6]; //Holds the latest Data for match
 
         Matches = new List<Match>();
+
+        scouts = FindObjectsOfType<Scout>();
+
+        //Order scouts into red 1-3 blue 1-3
+        #region Ordering
+        Scout r1 = null, r2 = null, r3 = null, b1 = null, b2 = null, b3 = null;
+        foreach(Scout s in scouts)
+        {
+            if(s.team == "Red")
+            {
+                if(s.id == 1)
+                {
+                    r1 = s;
+                } else if(s.id == 2)
+                {
+                    r2 = s;
+                } else
+                {
+                    r3 = s;
+                }
+            } else
+            {
+                if (s.id == 1)
+                {
+                    b1 = s;
+                }
+                else if (s.id == 2)
+                {
+                    b2 = s;
+                }
+                else
+                {
+                    b3 = s;
+                }
+            }
+        }
+
+        if(r1 && r2 && r3 && b1 && b2 && b3)
+        {
+            scouts[0] = r1;
+            scouts[1] = r2;
+            scouts[2] = r3;
+            scouts[3] = b1;
+            scouts[4] = b2;
+            scouts[5] = b3;
+        } else
+        {
+            Debug.LogError("One of the scouts is wrong");
+        }
+        
+
+        #endregion
     }
 
     void Update()
     {
-        if (MatchesPanel.activeInHierarchy)
+        #region Entering Matchs
+        if (m_state == STATE.PREMATCH)
         {
-
-
+            
             if (Input.GetKeyDown(KeyCode.Return))
             {
                 //Hard coded for simplicity
@@ -57,6 +125,51 @@ public class MatchInfo : MonoBehaviour
                 }
             }
         }
+        #endregion
+
+        #region Input
+        bool buttonPressed = false;
+
+        if (Input.GetButton("Xbox_1_A"))
+        {
+            scouts[0].Result = true;
+            buttonPressed = true;
+        }
+        else if (Input.GetButton("Xbox_1_B"))
+        {
+            scouts[0].Result = false;
+            buttonPressed = true;
+        }
+        else if (Input.GetButton("Xbox_1_X"))
+        {
+            scouts[0].Climb = false;
+            buttonPressed = true;
+        }
+        else if (Input.GetButton("Xbox_1_Y"))
+        {
+            scouts[0].Climb = true;
+            buttonPressed = true;
+        }
+        else if (Input.GetButton("Xbox_1_RB"))
+        {
+            scouts[0].NumberOfGears++;
+            buttonPressed = true;
+        }
+        else if (Input.GetButton("Xbox_1_LB"))
+        {
+            scouts[0].NumberOfShots++;
+            buttonPressed = true;
+        }
+
+        if (buttonPressed)
+        {
+            scouts[0].LightOn();
+        }
+        else
+        {
+            scouts[0].LightOff();
+        }
+        #endregion
     }
     #endregion
 
@@ -75,6 +188,22 @@ public class MatchInfo : MonoBehaviour
                 counter++;
             }
         }
+    }
+
+    public void EnterData()
+    {
+        Debug.Log("Entering Data");
+        foreach(Data d in data)
+        {
+            //TODO enter data to database here
+            d.clear();
+        }
+    }
+
+    public void TransitionToAuto()
+    {
+        MatchesPanel.SetActive(false);
+        AutoPanel.SetActive(true);
     }
 }
 
@@ -115,6 +244,19 @@ public class Data
     public int TeleBalls;
     public bool TeleClimb;
     public bool MatchResult;
+ 
+    public void clear()
+    {
+        AutoGears = 0;
+        AutoBalls = 0;
+        AutoCross = false;
+
+        TeleGears = 0;
+        TeleShootingPercentage = 0;
+        TeleBalls = 0;
+        TeleClimb = false;
+        MatchResult = false;
+    }
 
     public void EnterAutoData(int Gears, int Balls, bool Cross)
     {

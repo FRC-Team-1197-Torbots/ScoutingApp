@@ -55,7 +55,6 @@ public class Scout : MonoBehaviour
         for (int i = 0; i < Table.childCount; i++)
         {
             Transform child = Table.GetChild(i);
-
             Transform name = child.GetChild(0);
             Transform score = child.GetChild(1);
             Transform presses = child.GetChild(2);
