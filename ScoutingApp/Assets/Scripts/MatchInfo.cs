@@ -14,8 +14,8 @@ public class MatchInfo : MonoBehaviour
     public Text CurrentMatchText;
 
     private int MatchNumber;
-    private string[] AutoCats = { "# of Gears", "Baseline Crossed", "# of shots"};
-    private string[] TeleCats = { "# of Gears", "Shooting %", "# of shots",
+    private string[] AutoCats = { "# of Cubes in Switch", "Baseline Crossed", "# of Cubes in Scale"};
+    private string[] TeleCats = { "# of Cubes in Switch", "# of Cubes in Vault", "# of Cubes in Scale",
                                     "Climb", "Team Result"};
 
     public Data[] data;
@@ -152,12 +152,12 @@ public class MatchInfo : MonoBehaviour
         }
         else if (Input.GetButton("Xbox_1_RB"))
         {
-            scouts[0].NumberOfGears++;
+            scouts[0].NumberOfCubesInSwitch++;
             buttonPressed = true;
         }
         else if (Input.GetButton("Xbox_1_LB"))
         {
-            scouts[0].NumberOfShots++;
+            scouts[0].NumberOfCubesInScale++;
             buttonPressed = true;
         }
 
@@ -234,43 +234,42 @@ public class Match
 public class Data
 {
     //Auto Variables
-    public int AutoGears;
-    public int AutoBalls;
+    public int AutoSwitch;
+    public int AutoScale;
     public bool AutoCross;
 
     //Tele Variables
-    public int TeleGears;
-    public float TeleShootingPercentage;
-    public int TeleBalls;
+    public int TeleSwitch;
+    public int TeleVault;
+    public int TeleScale;
     public bool TeleClimb;
     public bool MatchResult;
  
     public void clear()
     {
-        AutoGears = 0;
-        AutoBalls = 0;
+        AutoSwitch = 0;
+        AutoScale = 0;
         AutoCross = false;
 
-        TeleGears = 0;
-        TeleShootingPercentage = 0;
-        TeleBalls = 0;
+        TeleSwitch = 0;
+        TeleVault = 0;
+        TeleScale = 0;
         TeleClimb = false;
         MatchResult = false;
     }
 
-    public void EnterAutoData(int Gears, int Balls, bool Cross)
+    public void EnterAutoData(int switchCubes, int scaleCubes, bool Cross)
     {
-        AutoGears = Gears;
-        AutoBalls = Balls;
+        AutoSwitch = switchCubes;
+        AutoScale = scaleCubes;
         AutoCross = Cross;
     }
 
-    public void EneterTeleData(int Gears, float Percent, int Balls,
-        bool Climb, bool Result)
+    public void EnterTeleData(int switchCubes, int vaultCubes, int scaleCubes, bool Climb, bool Result)
     {
-        TeleGears = Gears;
-        TeleShootingPercentage = Percent;
-        TeleBalls = Balls;
+        TeleSwitch = switchCubes;
+        TeleVault = vaultCubes;
+        TeleScale = scaleCubes;
         TeleClimb = Climb;
         MatchResult = Result;
     }

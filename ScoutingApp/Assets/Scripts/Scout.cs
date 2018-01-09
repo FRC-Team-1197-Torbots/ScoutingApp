@@ -14,11 +14,12 @@ public class Scout : MonoBehaviour
     public Transform Table;
 
     [Header("Raw Scores")]
-    public int NumberOfGears;
-    public int NumberOfShots;
+    public int NumberOfCubesInSwitch;
+    public int NumberOfCubesInScale;
+    public int NumberOfCubesInVault;
     public bool Climb;
     public bool Result;
-
+    //xbox A = win, xbox B = lost, xbox y = climb, xbox x = vault, xbox rb = switch, xbox lb = scale
     // Use this for initialization
     void Awake()
     {
@@ -34,8 +35,9 @@ public class Scout : MonoBehaviour
             presses.GetComponent<Text>().text = "0";
         }
 
-        NumberOfGears = 0;
-        NumberOfShots = 0;
+        NumberOfCubesInSwitch = 0;
+        NumberOfCubesInScale = 0;
+        NumberOfCubesInVault = 0;
         Climb = false;
         Result = false;
     }
@@ -59,20 +61,20 @@ public class Scout : MonoBehaviour
             Transform score = child.GetChild(1);
             Transform presses = child.GetChild(2);
 
-            if (child.name.Contains("Gears"))
+            if (child.name.Contains("Switch"))
             {
-                score.GetComponent<Text>().text = NumberOfGears.ToString();
-                presses.GetComponent<Text>().text = NumberOfGears.ToString();
+                score.GetComponent<Text>().text = NumberOfCubesInSwitch.ToString();
+                presses.GetComponent<Text>().text = NumberOfCubesInSwitch.ToString();
             }
-            else if (child.name.Contains("Shooting"))
+            else if (child.name.Contains("Vault"))
             {
-                score.GetComponent<Text>().text = "0";
-                presses.GetComponent<Text>().text = "0";//NumberOfGears.ToString();
+                score.GetComponent<Text>().text = NumberOfCubesInVault.ToString();
+                presses.GetComponent<Text>().text = NumberOfCubesInVault.ToString();//NumberOfCubesInSwitch.ToString();
             }
-            else if (child.name.Contains("Shots"))
+            else if (child.name.Contains("Scale"))
             {
-                score.GetComponent<Text>().text = (NumberOfShots * (1.0f / 3.0f)).ToString();
-                presses.GetComponent<Text>().text = NumberOfShots.ToString();
+                score.GetComponent<Text>().text = NumberOfCubesInScale.ToString();
+                presses.GetComponent<Text>().text = NumberOfCubesInScale.ToString();
             }
             else if (child.name.Contains("Climb"))
             {
@@ -80,7 +82,7 @@ public class Scout : MonoBehaviour
                 if (Climb)
                 {
                     presses.GetComponent<Text>().text = "Climbed";
-                    score.GetComponent<Text>().text = "50";
+                    score.GetComponent<Text>().text = "30";
                 }
                 else
                 {
@@ -106,8 +108,9 @@ public class Scout : MonoBehaviour
 
     public void Clear()
     {
-        NumberOfGears = 0;
-        NumberOfShots = 0;
+        NumberOfCubesInSwitch = 0;
+        NumberOfCubesInScale = 0;
+        NumberOfCubesInVault = 0;
         Climb = false;
         Result = false;
     }
