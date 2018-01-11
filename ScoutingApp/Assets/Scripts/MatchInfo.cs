@@ -142,7 +142,7 @@ public class MatchInfo : MonoBehaviour
         }
         else if (Input.GetButton("Xbox_1_X"))
         {
-            scouts[0].Climb = false;
+            scouts[0].NumberOfCubesInVault++;
             buttonPressed = true;
         }
         else if (Input.GetButton("Xbox_1_Y"))

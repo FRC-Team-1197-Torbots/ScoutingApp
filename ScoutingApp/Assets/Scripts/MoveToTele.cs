@@ -11,6 +11,5 @@ public class MoveToTele : MonoBehaviour {
     {
         AutoPanel.SetActive(false);
         TelePanel.SetActive(true);
-        Debug.Log("Move to tele");
     }
 }
