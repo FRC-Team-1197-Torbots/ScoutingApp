@@ -35,95 +35,139 @@ public class Submit : MonoBehaviour {
         /* Connecting and opening the database
          * Name of the database = [Regional Name]ScoutingData.db
          */
-        String conn = "URI=file:" + Application.dataPath + "/BeachBlitzScoutingData.db";
+        String conn = "URI=file:" + Application.dataPath + "/PowerUpTestData.db";
         Debug.Log(conn);
         dbconn = new SqliteConnection(conn);
         dbconn.Open();
 
         /* For each team, insert the data into the database
          * TELEOP table fields: (team#, match#, #ofCubesInSwitch, Cubes in Vault, #ofCubesInScale, Climb?, TeamResult)
-         * AUTO table fields: (team#, match#, #ofGears, Baseline, #ofShots)
+         *                       int,    int,    int,                int,             int,          text,   text
+         * AUTO table fields: (team#, match#, #ofCubesInSwitch, Baseline, #ofCubesInScale)
+                               int,    int,    int,              text,      int
          * TODO: Change the *obtain info from the app* to the actual data
          *       Maybe check which panel is active to decide whether to put the data into the TELEOP or the AUTO table (?)
          */
 
         //change data to string
-        String[] teamsData = new String[6]; //teamsData holds command for input into SQL
+        String[] teleData = new String[6]; //teamsData holds command for input into SQL
+        String[] autoData = new String[6]; //teamsData holds command for input into SQL
+        //get data from teams in teleop period
         int i = 0;
         foreach (Scout s in scouts)
         {
-            // int teamNum = (couldn't find variable for team number);
-            //int match =  (couldn't find match variable);
+            int teamNum = 1197;//(couldn't find variable for team number);
+            int match = 1;// (couldn't find match variable);
             int cubeSwitch = s.NumberOfCubesInSwitch;
             int cubeScale = s.NumberOfCubesInScale;
             int cubeVault = s.NumberOfCubesInVault;
             String outcome = "";
-            String climbString = "";
-            if (s.Result){ //need to find outcome for tie since boolean has two outcomes
+            String climbString = "\"No\"";
+            if (s.Result) { //need to find outcome for tie since boolean has two outcomes
                 outcome = "\"Win\"";
-            } else{
+            } else {
                 outcome = "\"Lost\"";
             }
-            if (s.Climb)
-            {
+            if (s.Climb){
                 climbString = "\"Yes\"";
-            } else
-            {
-                climbString = "\"No\"";
             }
-            teamsData[i] = "INSERT INTO TELEOP VALUES" + "(" + "null" /* teamNum.ToString() instead of null */ + ", " + "null"/* match.ToString() instead of null */+ ", " 
+            teleData[i] = "INSERT INTO TELEOP VALUES" + "(" + teamNum.ToString() + ", " + match.ToString() + ", "
                 + cubeSwitch.ToString() + ", " + cubeVault.ToString() + ", " + cubeScale.ToString() + ", " + climbString + ", " + outcome + ")";
+
             i++;
         }
+
+        //for loop to get data from each team for auto
+        int j = 0;
+        foreach (Scout s in scouts) {
+            int teamNum = 1198;//find team number variable 
+            int match = 2; //find match variable
+            int cubeSwitch = s.NumberOfCubesInSwitch;//need variable for switch in auto
+            int cubeScale = s.NumberOfCubesInScale;//need variable for scale in auto
+            Boolean baseline = false;//make variable for baseline 
+            String baselineString = "\"Not passed\"";
+            if (baseline)
+                baselineString = "\"Passed\""; 
+
+        autoData[j] = "INSERT INTO AUTO VALUES" + "(" + teamNum.ToString() + ", " + match.ToString() + ", "
+                + cubeSwitch.ToString() + ", " + baselineString + ", " + cubeScale.ToString() + ")";
+            j++;
+        }
+
+        //red 1 auto data
         red1cmd = dbconn.CreateCommand();
-        red1cmd.CommandText =  teamsData[0] ;
+        red1cmd.CommandText =  autoData[0] ;
         red1cmd.ExecuteReader();
-
+        //red 1 tele data
+        red1cmd = dbconn.CreateCommand();
+        red1cmd.CommandText = teleData[0];
+        red1cmd.ExecuteReader();
+        //red 2 auto data
         red2cmd = dbconn.CreateCommand();
-        red2cmd.CommandText =  teamsData[1] ;
+        red2cmd.CommandText = autoData[1];
         red2cmd.ExecuteReader();
-
+        //red 2 tele data 
+        red2cmd = dbconn.CreateCommand();
+        red2cmd.CommandText = teleData[1];
+        red2cmd.ExecuteReader();
+        //red 3 auto data
         red3cmd = dbconn.CreateCommand();
-        red3cmd.CommandText = teamsData[2] ;
+        red3cmd.CommandText = autoData[2];
         red3cmd.ExecuteReader();
-
+        //red 3 teledata
+        red3cmd = dbconn.CreateCommand();
+        red3cmd.CommandText = teleData[2];
+        red3cmd.ExecuteReader();
+        //blue 1 auto data
         blue1cmd = dbconn.CreateCommand();
-        blue1cmd.CommandText = teamsData[3] ;
+        blue1cmd.CommandText = autoData[3];
         blue1cmd.ExecuteReader();
-
+        ///blue 1 tele data
+        blue1cmd = dbconn.CreateCommand();
+        blue1cmd.CommandText = teleData[3];
+        blue1cmd.ExecuteReader();
+        //blue 2 auto data
         blue2cmd = dbconn.CreateCommand();
-        blue2cmd.CommandText = teamsData[4] ;
+        blue2cmd.CommandText = autoData[4];
         blue2cmd.ExecuteReader();
-
+        //blue 2 tele data
+        blue2cmd = dbconn.CreateCommand();
+        blue2cmd.CommandText = teleData[4];
+        blue2cmd.ExecuteReader();
+        //blue 3 auto data
         blue3cmd = dbconn.CreateCommand();
-        blue3cmd.CommandText =  teamsData[5] ;
+        blue3cmd.CommandText = autoData[5];
+        blue3cmd.ExecuteReader();
+        //blue 3 tele data
+        blue3cmd = dbconn.CreateCommand();
+        blue3cmd.CommandText = teleData[5];
         blue3cmd.ExecuteReader();
 
-
         // dbcmd and reader is used for testing SQL queries
+
         dbcmd = dbconn.CreateCommand();
-        dbcmd.CommandText = "SELECT * FROM TELEOP WHERE TEAM_NUM = 1114";
+        dbcmd.CommandText = "SELECT * FROM TELEOP WHERE TEAM_NUM = 1197";
         reader = dbcmd.ExecuteReader();
 
         while (reader.Read())
         {
             int teamNum = reader.GetInt32(0);
             int matchNum = reader.GetInt32(1);
-            int gearNum = reader.GetInt32(2);
-            int shotPerc = reader.GetInt32(3);
-            int shotNum = reader.GetInt32(4);
+            int switchNum = reader.GetInt32(2);
+            int vaultNum = reader.GetInt32(3);
+            int scaleNum = reader.GetInt32(4);
             String climb = reader.GetString(5);
             String teamResult = reader.GetString(6);
 
             Debug.Log("Team Number: " + teamNum + "\n" +
                       "Match Number: " + matchNum + "\n" +
-                      "# of Gears: " + gearNum + "\n" +
-                      "Shot %: " + shotPerc + "\n" +
-                      "# of Shots: " + shotNum + "\n" +
-                      "Climb?: " + climb + "\n" +
+                      "# of Cubes in Switch: " + switchNum + "\n" +
+                      "# of Cubes in Vault: " + vaultNum + "\n" +
+                      "# of Cubes in Scale: " + scaleNum + "\n" +
+                      "Climb: " + climb + "\n" +
                       "Team Result: " + teamResult + "\n");
-        }
-
+        } 
+        
 
         // Closing and disposing the readers and the commands
         red1cmd.Dispose();
@@ -139,11 +183,12 @@ public class Submit : MonoBehaviour {
         blue3cmd.Dispose();
         blue3cmd = null;
 
+        /*
         reader.Close();
         reader = null;
         dbcmd.Dispose();
         dbcmd = null;
-
+        */
         // Disconnecting from the database
         dbconn.Close();
         dbconn = null;
