@@ -19,7 +19,9 @@ public class MatchInfo : MonoBehaviour
                                     "Climb", "Team Result"};
 
     public Data[] data;
-    private Scout[] scouts;
+    public Scout[] AutoScouts;
+    public Scout[] TeleScouts;
+
 
     [Header("Panels")]
     public GameObject MatchesPanel;
@@ -43,12 +45,13 @@ public class MatchInfo : MonoBehaviour
 
         Matches = new List<Match>();
 
-        scouts = FindObjectsOfType<Scout>();
+        //AutoScoutsscouts = FindObjectsOfType<Scout>();
+
 
         //Order scouts into red 1-3 blue 1-3
         #region Ordering
-        Scout r1 = null, r2 = null, r3 = null, b1 = null, b2 = null, b3 = null;
-        foreach(Scout s in scouts)
+        /*Scout r1 = null, r2 = null, r3 = null, b1 = null, b2 = null, b3 = null;
+        foreach(Scout s in AutoScouts)
         {
             if(s.team == "Red")
             {
@@ -81,16 +84,16 @@ public class MatchInfo : MonoBehaviour
 
         if(r1 && r2 && r3 && b1 && b2 && b3)
         {
-            scouts[0] = r1;
-            scouts[1] = r2;
-            scouts[2] = r3;
-            scouts[3] = b1;
-            scouts[4] = b2;
-            scouts[5] = b3;
+            AutoScouts[0] = r1;
+            AutoScouts[1] = r2;
+            AutoScouts[2] = r3;
+            AutoScouts[3] = b1;
+            AutoScouts[4] = b2;
+            AutoScouts[5] = b3;
         } else
         {
             Debug.LogError("One of the scouts is wrong");
-        }
+        }*/
         
 
         #endregion
@@ -110,7 +113,7 @@ public class MatchInfo : MonoBehaviour
                     Inputs[4].text.Equals("") || Inputs[5].text.Equals("") ||
                     MatchNumberText.text.Equals(""))
                 {
-                    ErrorText.text = "RE-ENTER TEAM NUMBERS OR MATCH NUMBEr";
+                    ErrorText.text = "RE-ENTER TEAM NUMBERS OR MATCH NUMBER";
                 }
                 else
                 {
@@ -128,47 +131,94 @@ public class MatchInfo : MonoBehaviour
         #endregion
 
         #region Input
-        bool buttonPressed = false;
+        if(m_state == STATE.AUTO) {
+            bool buttonPressed = false;
 
-        if (Input.GetButton("Xbox_1_A"))
-        {
-            scouts[0].Result = true;
-            buttonPressed = true;
-        }
-        else if (Input.GetButton("Xbox_1_B"))
-        {
-            scouts[0].Result = false;
-            buttonPressed = true;
-        }
-        else if (Input.GetButton("Xbox_1_X"))
-        {
-            scouts[0].NumberOfCubesInVault++;
-            buttonPressed = true;
-        }
-        else if (Input.GetButton("Xbox_1_Y"))
-        {
-            scouts[0].Climb = true;
-            buttonPressed = true;
-        }
-        else if (Input.GetButton("Xbox_1_RB"))
-        {
-            scouts[0].NumberOfCubesInSwitch++;
-            buttonPressed = true;
-        }
-        else if (Input.GetButton("Xbox_1_LB"))
-        {
-            scouts[0].NumberOfCubesInScale++;
-            buttonPressed = true;
-        }
+            if (Input.GetButton("Xbox_1_A"))
+            {
+                AutoScouts[0].Result = true;
+                buttonPressed = true;
+            }
+            else if (Input.GetButton("Xbox_1_B"))
+            {
+                AutoScouts[0].Result = false;
+                buttonPressed = true;
+            }
+            else if (Input.GetButton("Xbox_1_X"))
+            {
+                AutoScouts[0].NumberOfCubesInVault++;
+                buttonPressed = true;
+            }
+            else if (Input.GetButton("Xbox_1_Y"))
+            {
+                AutoScouts[0].Climb = true;
+                buttonPressed = true;
+            }
+            else if (Input.GetButton("Xbox_1_RB"))
+            {
+                AutoScouts[0].NumberOfCubesInSwitch++;
+                buttonPressed = true;
+            }
+            else if (Input.GetButton("Xbox_1_LB"))
+            {
+                AutoScouts[0].NumberOfCubesInScale++;
+                buttonPressed = true;
+            }
 
-        if (buttonPressed)
+            if (buttonPressed)
+            {
+                AutoScouts[0].LightOn();
+            }
+            else
+            {
+                AutoScouts[0].LightOff();
+            }
+        } 
+        else if(m_state == STATE.TELE)
         {
-            scouts[0].LightOn();
+            bool buttonPressed = false;
+
+            if (Input.GetButton("Xbox_1_A"))
+            {
+                TeleScouts[0].Result = true;
+                buttonPressed = true;
+            }
+            else if (Input.GetButton("Xbox_1_B"))
+            {
+                TeleScouts[0].Result = false;
+                buttonPressed = true;
+            }
+            else if (Input.GetButton("Xbox_1_X"))
+            {
+                TeleScouts[0].NumberOfCubesInVault++;
+                buttonPressed = true;
+            }
+            else if (Input.GetButton("Xbox_1_Y"))
+            {
+                TeleScouts[0].Climb = true;
+                buttonPressed = true;
+            }
+            else if (Input.GetButton("Xbox_1_RB"))
+            {
+                TeleScouts[0].NumberOfCubesInSwitch++;
+                buttonPressed = true;
+            }
+            else if (Input.GetButton("Xbox_1_LB"))
+            {
+                TeleScouts[0].NumberOfCubesInScale++;
+                buttonPressed = true;
+            }
+
+            if (buttonPressed)
+            {
+                TeleScouts[0].LightOn();
+            }
+            else
+            {
+                TeleScouts[0].LightOff();
+            }
         }
-        else
-        {
-            scouts[0].LightOff();
-        }
+        
         #endregion
     }
     #endregion
@@ -202,8 +252,12 @@ public class MatchInfo : MonoBehaviour
 
     public void TransitionToAuto()
     {
-        MatchesPanel.SetActive(false);
-        AutoPanel.SetActive(true);
+        m_state = STATE.AUTO;
+    }
+
+    public void TransitionToTele()
+    {
+        m_state = STATE.TELE;
     }
 }
 

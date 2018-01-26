@@ -11,5 +11,6 @@ public class MoveToTele : MonoBehaviour {
     {
         AutoPanel.SetActive(false);
         TelePanel.SetActive(true);
+        FindObjectOfType<MatchInfo>().TransitionToTele();
     }
 }

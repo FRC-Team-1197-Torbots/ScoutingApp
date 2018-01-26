@@ -6,7 +6,10 @@ using System.Data;
 using System;
 
 public class Submit : MonoBehaviour {
-    
+
+
+    public GameObject AutoPanel;
+    public GameObject TelePanel;
     public Scout[] scouts;
     
     // Connection object used to connect to the database
@@ -28,6 +31,8 @@ public class Submit : MonoBehaviour {
     void Awake () {
         
     }
+
+
     public void OnClick()
     {
         Debug.Log("Pressed submit");
@@ -192,6 +197,11 @@ public class Submit : MonoBehaviour {
         // Disconnecting from the database
         dbconn.Close();
         dbconn = null;
+
+        TelePanel.SetActive(false);
+        AutoPanel.SetActive(true);
+
+        FindObjectOfType<MatchInfo>().TransitionToAuto();
     }
     /// <summary>
     /// Function to submit scores to the SQLite Database
