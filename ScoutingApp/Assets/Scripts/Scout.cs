@@ -17,6 +17,7 @@ public class Scout : MonoBehaviour
     public int NumberOfCubesInSwitch;
     public int NumberOfCubesInScale;
     public int NumberOfCubesInVault;
+    public bool CrossBaseline;
     public bool Climb;
     public bool Result;
     //xbox A = win, xbox B = lost, xbox y = climb, xbox x = vault, xbox rb = switch, xbox lb = scale
@@ -38,6 +39,7 @@ public class Scout : MonoBehaviour
         NumberOfCubesInSwitch = 0;
         NumberOfCubesInScale = 0;
         NumberOfCubesInVault = 0;
+        CrossBaseline = false;
         Climb = false;
         Result = false;
     }
@@ -101,6 +103,19 @@ public class Scout : MonoBehaviour
                 {
                     score.GetComponent<Text>().text = "0";
                     presses.GetComponent<Text>().text = "Lose";
+                }
+            }
+            else if (child.name.Contains("Baseline"))
+            {
+                if (CrossBaseline)
+                {
+                    score.GetComponent<Text>().text = "5";
+                    presses.GetComponent<Text>().text = "Crossed";
+                }
+                else
+                {
+                    score.GetComponent<Text>().text = "0";
+                    presses.GetComponent<Text>().text = "No Cross";
                 }
             }
         }

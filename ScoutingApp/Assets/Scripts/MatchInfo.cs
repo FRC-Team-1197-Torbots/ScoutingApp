@@ -37,7 +37,7 @@ public class MatchInfo : MonoBehaviour
     #region UNITY Functions
     void Awake()
     {
-        m_state = STATE.PREMATCH;
+        m_state = STATE.AUTO;
 
         MatchNumber = 0;
 
@@ -134,32 +134,32 @@ public class MatchInfo : MonoBehaviour
         if(m_state == STATE.AUTO) {
             bool buttonPressed = false;
 
-            if (Input.GetButton("Xbox_1_A"))
+            if (Input.GetButtonUp("Xbox_1_A"))
             {
-                AutoScouts[0].Result = true;
+                AutoScouts[0].CrossBaseline = true;
                 buttonPressed = true;
             }
-            else if (Input.GetButton("Xbox_1_B"))
+            else if (Input.GetButtonUp("Xbox_1_B"))
             {
-                AutoScouts[0].Result = false;
+                AutoScouts[0].CrossBaseline = false;
                 buttonPressed = true;
             }
-            else if (Input.GetButton("Xbox_1_X"))
+            else if (Input.GetButtonUp("Xbox_1_X"))
             {
                 AutoScouts[0].NumberOfCubesInVault++;
                 buttonPressed = true;
             }
-            else if (Input.GetButton("Xbox_1_Y"))
+            else if (Input.GetButtonUp("Xbox_1_Y"))
             {
                 AutoScouts[0].Climb = true;
                 buttonPressed = true;
             }
-            else if (Input.GetButton("Xbox_1_RB"))
+            else if (Input.GetButtonUp("Xbox_1_RB"))
             {
                 AutoScouts[0].NumberOfCubesInSwitch++;
                 buttonPressed = true;
             }
-            else if (Input.GetButton("Xbox_1_LB"))
+            else if (Input.GetButtonUp("Xbox_1_LB"))
             {
                 AutoScouts[0].NumberOfCubesInScale++;
                 buttonPressed = true;
@@ -178,32 +178,32 @@ public class MatchInfo : MonoBehaviour
         {
             bool buttonPressed = false;
 
-            if (Input.GetButton("Xbox_1_A"))
+            if (Input.GetButtonUp("Xbox_1_A"))
             {
                 TeleScouts[0].Result = true;
                 buttonPressed = true;
             }
-            else if (Input.GetButton("Xbox_1_B"))
+            else if (Input.GetButtonUp("Xbox_1_B"))
             {
                 TeleScouts[0].Result = false;
                 buttonPressed = true;
             }
-            else if (Input.GetButton("Xbox_1_X"))
+            else if (Input.GetButtonUp("Xbox_1_X"))
             {
                 TeleScouts[0].NumberOfCubesInVault++;
                 buttonPressed = true;
             }
-            else if (Input.GetButton("Xbox_1_Y"))
+            else if (Input.GetButtonUp("Xbox_1_Y"))
             {
                 TeleScouts[0].Climb = true;
                 buttonPressed = true;
             }
-            else if (Input.GetButton("Xbox_1_RB"))
+            else if (Input.GetButtonUp("Xbox_1_RB"))
             {
                 TeleScouts[0].NumberOfCubesInSwitch++;
                 buttonPressed = true;
             }
-            else if (Input.GetButton("Xbox_1_LB"))
+            else if (Input.GetButtonUp("Xbox_1_LB"))
             {
                 TeleScouts[0].NumberOfCubesInScale++;
                 buttonPressed = true;
