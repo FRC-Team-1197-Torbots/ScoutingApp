@@ -16,7 +16,9 @@ public class Scout : MonoBehaviour
     [Header("Raw Scores")]
     public int NumberOfCubesInSwitch;
     public int NumberOfCubesInScale;
-    public int NumberOfCubesInVault;
+    public int NumberOfCubesInVault; 
+
+
     public bool CrossBaseline;
     public bool Climb;
     public bool Result;

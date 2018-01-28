@@ -50,7 +50,7 @@ public class MatchInfo : MonoBehaviour
 
         //Order scouts into red 1-3 blue 1-3
         #region Ordering
-        /*Scout r1 = null, r2 = null, r3 = null, b1 = null, b2 = null, b3 = null;
+        Scout r1 = null, r2 = null, r3 = null, b1 = null, b2 = null, b3 = null;
         foreach(Scout s in AutoScouts)
         {
             if(s.team == "Red")
@@ -93,7 +93,7 @@ public class MatchInfo : MonoBehaviour
         } else
         {
             Debug.LogError("One of the scouts is wrong");
-        }*/
+        }
         
 
         #endregion
@@ -131,9 +131,12 @@ public class MatchInfo : MonoBehaviour
         #endregion
 
         #region Input
-        if(m_state == STATE.AUTO) {
+        if (m_state == STATE.AUTO) {
+            
+ //controller 1     
+ 
             bool buttonPressed = false;
-
+            
             if (Input.GetButtonUp("Xbox_1_A"))
             {
                 AutoScouts[0].CrossBaseline = true;
@@ -173,9 +176,221 @@ public class MatchInfo : MonoBehaviour
             {
                 AutoScouts[0].LightOff();
             }
+
+//controller 2
+            bool buttonPressed2 = false;
+            if (Input.GetButtonUp("Xbox_2_A"))
+            {
+                AutoScouts[1].CrossBaseline = true;
+                buttonPressed2 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_2_B"))
+            {
+                AutoScouts[1].CrossBaseline = false;
+                buttonPressed2 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_2_X"))
+            {
+                AutoScouts[1].NumberOfCubesInVault++;
+                buttonPressed2 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_2_Y"))
+            {
+                AutoScouts[1].Climb = true;
+                buttonPressed2 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_2_RB"))
+            {
+                AutoScouts[1].NumberOfCubesInSwitch++;
+                buttonPressed2 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_2_LB"))
+            {
+                AutoScouts[1].NumberOfCubesInScale++;
+                buttonPressed2 = true;
+            }
+
+            if (buttonPressed2)
+            {
+                AutoScouts[1].LightOn();
+            }
+            else
+            {
+                AutoScouts[1].LightOff();
+            }
+
+//controller 3
+            bool buttonPressed3 = false;
+            if (Input.GetButtonUp("Xbox_3_A"))
+            {
+                AutoScouts[2].CrossBaseline = true;
+                buttonPressed3 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_3_B"))
+            {
+                AutoScouts[2].CrossBaseline = false;
+                buttonPressed3 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_3_X"))
+            {
+                AutoScouts[2].NumberOfCubesInVault++;
+                buttonPressed3 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_3_Y"))
+            {
+                AutoScouts[2].Climb = true;
+                buttonPressed3 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_3_RB"))
+            {
+                AutoScouts[2].NumberOfCubesInSwitch++;
+                buttonPressed3 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_3_LB"))
+            {
+                AutoScouts[2].NumberOfCubesInScale++;
+                buttonPressed3 = true;
+            }
+
+            if (buttonPressed3)
+            {
+                AutoScouts[2].LightOn();
+            }
+            else
+            {
+                AutoScouts[2].LightOff();
+            }
+
+ // controller 4
+            bool buttonPressed4 = false;
+            if (Input.GetButtonUp("Xbox_4_A"))
+            {
+                AutoScouts[3].CrossBaseline = true;
+                buttonPressed4 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_4_B"))
+            {
+                AutoScouts[3].CrossBaseline = false;
+                buttonPressed4 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_4_X"))
+            {
+                AutoScouts[3].NumberOfCubesInVault++;
+                buttonPressed4 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_4_Y"))
+            {
+                AutoScouts[3].Climb = true;
+                buttonPressed4 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_4_RB"))
+            {
+                AutoScouts[3].NumberOfCubesInSwitch++;
+                buttonPressed4 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_4_LB"))
+            {
+                AutoScouts[3].NumberOfCubesInScale++;
+                buttonPressed4 = true;
+            }
+
+            if (buttonPressed4)
+            {
+                AutoScouts[3].LightOn();
+            }
+            else
+            {
+                AutoScouts[3].LightOff();
+            }
+
+//controller 5
+            bool buttonPressed5 = false;
+            if (Input.GetButtonUp("Xbox_5_A"))
+            {
+                AutoScouts[4].CrossBaseline = true;
+                buttonPressed5 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_5_B"))
+            {
+                AutoScouts[4].CrossBaseline = false;
+                buttonPressed5 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_5_X"))
+            {
+                AutoScouts[4].NumberOfCubesInVault++;
+                buttonPressed5 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_5_Y"))
+            {
+                AutoScouts[4].Climb = true;
+                buttonPressed5 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_5_RB"))
+            {
+                AutoScouts[4].NumberOfCubesInSwitch++;
+                buttonPressed5 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_5_LB"))
+            {
+                AutoScouts[4].NumberOfCubesInScale++;
+                buttonPressed5 = true;
+            }
+
+            if (buttonPressed5)
+            {
+                AutoScouts[4].LightOn();
+            }
+            else
+            {
+                AutoScouts[4].LightOff();
+            }
+
+//controller 6
+            bool buttonPressed6 = false;
+            if (Input.GetButtonUp("Xbox_6_A"))
+            {
+                AutoScouts[5].CrossBaseline = true;
+                Debug.Log("Cross line for player 6");
+                buttonPressed6 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_6_B"))
+            {
+                AutoScouts[5].CrossBaseline = false;
+                buttonPressed6 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_6_X"))
+            {
+                AutoScouts[5].NumberOfCubesInVault++;
+                buttonPressed6 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_6_Y"))
+            {
+                AutoScouts[5].Climb = true;
+                buttonPressed6 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_6_RB"))
+            {
+                AutoScouts[5].NumberOfCubesInSwitch++;
+                buttonPressed6 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_6_LB"))
+            {
+                AutoScouts[5].NumberOfCubesInScale++;
+                buttonPressed6 = true;
+            }
+
+            if (buttonPressed6)
+            {
+                AutoScouts[5].LightOn();
+            }
+            else
+            {
+                AutoScouts[5].LightOff();
+            }
         } 
         else if(m_state == STATE.TELE)
         {
+//controller 1
             bool buttonPressed = false;
 
             if (Input.GetButtonUp("Xbox_1_A"))
@@ -216,6 +431,221 @@ public class MatchInfo : MonoBehaviour
             else
             {
                 TeleScouts[0].LightOff();
+            }
+
+ //Controller 2
+            bool buttonPressed2 = false;
+
+            if (Input.GetButtonUp("Xbox_2_A"))
+            {
+                TeleScouts[1].Result = true;
+                buttonPressed2 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_2_B"))
+            {
+                TeleScouts[1].Result = false;
+                buttonPressed2 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_2_X"))
+            {
+                TeleScouts[1].NumberOfCubesInVault++;
+                buttonPressed2 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_2_Y"))
+            {
+                TeleScouts[1].Climb = true;
+                buttonPressed2 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_2_RB"))
+            {
+                TeleScouts[1].NumberOfCubesInSwitch++;
+                buttonPressed2 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_2_LB"))
+            {
+                TeleScouts[1].NumberOfCubesInScale++;
+                buttonPressed2 = true;
+            }
+
+            if (buttonPressed2)
+            {
+                TeleScouts[1].LightOn();
+            }
+            else
+            {
+                TeleScouts[1].LightOff();
+            }
+
+//controller 3
+            bool buttonPressed3 = false;
+
+            if (Input.GetButtonUp("Xbox_3_A"))
+            {
+                TeleScouts[2].Result = true;
+                buttonPressed3 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_3_B"))
+            {
+                TeleScouts[2].Result = false;
+                buttonPressed3 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_3_X"))
+            {
+                TeleScouts[2].NumberOfCubesInVault++;
+                buttonPressed3 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_3_Y"))
+            {
+                TeleScouts[2].Climb = true;
+                buttonPressed3 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_3_RB"))
+            {
+                TeleScouts[2].NumberOfCubesInSwitch++;
+                buttonPressed3 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_3_LB"))
+            {
+                TeleScouts[2].NumberOfCubesInScale++;
+                buttonPressed3 = true;
+            }
+
+            if (buttonPressed3)
+            {
+                TeleScouts[2].LightOn();
+            }
+            else
+            {
+                TeleScouts[2].LightOff();
+            }
+
+//controller 4
+            bool buttonPressed4 = false;
+
+            if (Input.GetButtonUp("Xbox_4_A"))
+            {
+                TeleScouts[3].Result = true;
+                buttonPressed4 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_4_B"))
+            {
+                TeleScouts[3].Result = false;
+                buttonPressed4 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_4_X"))
+            {
+                TeleScouts[3].NumberOfCubesInVault++;
+                buttonPressed4 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_4_Y"))
+            {
+                TeleScouts[3].Climb = true;
+                buttonPressed4 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_4_RB"))
+            {
+                TeleScouts[3].NumberOfCubesInSwitch++;
+                buttonPressed4 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_4_LB"))
+            {
+                TeleScouts[3].NumberOfCubesInScale++;
+                buttonPressed4 = true;
+            }
+
+            if (buttonPressed4)
+            { 
+                TeleScouts[3].LightOn();
+            }
+            else
+            {
+                TeleScouts[3].LightOff();
+            }
+
+//controller 5
+            bool buttonPressed5 = false;
+
+            if (Input.GetButtonUp("Xbox_5_A"))
+            {
+                TeleScouts[4].Result = true;
+                buttonPressed5 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_5_B"))
+            {
+                TeleScouts[4].Result = false;
+                buttonPressed5 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_5_X"))
+            {
+                TeleScouts[4].NumberOfCubesInVault++;
+                buttonPressed5 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_5_Y"))
+            {
+                TeleScouts[4].Climb = true;
+                buttonPressed5 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_5_RB"))
+            {
+                TeleScouts[4].NumberOfCubesInSwitch++;
+                buttonPressed5 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_5_LB"))
+            {
+                TeleScouts[4].NumberOfCubesInScale++;
+                buttonPressed5 = true;
+            }
+
+            if (buttonPressed5)
+            {
+                TeleScouts[4].LightOn();
+            }
+            else
+            {
+                TeleScouts[4].LightOff();
+            }
+
+//controller 6
+            bool buttonPressed6 = false;
+
+            if (Input.GetButtonUp("Xbox_6_A"))
+            {
+                TeleScouts[5].Result = true;
+                buttonPressed6 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_6_B"))
+            {
+                TeleScouts[5].Result = false;
+                buttonPressed6 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_6_X"))
+            {
+                TeleScouts[5].NumberOfCubesInVault++;
+                buttonPressed6 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_6_Y"))
+            {
+                TeleScouts[5].Climb = true;
+                buttonPressed6 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_6_RB"))
+            {
+                TeleScouts[5].NumberOfCubesInSwitch++;
+                buttonPressed6 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_6_LB"))
+            {
+                TeleScouts[5].NumberOfCubesInScale++;
+                buttonPressed6 = true;
+            }
+
+            if (buttonPressed6)
+            {
+                TeleScouts[5].LightOn();
+            }
+            else
+            {
+                TeleScouts[5].LightOff();
             }
         }
         

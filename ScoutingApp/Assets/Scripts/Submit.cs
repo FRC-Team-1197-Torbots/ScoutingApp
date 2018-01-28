@@ -89,7 +89,7 @@ public class Submit : MonoBehaviour {
             int match = 2; //find match variable
             int cubeSwitch = s.NumberOfCubesInSwitch;//need variable for switch in auto
             int cubeScale = s.NumberOfCubesInScale;//need variable for scale in auto
-            Boolean baseline = false;//make variable for baseline 
+            Boolean baseline = s.CrossBaseline;//make variable for baseline 
             String baselineString = "\"Not passed\"";
             if (baseline)
                 baselineString = "\"Passed\""; 
