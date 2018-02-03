@@ -5,13 +5,16 @@ using Mono.Data.Sqlite;
 using System.Data;
 using System;
 
-public class Submit : MonoBehaviour {
+public class Submit : MonoBehaviour
+{
 
 
     public GameObject AutoPanel;
     public GameObject TelePanel;
-    public Scout[] scouts;
-    
+    public Scout[] AutoScouts;
+    public Scout[] TeleScouts;
+
+
     // Connection object used to connect to the database
     private IDbConnection dbconn;
 
@@ -28,15 +31,16 @@ public class Submit : MonoBehaviour {
     private IDataReader reader;
 
     // Use this for initialization
-    void Awake () {
-        
+    void Awake()
+    {
+
     }
 
 
     public void OnClick()
     {
         Debug.Log("Pressed submit");
-        scouts = FindObjectsOfType<Scout>();
+       // Scout[] scouts = FindObjectsOfType<Scout>();
         /* Connecting and opening the database
          * Name of the database = [Regional Name]ScoutingData.db
          */
@@ -58,55 +62,76 @@ public class Submit : MonoBehaviour {
         String[] teleData = new String[6]; //teamsData holds command for input into SQL
         String[] autoData = new String[6]; //teamsData holds command for input into SQL
         //get data from teams in teleop period
-        int i = 0;
-        foreach (Scout s in scouts)
+        
+        int j = 0;
+        foreach (Scout s in AutoScouts)
         {
-            int teamNum = 1197;//(couldn't find variable for team number);
-            int match = 1;// (couldn't find match variable);
-            int cubeSwitch = s.NumberOfCubesInSwitch;
-            int cubeScale = s.NumberOfCubesInScale;
-            int cubeVault = s.NumberOfCubesInVault;
-            String outcome = "";
-            String climbString = "\"No\"";
-            if (s.Result) { //need to find outcome for tie since boolean has two outcomes
-                outcome = "\"Win\"";
-            } else {
-                outcome = "\"Lost\"";
-            }
-            if (s.Climb){
-                climbString = "\"Yes\"";
-            }
-            teleData[i] = "INSERT INTO TELEOP VALUES" + "(" + teamNum.ToString() + ", " + match.ToString() + ", "
-                + cubeSwitch.ToString() + ", " + cubeVault.ToString() + ", " + cubeScale.ToString() + ", " + climbString + ", " + outcome + ")";
+                String teamNum = s.TeamNumber;//find team number variable 
+            if (teamNum == "")
+                teamNum = "2";
+                int match = 2; //find match variable
+                int cubeSwitch = s.NumberOfCubesInSwitch;//need variable for switch in auto
+                int cubeScale = s.NumberOfCubesInScale;//need variable for scale in auto
+                Boolean baseline = s.CrossBaseline;//make variable for baseline 
+                String baselineString = "\"Not passed\"";
+                if (baseline)
+                    baselineString = "\"Passed\"";
+               
+                autoData[j] = "INSERT INTO AUTO VALUES" + "(" + teamNum.ToString() + ", " + match.ToString() + ", "
+                        + cubeSwitch.ToString() + ", " + baselineString + ", " + cubeScale.ToString() + ")";
+                j++;
+            
+        }
 
-            i++;
+        int i = 0;
+        foreach (Scout s in TeleScouts)
+        {    
+                String teamNum = s.TeamNumber;//(couldn't find variable for team number);
+
+            if (teamNum == "")
+                teamNum = "1";
+                int match = 1;// (couldn't find match variable);
+                int cubeSwitch = s.NumberOfCubesInSwitch;
+                int cubeScale = s.NumberOfCubesInScale;
+                int cubeVault = s.NumberOfCubesInVault;
+                String outcome = "";
+                String climbString = "\"No\"";
+                if (s.Result)
+                { //need to find outcome for tie since boolean has two outcomes
+                    outcome = "\"Win\"";
+                }
+                else
+                {
+                    outcome = "\"Lost\"";
+                }
+                if (s.Climb)
+                {
+                    climbString = "\"Yes\"";
+                }
+
+
+                teleData[i] = "INSERT INTO TELEOP VALUES" + "(" + teamNum + ", " + match.ToString() + ", "
+                    + cubeSwitch.ToString() + ", " + cubeVault.ToString() + ", " + cubeScale.ToString() + ", " + climbString + ", " + outcome + ")";
+
+                i++;
+            
         }
 
         //for loop to get data from each team for auto
-        int j = 0;
-        foreach (Scout s in scouts) {
-            int teamNum = 1198;//find team number variable 
-            int match = 2; //find match variable
-            int cubeSwitch = s.NumberOfCubesInSwitch;//need variable for switch in auto
-            int cubeScale = s.NumberOfCubesInScale;//need variable for scale in auto
-            Boolean baseline = s.CrossBaseline;//make variable for baseline 
-            String baselineString = "\"Not passed\"";
-            if (baseline)
-                baselineString = "\"Passed\""; 
 
-        autoData[j] = "INSERT INTO AUTO VALUES" + "(" + teamNum.ToString() + ", " + match.ToString() + ", "
-                + cubeSwitch.ToString() + ", " + baselineString + ", " + cubeScale.ToString() + ")";
-            j++;
-        }
 
+
+        
         //red 1 auto data
         red1cmd = dbconn.CreateCommand();
-        red1cmd.CommandText =  autoData[0] ;
+        red1cmd.CommandText = autoData[0];
         red1cmd.ExecuteReader();
+        Debug.Log("hello");
         //red 1 tele data
         red1cmd = dbconn.CreateCommand();
         red1cmd.CommandText = teleData[0];
         red1cmd.ExecuteReader();
+        Debug.Log("hello2");
         //red 2 auto data
         red2cmd = dbconn.CreateCommand();
         red2cmd.CommandText = autoData[1];
@@ -171,8 +196,8 @@ public class Submit : MonoBehaviour {
                       "# of Cubes in Scale: " + scaleNum + "\n" +
                       "Climb: " + climb + "\n" +
                       "Team Result: " + teamResult + "\n");
-        } 
-        
+        }
+
 
         // Closing and disposing the readers and the commands
         red1cmd.Dispose();
@@ -209,7 +234,7 @@ public class Submit : MonoBehaviour {
     public void SubmitFields()
     {
         //moved to onClick
-        
+
     }
-    }
+}
 

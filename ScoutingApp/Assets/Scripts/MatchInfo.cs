@@ -37,7 +37,7 @@ public class MatchInfo : MonoBehaviour
     #region UNITY Functions
     void Awake()
     {
-        m_state = STATE.AUTO;
+        m_state = STATE.PREMATCH;
 
         MatchNumber = 0;
 

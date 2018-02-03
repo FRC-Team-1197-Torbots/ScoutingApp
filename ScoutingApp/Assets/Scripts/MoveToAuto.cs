@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class MoveToAuto : MonoBehaviour {
 
+    public GameObject MatchesPanel;
+    public GameObject AutoPanel;
     
-    private MatchInfo info;
 
 	// Use this for initialization
 	void Awake () {
-        info = FindObjectOfType<MatchInfo>();
+       
 	}
 
     public void OnClick()
     {
-        info.TransitionToAuto();
-        //MatchesPanel.SetActive(false);
-        //AutoPanel.SetActive(true);
+        MatchesPanel.SetActive(false);
+        AutoPanel.SetActive(true);
+        FindObjectOfType<MatchInfo>().TransitionToAuto();
     }
 }
