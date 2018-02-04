@@ -680,6 +680,11 @@ public class MatchInfo : MonoBehaviour
         }
     }
 
+    public void TransitionToPrematch()
+    {
+        m_state = STATE.PREMATCH;
+    }
+
     public void TransitionToAuto()
     {
         m_state = STATE.AUTO;

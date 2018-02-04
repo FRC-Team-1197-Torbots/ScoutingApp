@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +10,7 @@ public class Scout : MonoBehaviour
     public Image IndicatorImage;
 
     [Header("Scout Specific Information")]
+    public int NumberTeam;
     public string team;
     public int id;
     public Transform Table;
@@ -17,8 +19,13 @@ public class Scout : MonoBehaviour
     [Header("Raw Scores")]
     public int NumberOfCubesInSwitch;
     public int NumberOfCubesInScale;
-    public int NumberOfCubesInVault; 
+    public int NumberOfCubesInVault;
 
+   // [Header("Match Number")]
+    //public int matchnum;
+
+    [Header("Team Text")]
+    public Text TeamNumberText;
 
     public bool CrossBaseline;
     public bool Climb;
@@ -46,6 +53,11 @@ public class Scout : MonoBehaviour
         CrossBaseline = false;
         Climb = false;
         Result = false;
+
+        if(TeamNumberText)
+        {
+            TeamNumberText.text = "Team " + NumberTeam.ToString();
+        }
     }
 
     public void LightOn()
@@ -124,10 +136,28 @@ public class Scout : MonoBehaviour
             }
         }
     }
-    public void setTeamNum()
+
+    public void setTeamNum(Text teamnum)
     {
-        ;
+        int Num;
+        bool isNum = int.TryParse(teamnum.text, out Num);
+        if (teamnum != null)
+        {
+            if (isNum)
+            {
+                NumberTeam = Convert.ToInt32(Num);
+                //teamnum.GetComponent<Text>().text = "";
+            }
+        }
+
     }
+
+   // public void setMatch(Text matchnum)
+   // {
+      
+   // }
+
+
     public void Clear()
     {
         NumberOfCubesInSwitch = 0;
