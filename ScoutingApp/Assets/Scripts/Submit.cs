@@ -71,7 +71,7 @@ public class Submit : MonoBehaviour
             int teamNum = s.NumberTeam;//find team number variable 
                                        //  if (teamNum == "")
                                        //    teamNum = "2";
-            int match = 2; //find match variable
+            int match = s.MatchNumber; //find match variable
             int cubeSwitch = s.NumberOfCubesInSwitch;//need variable for switch in auto
             int cubeScale = s.NumberOfCubesInScale;//need variable for scale in auto
             Boolean baseline = s.CrossBaseline;//make variable for baseline 
@@ -92,7 +92,7 @@ public class Submit : MonoBehaviour
 
             // if (teamNum == "")
             //   teamNum = "1";
-            int match = 1;// (couldn't find match variable);
+            int match = s.MatchNumber;// (couldn't find match variable);
             int cubeSwitch = s.NumberOfCubesInSwitch;
             int cubeScale = s.NumberOfCubesInScale;
             int cubeVault = s.NumberOfCubesInVault;

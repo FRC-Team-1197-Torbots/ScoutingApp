@@ -21,8 +21,9 @@ public class Scout : MonoBehaviour
     public int NumberOfCubesInScale;
     public int NumberOfCubesInVault;
 
-   // [Header("Match Number")]
-    //public int matchnum;
+    [Header("Match Number")]
+    public int MatchNumber;
+    public Text matchnum;
 
     [Header("Team Text")]
     public Text TeamNumberText;
@@ -57,6 +58,10 @@ public class Scout : MonoBehaviour
         if(TeamNumberText)
         {
             TeamNumberText.text = "Team " + NumberTeam.ToString();
+        }
+        if(matchnum)
+        {
+            matchnum.text = "Match " + MatchNumber.ToString();
         }
     }
 
@@ -152,10 +157,18 @@ public class Scout : MonoBehaviour
 
     }
 
-   // public void setMatch(Text matchnum)
-   // {
-      
-   // }
+    public void setMatch(Text matchnum)
+    {
+        int Num;
+        bool isNum = int.TryParse(matchnum.text, out Num);
+        if (matchnum != null)
+        {
+            if (isNum)
+            {
+                MatchNumber = Convert.ToInt32(Num);
+            }
+        }
+    }
 
 
     public void Clear()
