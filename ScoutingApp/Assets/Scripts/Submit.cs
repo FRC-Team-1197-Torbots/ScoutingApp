@@ -15,7 +15,6 @@ public class Submit : MonoBehaviour
     public Scout[] AutoScouts;
     public Scout[] TeleScouts;
 
-
     // Connection object used to connect to the database
     private IDbConnection dbconn;
 
@@ -78,6 +77,7 @@ public class Submit : MonoBehaviour
             String baselineString = "\"Not passed\"";
             if (baseline)
                 baselineString = "\"Passed\"";
+            
 
             autoData[j] = "INSERT INTO AUTO VALUES" + "(" + teamNum.ToString() + ", " + match.ToString() + ", "
                     + cubeSwitch.ToString() + ", " + baselineString + ", " + cubeScale.ToString() + ")";
@@ -98,6 +98,8 @@ public class Submit : MonoBehaviour
             int cubeVault = s.NumberOfCubesInVault;
             String outcome = "";
             String climbString = "\"No\"";
+            String quest = "\""+ s.quest + "\"";
+                
             if (s.Result)
             { //need to find outcome for tie since boolean has two outcomes
                 outcome = "\"Win\"";
@@ -113,7 +115,8 @@ public class Submit : MonoBehaviour
 
 
             teleData[i] = "INSERT INTO TELEOP VALUES" + "(" + teamNum + ", " + match.ToString() + ", "
-                + cubeSwitch.ToString() + ", " + cubeVault.ToString() + ", " + cubeScale.ToString() + ", " + climbString + ", " + outcome + ")";
+                + cubeSwitch.ToString() + ", " + cubeVault.ToString() + ", " + cubeScale.ToString() + ", " + climbString
+                + ", " + outcome + ", " + quest + ")";
 
             s.NumberTeam = 0;
 

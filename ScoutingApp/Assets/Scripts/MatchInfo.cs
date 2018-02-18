@@ -653,6 +653,8 @@ public class MatchInfo : MonoBehaviour
     }
     #endregion
 
+    #region Enter Data
+
     public void EnterAutoData()
     {
         Scout[] scouts = FindObjectsOfType<Scout>();
@@ -763,3 +765,4 @@ public class Data
         MatchResult = Result;
     }
 }
+#endregion

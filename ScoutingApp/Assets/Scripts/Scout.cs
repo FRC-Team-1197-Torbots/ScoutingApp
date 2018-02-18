@@ -32,6 +32,7 @@ public class Scout : MonoBehaviour
     public bool Climb;
     public bool Result;
     public string TeamNumber;
+    public string quest;
     //xbox A = win, xbox B = lost, xbox y = climb, xbox x = vault, xbox rb = switch, xbox lb = scale
     // Use this for initialization
     void Awake()
@@ -170,7 +171,13 @@ public class Scout : MonoBehaviour
         }
     }
 
-
+    public void setQuest(Text q)
+    { 
+        if (q != null)
+        {
+            quest = q.ToString();
+        }
+    }
     public void Clear()
     {
         NumberOfCubesInSwitch = 0;

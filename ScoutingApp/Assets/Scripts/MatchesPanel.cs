@@ -12,7 +12,7 @@ public class MatchesPanel : MonoBehaviour
     // Use this for initialization
     public void inputTeamNum()
     {
-        string teamNum;
+        //string teamNum;
     }
 
 
