@@ -175,7 +175,9 @@ public class Scout : MonoBehaviour
     { 
         if (q != null)
         {
-            quest = q.ToString();
+            quest = q.text.ToString();
+            
+            
         }
     }
     public void Clear()

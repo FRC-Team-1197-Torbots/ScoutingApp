@@ -39,10 +39,8 @@ public class Submit : MonoBehaviour
 
     public void OnClick()
     {
-        Debug.Log("Pressed submit");
-        // Scout[] scouts = FindObjectsOfType<Scout>();
         /* Connecting and opening the database
-         * Name of the database = [Regional Name]ScoutingData.db
+         * Name of the database = [Year][Regional Name]ScoutingData.db
          */
         String conn = "URI=file:" + Application.dataPath + "/PowerUpTestData.db";
         Debug.Log(conn);
@@ -61,38 +59,34 @@ public class Submit : MonoBehaviour
         //change data to string
         String[] teleData = new String[6]; //teamsData holds command for input into SQL
         String[] autoData = new String[6]; //teamsData holds command for input into SQL
-                                           //get data from teams in teleop period
+                                          
 
-
+ //for loop to get data from each team for auto
         int j = 0;
         foreach (Scout s in AutoScouts)
         {
-            int teamNum = s.NumberTeam;//find team number variable 
-                                       //  if (teamNum == "")
-                                       //    teamNum = "2";
-            int match = s.MatchNumber; //find match variable
-            int cubeSwitch = s.NumberOfCubesInSwitch;//need variable for switch in auto
-            int cubeScale = s.NumberOfCubesInScale;//need variable for scale in auto
-            Boolean baseline = s.CrossBaseline;//make variable for baseline 
+            int teamNum = s.NumberTeam;
+            int match = s.MatchNumber;
+            int cubeSwitch = s.NumberOfCubesInSwitch;
+            int cubeScale = s.NumberOfCubesInScale;
+            Boolean baseline = s.CrossBaseline;
             String baselineString = "\"Not passed\"";
             if (baseline)
                 baselineString = "\"Passed\"";
-            
 
+ 
             autoData[j] = "INSERT INTO AUTO VALUES" + "(" + teamNum.ToString() + ", " + match.ToString() + ", "
                     + cubeSwitch.ToString() + ", " + baselineString + ", " + cubeScale.ToString() + ")";
             j++;
             s.NumberTeam = 0;
         }
 
+ //get data from teams in teleop period
         int i = 0;
         foreach (Scout s in TeleScouts)
         {
-            int teamNum = s.NumberTeam;//couldn't find variable for team number);
-
-            // if (teamNum == "")
-            //   teamNum = "1";
-            int match = s.MatchNumber;// (couldn't find match variable);
+            int teamNum = s.NumberTeam;
+            int match = s.MatchNumber;
             int cubeSwitch = s.NumberOfCubesInSwitch;
             int cubeScale = s.NumberOfCubesInScale;
             int cubeVault = s.NumberOfCubesInVault;
@@ -101,7 +95,7 @@ public class Submit : MonoBehaviour
             String quest = "\""+ s.quest + "\"";
                 
             if (s.Result)
-            { //need to find outcome for tie since boolean has two outcomes
+            { 
                 outcome = "\"Win\"";
             }
             else
@@ -113,7 +107,6 @@ public class Submit : MonoBehaviour
                 climbString = "\"Yes\"";
             }
 
-
             teleData[i] = "INSERT INTO TELEOP VALUES" + "(" + teamNum + ", " + match.ToString() + ", "
                 + cubeSwitch.ToString() + ", " + cubeVault.ToString() + ", " + cubeScale.ToString() + ", " + climbString
                 + ", " + outcome + ", " + quest + ")";
@@ -124,7 +117,7 @@ public class Submit : MonoBehaviour
 
         }
 
-        //for loop to get data from each team for auto
+       
 
 
 
@@ -133,12 +126,12 @@ public class Submit : MonoBehaviour
         red1cmd = dbconn.CreateCommand();
         red1cmd.CommandText = autoData[0];
         red1cmd.ExecuteReader();
-        Debug.Log("hello");
+   
         //red 1 tele data
         red1cmd = dbconn.CreateCommand();
         red1cmd.CommandText = teleData[0];
         red1cmd.ExecuteReader();
-        Debug.Log("hello2");
+   
         //red 2 auto data
         red2cmd = dbconn.CreateCommand();
         red2cmd.CommandText = autoData[1];
