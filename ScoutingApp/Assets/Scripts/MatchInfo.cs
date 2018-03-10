@@ -40,7 +40,7 @@ public class MatchInfo : MonoBehaviour
         m_state = STATE.PREMATCH;
 
         MatchNumber = 0;
-
+        
         data = new Data[6]; //Holds the latest Data for match
 
         Matches = new List<Match>();
@@ -129,7 +129,30 @@ public class MatchInfo : MonoBehaviour
             }
         }
         #endregion
-
+        //reset whenever returns to prematch
+        if (m_state == STATE.PREMATCH)
+        {
+            foreach (Scout s in AutoScouts)
+            { 
+                s.NumberOfCubesInScale = 0;
+                s.NumberOfCubesInSwitch = 0;
+                s.NumberOfCubesInVault = 0;
+                s.Climb = false;
+                s.CrossBaseline = false;
+                s.Result = false;
+                s.quest = "";
+            }
+            foreach (Scout s in TeleScouts)
+            {
+                s.NumberOfCubesInScale = 0;
+                s.NumberOfCubesInSwitch = 0;
+                s.NumberOfCubesInVault = 0;
+                s.Climb = false;
+                s.CrossBaseline = false;
+                s.Result = false;
+                s.quest = "";
+            }
+        }
         #region Input
         if (m_state == STATE.AUTO) {
             

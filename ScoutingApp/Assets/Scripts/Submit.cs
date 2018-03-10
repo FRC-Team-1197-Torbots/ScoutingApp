@@ -42,15 +42,14 @@ public class Submit : MonoBehaviour
         /* Connecting and opening the database
          * Name of the database = [Year][Regional Name]ScoutingData.db
          */
-        String conn = "URI=file:" + Application.dataPath + "/2018LosAngelesScoutingData.db";
-        Debug.Log(conn);
+        String conn = "URI=file:" + Application.dataPath + "/PowerUpTestData.db";
         dbconn = new SqliteConnection(conn);
         dbconn.Open();
 
         /* For each team, insert the data into the database
          * TELEOP table fields: (team#, match#, #ofCubesInSwitch, Cubes in Vault, #ofCubesInScale, Climb?, TeamResult)
          *                       int,    int,    int,                int,             int,          text,   text
-         * AUTO table fields: (team#, match#, #ofCubesInSwitch, Baseline, #ofCubesInScale)
+         * AUTO table fields: (team#, match#, #ofCubesInSwitch, Baseline, #ofCubesInScale, #ofCubesInVault)
                                int,    int,    int,              text,      int
          * TODO: Change the *obtain info from the app* to the actual data
          *       Maybe check which panel is active to decide whether to put the data into the TELEOP or the AUTO table (?)
@@ -67,6 +66,7 @@ public class Submit : MonoBehaviour
         {
             int teamNum = s.NumberTeam;
             int match = s.MatchNumber;
+            int cubeVault = s.NumberOfCubesInVault;
             int cubeSwitch = s.NumberOfCubesInSwitch;
             int cubeScale = s.NumberOfCubesInScale;
             Boolean baseline = s.CrossBaseline;
@@ -76,7 +76,7 @@ public class Submit : MonoBehaviour
 
  
             autoData[j] = "INSERT INTO AUTO VALUES" + "(" + teamNum.ToString() + ", " + match.ToString() + ", "
-                    + cubeSwitch.ToString() + ", " + baselineString + ", " + cubeScale.ToString() + ")";
+                    + cubeSwitch.ToString() + ", " + baselineString + ", " + cubeScale.ToString() + ", " + cubeVault.ToString() + ")";
             j++;
             s.NumberTeam = 0;
         }
