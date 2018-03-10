@@ -157,7 +157,7 @@ public class MatchInfo : MonoBehaviour
         if (m_state == STATE.AUTO) {
             
  //controller 1     
- 
+
             bool buttonPressed = false;
             
             if (Input.GetButtonUp("Xbox_1_A"))
