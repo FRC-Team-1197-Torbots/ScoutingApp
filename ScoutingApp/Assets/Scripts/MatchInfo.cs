@@ -120,7 +120,7 @@ public class MatchInfo : MonoBehaviour
                     if (MatchNumber == 0)
                     {
                         MatchNumber = int.Parse(MatchNumberText.text.Trim());
-                        Destroy(MatchNumberText.transform.parent.gameObject);
+                        //Destroy(MatchNumberText.transform.parent.gameObject);
                     }
                     Debug.Log("Entered Match " + MatchNumber);
                     MatchNumber++;
@@ -487,6 +487,7 @@ public class MatchInfo : MonoBehaviour
             else if (Input.GetButtonUp("Xbox_2_LB"))
             {
                 TeleScouts[1].NumberOfCubesInScale++;
+                Debug.Log("Pressed lb");
                 buttonPressed2 = true;
             }
 

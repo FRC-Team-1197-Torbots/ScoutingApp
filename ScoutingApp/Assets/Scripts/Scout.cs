@@ -55,7 +55,7 @@ public class Scout : MonoBehaviour
         CrossBaseline = false;
         Climb = false;
         Result = false;
-
+/*
         if(TeamNumberText)
         {
             TeamNumberText.text = "Team " + NumberTeam.ToString();
@@ -64,6 +64,7 @@ public class Scout : MonoBehaviour
         {
             matchnum.text = "Match " + MatchNumber.ToString();
         }
+    */
     }
 
     public void LightOn()
@@ -78,6 +79,14 @@ public class Scout : MonoBehaviour
 
     void Update()
     {
+        if (matchnum)
+        {
+            matchnum.text = "Match " + MatchNumber.ToString();
+        }
+        if (TeamNumberText)
+        {
+            TeamNumberText.text = "Team " + NumberTeam.ToString();
+        }
         for (int i = 0; i < Table.childCount; i++)
         {
             Transform child = Table.GetChild(i);
@@ -171,6 +180,8 @@ public class Scout : MonoBehaviour
         }
     }
 
+    
+
     public void setQuest(Text q)
     { 
         if (q != null)
@@ -182,6 +193,16 @@ public class Scout : MonoBehaviour
     }
     public void Clear()
     {
+        Debug.Log("cleared");
+        NumberOfCubesInSwitch = 0;
+        NumberOfCubesInScale = 0;
+        NumberOfCubesInVault = 0;
+        Climb = false;
+        Result = false;
+    }
+    public void didClear()
+    {
+        Debug.Log("cleared2");
         NumberOfCubesInSwitch = 0;
         NumberOfCubesInScale = 0;
         NumberOfCubesInVault = 0;

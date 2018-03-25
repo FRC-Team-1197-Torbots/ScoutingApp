@@ -12,6 +12,8 @@ public class Submit : MonoBehaviour
     public GameObject AutoPanel;
     public GameObject TelePanel;
     public GameObject InputPanel;
+    public GameObject MatchesTopPanel;
+
     public Scout[] AutoScouts;
     public Scout[] TeleScouts;
 
@@ -226,6 +228,7 @@ public class Submit : MonoBehaviour
         TelePanel.SetActive(false);
         AutoPanel.SetActive(false);
         InputPanel.SetActive(true);
+        MatchesTopPanel.SetActive(true);
         FindObjectOfType<MatchInfo>().TransitionToPrematch();
     }
     /// <summary>

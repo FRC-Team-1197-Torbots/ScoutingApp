@@ -6,12 +6,16 @@ using UnityEngine.UI;
 
 public class Presets_Script : MonoBehaviour {
     [Header("Presets")]
+    [Header("Year")]
     public string Year;
     public Text YearText;
     public Text YearText2;
+    public Text YearText3;
+    [Header("Regional")]
     public string Regional;
     public Text RegionalText;
     public Text RegionalText2;
+    public Text RegionalText3;
 
     public Text InputRegional;
     public Text InputYear;
