@@ -37,6 +37,7 @@ public class Scout : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
+        Debug.Log("when tot awake");
         for (int i = 0; i < Table.childCount; i++)
         {
             Transform child = Table.GetChild(i);
@@ -191,6 +192,7 @@ public class Scout : MonoBehaviour
             
         }
     }
+    /*
     public void Clear()
     {
         Debug.Log("cleared");
@@ -199,14 +201,21 @@ public class Scout : MonoBehaviour
         NumberOfCubesInVault = 0;
         Climb = false;
         Result = false;
-    }
-    public void didClear()
+    } */
+   
+    public void decSwitch()
     {
-        Debug.Log("cleared2");
-        NumberOfCubesInSwitch = 0;
-        NumberOfCubesInScale = 0;
-        NumberOfCubesInVault = 0;
-        Climb = false;
-        Result = false;
+        NumberOfCubesInSwitch--;
+        
+    }
+    public void decScale()
+    {
+        Debug.Log("Before: " + NumberOfCubesInScale);
+        NumberOfCubesInScale--;
+        Debug.Log("after: " + NumberOfCubesInScale);
+    }
+    public void decVault()
+    {
+        NumberOfCubesInVault--;
     }
 }

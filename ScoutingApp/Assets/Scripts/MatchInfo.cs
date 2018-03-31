@@ -27,6 +27,9 @@ public class MatchInfo : MonoBehaviour
     public GameObject MatchesPanel;
     public GameObject AutoPanel;
 
+
+    bool rt1 = false;
+
     public enum STATE
     {
         PREMATCH,AUTO,TELE
@@ -155,9 +158,8 @@ public class MatchInfo : MonoBehaviour
         }
         #region Input
         if (m_state == STATE.AUTO) {
-            
- //controller 1     
 
+            //controller 1     
             bool buttonPressed = false;
             
             if (Input.GetButtonUp("Xbox_1_A"))
@@ -190,7 +192,21 @@ public class MatchInfo : MonoBehaviour
                 AutoScouts[0].NumberOfCubesInScale++;
                 buttonPressed = true;
             }
+            else if (Input.GetAxis("Xbox_1_RT") == 0)
+            {
+                rt1 = false;
 
+            }
+            else if (Input.GetAxis("Xbox_1_RT") == 1)
+            {
+                
+                if (rt1 == false)
+                {
+                    AutoScouts[0].NumberOfCubesInSwitch--;
+                    buttonPressed = true;
+                    rt1 = true;
+                }
+            }
             if (buttonPressed)
             {
                 AutoScouts[0].LightOn();
@@ -232,7 +248,6 @@ public class MatchInfo : MonoBehaviour
                 AutoScouts[1].NumberOfCubesInScale++;
                 buttonPressed2 = true;
             }
-
             if (buttonPressed2)
             {
                 AutoScouts[1].LightOn();
@@ -762,6 +777,7 @@ public class Data
  
     public void clear()
     {
+        Debug.Log("At clear");
         AutoSwitch = 0;
         AutoScale = 0;
         AutoCross = false;

@@ -23,7 +23,7 @@ public class Clear : MonoBehaviour {
     /// Functions clears all the fields and does not save
     /// </summary>
     
-    
+    /*
     public void ClearFields()
     {
         Debug.Log("Going to clear fields");
@@ -50,8 +50,10 @@ public class Clear : MonoBehaviour {
 
 
     }
+    
     public void clearOne()
     {
         theScout.Clear();
     }
+    */
 }
