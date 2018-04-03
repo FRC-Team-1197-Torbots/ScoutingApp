@@ -6,21 +6,22 @@ public class MoveToAuto : MonoBehaviour {
 
     public GameObject MatchesPanel;
     public GameObject AutoPanel;
-    public GameObject TopPanel;
-
+    public GameObject TelePanel;
 	// Use this for initialization
 	void Awake () {
        
 	}
 
-    public void OnClick()
+    public void matchesToAuto()
     {
         MatchesPanel.SetActive(false);
         AutoPanel.SetActive(true);
         FindObjectOfType<MatchInfo>().TransitionToAuto();
     }
-    public void moveTopPanel()
+    public void teleToAuto()
     {
-        TopPanel.SetActive(false);
+        TelePanel.SetActive(false);
+        AutoPanel.SetActive(true);
+        FindObjectOfType<MatchInfo>().TransitionToAuto();
     }
 }

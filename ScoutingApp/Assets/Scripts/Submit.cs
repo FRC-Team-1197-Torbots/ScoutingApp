@@ -12,7 +12,6 @@ public class Submit : MonoBehaviour
     public GameObject AutoPanel;
     public GameObject TelePanel;
     public GameObject InputPanel;
-    public GameObject MatchesTopPanel;
 
     public Scout[] AutoScouts;
     public Scout[] TeleScouts;
@@ -44,7 +43,7 @@ public class Submit : MonoBehaviour
         /* Connecting and opening the database
          * Name of the database = [Year][Regional Name]ScoutingData.db
          */
-        String conn = "URI=file:" + Application.dataPath + "/2018LosAngelesScoutingData.db";
+        String conn = "URI=file:" + Application.dataPath + "/2018CentralValleyScoutingData.db";
         dbconn = new SqliteConnection(conn);
         dbconn.Open();
 
@@ -228,7 +227,6 @@ public class Submit : MonoBehaviour
         TelePanel.SetActive(false);
         AutoPanel.SetActive(false);
         InputPanel.SetActive(true);
-        MatchesTopPanel.SetActive(true);
         FindObjectOfType<MatchInfo>().TransitionToPrematch();
     }
     /// <summary>

@@ -37,7 +37,6 @@ public class Scout : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
-        Debug.Log("when tot awake");
         for (int i = 0; i < Table.childCount; i++)
         {
             Transform child = Table.GetChild(i);
