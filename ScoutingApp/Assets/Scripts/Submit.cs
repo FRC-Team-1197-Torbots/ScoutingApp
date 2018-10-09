@@ -43,7 +43,7 @@ public class Submit : MonoBehaviour
         /* Connecting and opening the database
          * Name of the database = [Year][Regional Name]ScoutingData.db
          */
-        String conn = "URI=file:" + Application.dataPath + "/2018CentralValleyScoutingData.db";
+        String conn = "URI=file:" + Application.dataPath + "/2018BeachBlitzScoutingData.db";
         dbconn = new SqliteConnection(conn);
         dbconn.Open();
 
