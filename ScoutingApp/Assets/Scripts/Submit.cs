@@ -67,9 +67,9 @@ public class Submit : MonoBehaviour
         {
             int teamNum = s.NumberTeam;
             int match = s.MatchNumber;
-            int cubeVault = s.NumberOfCubesInVault;
-            int cubeSwitch = s.NumberOfCubesInSwitch;
-            int cubeScale = s.NumberOfCubesInScale;
+            int cubeVault = s.NumberOfBallsHigh;
+            int cubeSwitch = s.NumberOfBallsLow;
+            int cubeScale = s.NumberOfBallsMid;
             Boolean baseline = s.CrossBaseline;
             String baselineString = "\"Not passed\"";
             if (baseline)
@@ -88,9 +88,9 @@ public class Submit : MonoBehaviour
         {
             int teamNum = s.NumberTeam;
             int match = s.MatchNumber;
-            int cubeSwitch = s.NumberOfCubesInSwitch;
-            int cubeScale = s.NumberOfCubesInScale;
-            int cubeVault = s.NumberOfCubesInVault;
+            int cubeSwitch = s.NumberOfBallsLow;
+            int cubeScale = s.NumberOfBallsMid;
+            int cubeVault = s.NumberOfBallsHigh;
             String outcome = "";
             String climbString = "\"No\"";
             String quest = "\""+ s.quest + "\"";

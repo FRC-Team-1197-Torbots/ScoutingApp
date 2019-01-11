@@ -17,9 +17,12 @@ public class Scout : MonoBehaviour
     public bool Auto;
 
     [Header("Raw Scores")]
-    public int NumberOfCubesInSwitch;
-    public int NumberOfCubesInScale;
-    public int NumberOfCubesInVault;
+    public int NumberOfBallsLow;
+    public int NumberOfBallsMid;
+    public int NumberOfBallsHigh;
+    public int NumberOfDisksLow;
+    public int NumberOfDisksMid;
+    public int NumberOfDisksHigh;
 
     [Header("Match Number")]
     public int MatchNumber;
@@ -49,9 +52,13 @@ public class Scout : MonoBehaviour
             presses.GetComponent<Text>().text = "0";
         }
 
-        NumberOfCubesInSwitch = 0;
-        NumberOfCubesInScale = 0;
-        NumberOfCubesInVault = 0;
+        NumberOfBallsLow = 0;
+        NumberOfBallsMid = 0;
+        NumberOfBallsHigh = 0;
+        NumberOfDisksLow = 0;
+        NumberOfDisksMid = 0;
+        NumberOfDisksHigh = 0;
+
         CrossBaseline = false;
         Climb = false;
         Result = false;
@@ -96,18 +103,18 @@ public class Scout : MonoBehaviour
 
             if (child.name.Contains("Switch"))
             {
-                score.GetComponent<Text>().text = NumberOfCubesInSwitch.ToString();
-                presses.GetComponent<Text>().text = NumberOfCubesInSwitch.ToString();
+                score.GetComponent<Text>().text = NumberOfBallsLow.ToString();
+                presses.GetComponent<Text>().text = NumberOfBallsLow.ToString();
             }
             else if (child.name.Contains("Vault"))
             {
-                score.GetComponent<Text>().text = NumberOfCubesInVault.ToString();
-                presses.GetComponent<Text>().text = NumberOfCubesInVault.ToString();//NumberOfCubesInSwitch.ToString();
+                score.GetComponent<Text>().text = NumberOfBallsHigh.ToString();
+                presses.GetComponent<Text>().text = NumberOfBallsHigh.ToString();//NumberOfBallsLow.ToString();
             }
             else if (child.name.Contains("Scale"))
             {
-                score.GetComponent<Text>().text = NumberOfCubesInScale.ToString();
-                presses.GetComponent<Text>().text = NumberOfCubesInScale.ToString();
+                score.GetComponent<Text>().text = NumberOfBallsMid.ToString();
+                presses.GetComponent<Text>().text = NumberOfBallsMid.ToString();
             }
             else if (child.name.Contains("Climb"))
             {
@@ -195,26 +202,26 @@ public class Scout : MonoBehaviour
     public void Clear()
     {
         Debug.Log("cleared");
-        NumberOfCubesInSwitch = 0;
-        NumberOfCubesInScale = 0;
-        NumberOfCubesInVault = 0;
+        NumberOfBallsLow = 0;
+        NumberOfBallsMid = 0;
+        NumberofBallsHigh = 0;
         Climb = false;
         Result = false;
     } */
    
-    public void decSwitch()
+    public void decBallsLow()
     {
-        NumberOfCubesInSwitch--;
+        NumberOfBallsLow--;
         
     }
-    public void decScale()
+    public void decBallsMid()
     {
-        Debug.Log("Before: " + NumberOfCubesInScale);
-        NumberOfCubesInScale--;
-        Debug.Log("after: " + NumberOfCubesInScale);
+        Debug.Log("Before: " + NumberOfBallsMid);
+        NumberOfBallsMid--;
+        Debug.Log("after: " + NumberOfBallsMid);
     }
-    public void decVault()
+    public void decBallsHigh()
     {
-        NumberOfCubesInVault--;
+        NumberOfBallsHigh--;
     }
 }
