@@ -194,11 +194,10 @@ public class MatchInfo : MonoBehaviour
             {
                 AutoScouts[0].NumberOfBallsLow++;
                 buttonPressed = true;
-                //  AutoScouts[0].CrossBaseline = true;
             }
             else if (Input.GetButtonUp("Xbox_1_B"))
             {
-                AutoScouts[0].NumberOfBallsHigh++;
+                AutoScouts[0].CrossBaseline = true;
                 buttonPressed = true;
             }
             else if (Input.GetButtonUp("Xbox_1_X"))
@@ -213,17 +212,17 @@ public class MatchInfo : MonoBehaviour
             }
             else if (Input.GetButtonUp("Xbox_1_RB"))
             {
-                //AutoScouts[0].NumberOfBallsLow++;
+                //AutoScouts[0].NumberOfHatchMid++;
                 buttonPressed = true;
             }
             else if (Input.GetButtonUp("Xbox_1_LB"))
             {
-                //AutoScouts[0].NumberOfCubesInScale++;
+                //AutoScouts[0].NumberOfHatchLow++;
                 buttonPressed = true;
             }
             if (Input.GetAxis("Xbox_1_RT") == 1)
             {
-                // AutoScouts[0].NumberOfBallsMid++;
+                // AutoScouts[0].NumberOfHatchHigh++;
                 buttonPressed = true;
             }
             if (Input.GetAxis("Xbox_1_LT") == 0)
@@ -233,11 +232,6 @@ public class MatchInfo : MonoBehaviour
             else if (Input.GetAxis("Xbox_1_LT") == 1)
             {
                 buttonPressed = true;
-                /*   if (lt1Auto == false && AutoScouts[0].NumberOfCubesInScale > 0)
-                   {
-                       AutoScouts[0].NumberOfCubesInScale--;
-                       lt1Auto = true;
-                   }*/
             }
             if (buttonPressed)
             {
@@ -256,7 +250,7 @@ public class MatchInfo : MonoBehaviour
             }
             else if (Input.GetButtonUp("Xbox_2_B"))
             {
-                //AutoScouts[1].NumberOfBallsHigh++;
+                AutoScouts[1].CrossBaseline = true;
                 buttonPressed2 = true;
             }
             else if (Input.GetButtonUp("Xbox_2_X"))
@@ -271,17 +265,17 @@ public class MatchInfo : MonoBehaviour
             }
             else if (Input.GetButtonUp("Xbox_2_RB"))
             {
-                //AutoScouts[1].NumberOfBallsLow++;
+                //AutoScouts[1].NumberOfHatchMid++;
                 buttonPressed2 = true;
             }
             else if (Input.GetButtonUp("Xbox_2_LB"))
             {
-                //AutoScouts[1].NumberOfCubesInScale++;
+                //AutoScouts[1].NumberOfHatchLow++;
                 buttonPressed2 = true;
             }
             if (Input.GetAxis("Xbox_2_RT") == 1)
             {
-                //AutoScouts[1].NumberOfBallsMid++;
+                //AutoScouts[1].NumberOfHatchHigh++;
                 buttonPressed2 = true;
             }
                 if (Input.GetAxis("Xbox_2_LT") == 0)
@@ -291,11 +285,6 @@ public class MatchInfo : MonoBehaviour
                 else if (Input.GetAxis("Xbox_2_LT") == 1)
                 {
                     buttonPressed2 = true;
-                    /* if (lt2Auto == false && AutoScouts[1].NumberOfCubesInScale > 0)
-                     {
-                         AutoScouts[1].NumberOfCubesInScale--;
-                         lt2Auto = true;
-                     } */
                 }
                 if (buttonPressed2)
                 {
@@ -315,8 +304,8 @@ public class MatchInfo : MonoBehaviour
                 }
                 else if (Input.GetButtonUp("Xbox_3_B"))
                 {
-                    //AutoScouts[2].Cross
-                    // buttonPressed3 = true;
+                    AutoScouts[2].CrossBaseline = true;
+                    buttonPressed3 = true;
                 }
                 else if (Input.GetButtonUp("Xbox_3_X"))
                 {
@@ -330,26 +319,22 @@ public class MatchInfo : MonoBehaviour
                 }
                 else if (Input.GetButtonUp("Xbox_3_RB"))
                 {
-                    //AutoScouts[2].NumberOfCubesInSwitch++;
-                    //buttonPressed3 = true;
+                    //AutoScouts[2].NumberOfHatchMid;
+                    buttonPressed3 = true;
                 }
                 else if (Input.GetButtonUp("Xbox_3_LB"))
                 {
-                    //AutoScouts[2].NumberOfCubesInScale++;
-                    //buttonPressed3 = true;
+                    //AutoScouts[2].NumberOfHatchLow;
+                    buttonPressed3 = true;
                 }
                 if (Input.GetAxis("Xbox_3_RT") == 0)
                 {
-                    //rt3Auto = false;
+                    rt3Auto = false;
                 }
                 else if (Input.GetAxis("Xbox_3_RT") == 1)
                 {
                     buttonPressed3 = true;
-                    /*if (rt3Auto == false && AutoScouts[2].NumberOfCubesInSwitch > 0)
-                    {
-                        AutoScouts[2].NumberOfCubesInSwitch--;
-                        rt3Auto = true;
-                    }*/
+                    //AutoScouts[2].NumberofHatchHigh++;
                 }
                 if (Input.GetAxis("Xbox_3_LT") == 0)
                 {
@@ -382,8 +367,8 @@ public class MatchInfo : MonoBehaviour
                 }
                 else if (Input.GetButtonUp("Xbox_4_B"))
                 {
-                    //AutoScouts[3].CrossBaseline = false;
-                    //buttonPressed4 = true;
+                    AutoScouts[3].CrossBaseline = true;
+                    buttonPressed4 = true;
                 }
                 else if (Input.GetButtonUp("Xbox_4_X"))
                 {
@@ -397,27 +382,22 @@ public class MatchInfo : MonoBehaviour
                 }
                 else if (Input.GetButtonUp("Xbox_4_RB"))
                 {
-                    //AutoScouts[3].NumberOfCubesInSwitch++;
-                    //buttonPressed4 = true;
+                    //AutoScouts[3].NumberOfHatchMid++;
+                    buttonPressed4 = true;
                 }
                 else if (Input.GetButtonUp("Xbox_4_LB"))
                 {
-                    //AutoScouts[3].NumberOfCubesInScale++;
-                    //buttonPressed4 = true;
+                    //AutoScouts[3].NumberOfHatchLow++;
+                    buttonPressed4 = true;
                 }
                 if (Input.GetAxis("Xbox_4_RT") == 0)
                 {
                     rt4Auto = false;
-
                 }
                 else if (Input.GetAxis("Xbox_4_RT") == 1)
                 {
                     buttonPressed4 = true;
-                    /* if (rt4Auto == false && AutoScouts[3].NumberOfCubesInSwitch > 0)
-                     {
-                         AutoScouts[3].NumberOfCubesInSwitch--;
-                         rt4Auto = true;
-                     }*/
+                    //AutoScouts[3].NUmberOfHatchHigh++;
                 }
                 if (Input.GetAxis("Xbox_4_LT") == 0)
                 {
@@ -450,7 +430,7 @@ public class MatchInfo : MonoBehaviour
                 }
                 else if (Input.GetButtonUp("Xbox_5_B"))
                 {
-                    //AutoScouts[4].CrossBaseline = false;
+                    AutoScouts[4].CrossBaseline = true;
                     buttonPressed5 = true;
                 }
                 else if (Input.GetButtonUp("Xbox_5_X"))
@@ -465,12 +445,12 @@ public class MatchInfo : MonoBehaviour
                 }
                 else if (Input.GetButtonUp("Xbox_5_RB"))
                 {
-                    //AutoScouts[4].NumberOfCubesInSwitch++;
+                    //AutoScouts[4].NumberOfHatchMid++;
                     buttonPressed5 = true;
                 }
                 else if (Input.GetButtonUp("Xbox_5_LB"))
                 {
-                    //AutoScouts[4].NumberOfCubesInScale++;
+                    //AutoScouts[4].NumberOfHatchLow++;
                     buttonPressed5 = true;
                 }
                 if (Input.GetAxis("Xbox_5_RT") == 0)
@@ -481,11 +461,7 @@ public class MatchInfo : MonoBehaviour
                 else if (Input.GetAxis("Xbox_5_RT") == 1)
                 {
                     buttonPressed5 = true;
-                    /* if (rt5Auto == false && AutoScouts[4].NumberOfCubesInSwitch > 0)
-                     {
-                         AutoScouts[4].NumberOfCubesInSwitch--;
-                         rt5Auto = true;
-                     }*/
+                    //AutoScouts[4].NumberOfHatchHigh++;
                 }
                 if (Input.GetAxis("Xbox_5_LT") == 0)
                 {
@@ -518,7 +494,7 @@ public class MatchInfo : MonoBehaviour
                 }
                 else if (Input.GetButtonUp("Xbox_6_B"))
                 {
-                    //AutoScouts[5].CrossBaseline = false;
+                    AutoScouts[5].CrossBaseline = true;
                     buttonPressed6 = true;
                 }
                 else if (Input.GetButtonUp("Xbox_6_X"))
@@ -533,12 +509,12 @@ public class MatchInfo : MonoBehaviour
                 }
                 else if (Input.GetButtonUp("Xbox_6_RB"))
                 {
-                    // AutoScouts[5].NumberOfCubesInSwitch++;
+                    // AutoScouts[5].NumberOfHatchMid++;
                     buttonPressed6 = true;
                 }
                 else if (Input.GetButtonUp("Xbox_6_LB"))
                 {
-                    //AutoScouts[5].NumberOfCubesInScale++;
+                    //AutoScouts[5].NumberOfHatchLow++;
                     buttonPressed6 = true;
                 }
                 if (Input.GetAxis("Xbox_6_RT") == 0)
@@ -549,11 +525,7 @@ public class MatchInfo : MonoBehaviour
                 else if (Input.GetAxis("Xbox_6_RT") == 1)
                 {
                     buttonPressed6 = true;
-                    /* if (rt6Auto == false && AutoScouts[5].NumberOfCubesInSwitch > 0)
-                     {
-                         AutoScouts[5].NumberOfCubesInSwitch--;
-                         rt6Auto = true;
-                     }*/
+                    //AutoScouts[5].NumberOfHatchHigh++;
                 }
                 if (Input.GetAxis("Xbox_6_LT") == 0)
                 {
@@ -583,7 +555,6 @@ public class MatchInfo : MonoBehaviour
      //TELE
      //controller 1
                  bool buttonPressed = false;
-               //buttonPressed = false;
 
                 if (Input.GetButtonUp("Xbox_1_A"))
                 {
@@ -592,7 +563,6 @@ public class MatchInfo : MonoBehaviour
                 }
                 else if (Input.GetButtonUp("Xbox_1_B"))
                 {
-                    TeleScouts[0].NumberOfBallsHigh++;
                     buttonPressed = true;
                 }
                 else if (Input.GetButtonUp("Xbox_1_X"))
@@ -607,17 +577,17 @@ public class MatchInfo : MonoBehaviour
                 }
                 else if (Input.GetButtonUp("Xbox_1_RB"))
                 {
-                    //TeleScouts[0].NumberOfBallsLow++;
+                    //TeleScouts[0].NumberOfHatchMid++;
                     buttonPressed = true;
                 }
                 else if (Input.GetButtonUp("Xbox_1_LB"))
                 {
-                    //TeleScouts[0].NumberOfCubesInScale++;
+                    //TeleScouts[0].NumberOfHatchLow++;
                     buttonPressed = true;
                 }
                 if (Input.GetAxis("Xbox_1_RT") == 1)
                 {
-                    //TeleScouts[0].NumberOfBallsMid++;
+                    //TeleScouts[0].NumberOfHatchHigh++;
                     buttonPressed = true;
                 }
                 if (Input.GetAxis("Xbox_1_LT") == 0)
@@ -627,7 +597,6 @@ public class MatchInfo : MonoBehaviour
                 else if (Input.GetAxis("Xbox_1_LT") == 1)
                 {
                     buttonPressed = true;
-
                     /* if (lt1Tele == false && TeleScouts[0].NumberOfCubesInScale > 0)
                      {
                          TeleScouts[0].NumberOfCubesInScale--;
@@ -646,7 +615,6 @@ public class MatchInfo : MonoBehaviour
 
    //controller 2
                 bool buttonPressed2 = false;
-                //buttonPressed2 = false;
 
                 if (Input.GetButtonUp("Xbox_2_A"))
                 {
@@ -655,7 +623,6 @@ public class MatchInfo : MonoBehaviour
                 }
                 else if (Input.GetButtonUp("Xbox_2_B"))
                 {
-                    // TeleScouts[0].NumberOfBallsHigh++;
                     buttonPressed2 = true;
                 }
                 else if (Input.GetButtonUp("Xbox_2_X"))
@@ -670,18 +637,18 @@ public class MatchInfo : MonoBehaviour
                 }
                 else if (Input.GetButtonUp("Xbox_2_RB"))
                 {
-                    //TeleScouts[1].NumberOfBallsLow++;
+                    //TeleScouts[1].NumberOfHatchMid++;
                     buttonPressed2 = true;
                 }
                 else if (Input.GetButtonUp("Xbox_2_LB"))
                 {
-                    //TeleScouts[1].NumberOfCubesInScale++;
+                    //TeleScouts[1].NumberOfHatchLow++;
                     buttonPressed2 = true;
                 }
                 if (Input.GetAxis("Xbox_2_RT") == 1)
                 {
-                    //TeleScouts[1].NumberOfBallsMid++;
-                    //buttonPressed2 = true;
+                    //TeleScouts[1].NumberOfHatchHigh;
+                    buttonPressed2 = true;
                 }
                 if (Input.GetAxis("Xbox_2_LT") == 0)
                 {
@@ -717,7 +684,6 @@ public class MatchInfo : MonoBehaviour
                 }
                 else if (Input.GetButtonUp("Xbox_3_B"))
                 {
-                    //TeleScouts[2].NumberOfBallsHigh++;
                     buttonPressed3 = true;
                 }
                 else if (Input.GetButtonUp("Xbox_3_X"))
@@ -732,17 +698,17 @@ public class MatchInfo : MonoBehaviour
                 }
                 else if (Input.GetButtonUp("Xbox_3_RB"))
                 {
-                    //TeleScouts[2].NumberOfBallsLow++;
+                    //TeleScouts[2].NumberOfHatchMid++;
                     buttonPressed3 = true;
                 }
                 else if (Input.GetButtonUp("Xbox_3_LB"))
                 {
-                    //TeleScouts[2].NumberOfCubesInScale++;
+                    //TeleScouts[2].NumberOfHatchLow++;
                     buttonPressed3 = true;
                 }
                 if (Input.GetAxis("Xbox_3_RT") == 1)
                 {
-                    //TeleScouts[2].NumberOfBallsMid++;
+                    //TeleScouts[2].NumberOfHatchHigh++;
                     buttonPressed2 = true;
                 }
                 if (Input.GetAxis("Xbox_3_LT") == 0)
@@ -769,6 +735,7 @@ public class MatchInfo : MonoBehaviour
                 }
 
     //controller 4
+
                 bool buttonPressed4 = false;
 
                 if (Input.GetButtonUp("Xbox_4_A"))
@@ -778,7 +745,6 @@ public class MatchInfo : MonoBehaviour
                 }
                 else if (Input.GetButtonUp("Xbox_4_B"))
                 {
-                    //TeleScouts[3].NumberOfBallsHigh++;
                     buttonPressed4 = true;
                 }
                 else if (Input.GetButtonUp("Xbox_4_X"))
@@ -793,17 +759,17 @@ public class MatchInfo : MonoBehaviour
                 }
                 else if (Input.GetButtonUp("Xbox_4_RB"))
                 {
-                    // TeleScouts[3].NumberOfBallsLow++;
+                    // TeleScouts[3].NumberOfHatchMid++;
                     buttonPressed4 = true;
                 }
                 else if (Input.GetButtonUp("Xbox_4_LB"))
                 {
-                    // TeleScouts[3].NumberOfCubesInScale++;
+                    // TeleScouts[3].NumberOfHatchLow++;
                     buttonPressed4 = true;
                 }
                 if (Input.GetAxis("Xbox_4_RT") == 1)
                 {
-                    //TeleScouts[3].NumberOfBallsMid++;
+                    //TeleScouts[3].NumberOfHatchHigh++;
                     buttonPressed4 = true;
                 }
                 if (Input.GetAxis("Xbox_4_LT") == 0)
@@ -838,7 +804,6 @@ public class MatchInfo : MonoBehaviour
                 }
                 else if (Input.GetButtonUp("Xbox_5_B"))
                 {
-                    //TeleScouts[4].NumberOfBallsHigh++;
                     buttonPressed5 = true;
                 }
                 else if (Input.GetButtonUp("Xbox_5_X"))
@@ -853,17 +818,17 @@ public class MatchInfo : MonoBehaviour
                 }
                 else if (Input.GetButtonUp("Xbox_5_RB"))
                 {
-                    //TeleScouts[4].NumberOfCubesInSwitch++;
+                    //TeleScouts[4].NumberOfHatchMid++;
                     buttonPressed5 = true;
                 }
                 else if (Input.GetButtonUp("Xbox_5_LB"))
                 {
-                    //TeleScouts[4].NumberOfCubesInScale++;
+                    //TeleScouts[4].NumberOfHatchLow++;
                     buttonPressed5 = true;
                 }
                 if (Input.GetAxis("Xbox_5_RT") == 1)
                 {
-                    // TeleScouts[4].NumberOfBallsMid++;
+                    // TeleScouts[4].NumberOfHatchHigh++;
                     buttonPressed5 = true;
                 }
                 if (Input.GetAxis("Xbox_5_LT") == 0)
@@ -872,7 +837,7 @@ public class MatchInfo : MonoBehaviour
                 }
                 else if (Input.GetAxis("Xbox_5_LT") == 1)
                 {
-
+                    buttonPressed5 = true;
                 }
                 if (buttonPressed5)
                 {
@@ -893,7 +858,6 @@ public class MatchInfo : MonoBehaviour
                 }
                 else if (Input.GetButtonUp("Xbox_6_B"))
                 {
-                    // TeleScouts[5].NumberOfBallsHigh++;
                     buttonPressed6 = true;
                 }
                 else if (Input.GetButtonUp("Xbox_6_X"))
@@ -908,12 +872,12 @@ public class MatchInfo : MonoBehaviour
                 }
                 else if (Input.GetButtonUp("Xbox_6_RB"))
                 {
-                    //TeleScouts[5].NumberOfBallsLow++;
+                    //TeleScouts[5].NumberOfHatchMid++;
                     buttonPressed6 = true;
                 }
                 else if (Input.GetButtonUp("Xbox_6_LB"))
                 {
-                    // TeleScouts[5].NumberOfCubesInScale++;
+                    // TeleScouts[5].NumberOfHatchLow++;
                     buttonPressed6 = true;
                 }
                 if (Input.GetAxis("Xbox_6_RT") == 0)
@@ -922,7 +886,7 @@ public class MatchInfo : MonoBehaviour
                 }
                 else if (Input.GetAxis("Xbox_6_RT") == 1)
                 {
-                    //TeleScouts[5].NumberOfBallsMid++;
+                    //TeleScouts[5].NumberOfHatchHigh++;
                     buttonPressed6 = true;
                 }
                 if (Input.GetAxis("Xbox_6_LT") == 0)
