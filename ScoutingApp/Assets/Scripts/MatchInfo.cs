@@ -28,7 +28,7 @@ public class MatchInfo : MonoBehaviour
     public GameObject MatchesPanel;
     public GameObject AutoPanel;
 
-    //Subtraction Keys
+   /* //Subtraction Keys
     bool rt1Auto = false;
     bool rt1Tele = false;
     bool rt2Auto = false;
@@ -54,6 +54,7 @@ public class MatchInfo : MonoBehaviour
     bool lt5Tele = false;
     bool lt6Auto = false;
     bool lt6Tele = false;
+    */
     public enum STATE
     {
         PREMATCH, AUTO, TELE
@@ -164,7 +165,11 @@ public class MatchInfo : MonoBehaviour
                 s.NumberOfBallsLow = 0;
                 s.NumberOfBallsMid = 0;
                 s.NumberOfBallsHigh = 0;
-                s.Climb = false;
+                s.NumberOfHatchLow = 0;
+                s.NumberOfHatchMid = 0;
+                s.NumberOfHatchHigh = 0;
+                //s.Climb = false;
+                s.climb = 0;
                 s.CrossBaseline = false;
                 s.Result = false;
                 s.quest = "";
@@ -174,7 +179,8 @@ public class MatchInfo : MonoBehaviour
                 s.NumberOfBallsLow = 0;
                 s.NumberOfBallsMid = 0;
                 s.NumberOfBallsHigh = 0;
-                s.Climb = false;
+                s.climb = 0;
+                //s.Climb = false;
                 s.CrossBaseline = false;
                 s.Result = false;
                 s.quest = "";
@@ -212,22 +218,21 @@ public class MatchInfo : MonoBehaviour
             }
             else if (Input.GetButtonUp("Xbox_1_RB"))
             {
-                //AutoScouts[0].NumberOfHatchMid++;
+                AutoScouts[0].NumberOfHatchMid++;
                 buttonPressed = true;
             }
             else if (Input.GetButtonUp("Xbox_1_LB"))
             {
-                //AutoScouts[0].NumberOfHatchLow++;
+                AutoScouts[0].NumberOfHatchLow++;
                 buttonPressed = true;
             }
             if (Input.GetAxis("Xbox_1_RT") == 1)
             {
-                // AutoScouts[0].NumberOfHatchHigh++;
+                AutoScouts[0].NumberOfHatchHigh++;
                 buttonPressed = true;
             }
             if (Input.GetAxis("Xbox_1_LT") == 0)
             {
-                lt1Auto = false;
             }
             else if (Input.GetAxis("Xbox_1_LT") == 1)
             {
@@ -265,35 +270,34 @@ public class MatchInfo : MonoBehaviour
             }
             else if (Input.GetButtonUp("Xbox_2_RB"))
             {
-                //AutoScouts[1].NumberOfHatchMid++;
+                AutoScouts[1].NumberOfHatchMid++;
                 buttonPressed2 = true;
             }
             else if (Input.GetButtonUp("Xbox_2_LB"))
             {
-                //AutoScouts[1].NumberOfHatchLow++;
+                AutoScouts[1].NumberOfHatchLow++;
                 buttonPressed2 = true;
             }
             if (Input.GetAxis("Xbox_2_RT") == 1)
             {
-                //AutoScouts[1].NumberOfHatchHigh++;
+                AutoScouts[1].NumberOfHatchHigh++;
                 buttonPressed2 = true;
             }
-                if (Input.GetAxis("Xbox_2_LT") == 0)
-                {
-                    lt2Auto = false;
-                }
-                else if (Input.GetAxis("Xbox_2_LT") == 1)
-                {
-                    buttonPressed2 = true;
-                }
-                if (buttonPressed2)
-                {
-                    AutoScouts[1].LightOn();
-                }
-                else
-                {
-                    AutoScouts[1].LightOff();
-                }
+            if (Input.GetAxis("Xbox_2_LT") == 0)
+            {
+            }
+            else if (Input.GetAxis("Xbox_2_LT") == 1)
+            {
+                buttonPressed2 = true;
+            }
+            if (buttonPressed2)
+            {
+                AutoScouts[1].LightOn();
+            }
+            else
+            {
+                AutoScouts[1].LightOff();
+            }
 
    //controller 3
                 bool buttonPressed3 = false;
@@ -319,26 +323,24 @@ public class MatchInfo : MonoBehaviour
                 }
                 else if (Input.GetButtonUp("Xbox_3_RB"))
                 {
-                    //AutoScouts[2].NumberOfHatchMid;
+                    AutoScouts[2].NumberOfHatchMid++;
                     buttonPressed3 = true;
                 }
                 else if (Input.GetButtonUp("Xbox_3_LB"))
                 {
-                    //AutoScouts[2].NumberOfHatchLow;
+                    AutoScouts[2].NumberOfHatchLow++;
                     buttonPressed3 = true;
                 }
                 if (Input.GetAxis("Xbox_3_RT") == 0)
                 {
-                    rt3Auto = false;
                 }
                 else if (Input.GetAxis("Xbox_3_RT") == 1)
                 {
-                    buttonPressed3 = true;
-                    //AutoScouts[2].NumberofHatchHigh++;
+                    AutoScouts[2].NumberOfHatchHigh++;
+                    buttonPressed3 = true; 
                 }
                 if (Input.GetAxis("Xbox_3_LT") == 0)
                 {
-                    lt3Auto = false;
                 }
                 else if (Input.GetAxis("Xbox_3_LT") == 1)
                 {
@@ -382,26 +384,24 @@ public class MatchInfo : MonoBehaviour
                 }
                 else if (Input.GetButtonUp("Xbox_4_RB"))
                 {
-                    //AutoScouts[3].NumberOfHatchMid++;
+                    AutoScouts[3].NumberOfHatchMid++;
                     buttonPressed4 = true;
                 }
                 else if (Input.GetButtonUp("Xbox_4_LB"))
                 {
-                    //AutoScouts[3].NumberOfHatchLow++;
+                    AutoScouts[3].NumberOfHatchLow++;
                     buttonPressed4 = true;
                 }
                 if (Input.GetAxis("Xbox_4_RT") == 0)
                 {
-                    rt4Auto = false;
                 }
                 else if (Input.GetAxis("Xbox_4_RT") == 1)
                 {
                     buttonPressed4 = true;
-                    //AutoScouts[3].NUmberOfHatchHigh++;
+                    AutoScouts[3].NumberOfHatchHigh++;
                 }
                 if (Input.GetAxis("Xbox_4_LT") == 0)
                 {
-                    lt4Auto = false;
                 }
                 else if (Input.GetAxis("Xbox_4_LT") == 1)
                 {
@@ -445,27 +445,24 @@ public class MatchInfo : MonoBehaviour
                 }
                 else if (Input.GetButtonUp("Xbox_5_RB"))
                 {
-                    //AutoScouts[4].NumberOfHatchMid++;
+                    AutoScouts[4].NumberOfHatchMid++;
                     buttonPressed5 = true;
                 }
                 else if (Input.GetButtonUp("Xbox_5_LB"))
                 {
-                    //AutoScouts[4].NumberOfHatchLow++;
+                    AutoScouts[4].NumberOfHatchLow++;
                     buttonPressed5 = true;
                 }
                 if (Input.GetAxis("Xbox_5_RT") == 0)
                 {
-                    rt5Auto = false;
-
                 }
                 else if (Input.GetAxis("Xbox_5_RT") == 1)
                 {
                     buttonPressed5 = true;
-                    //AutoScouts[4].NumberOfHatchHigh++;
+                    AutoScouts[4].NumberOfHatchHigh++;
                 }
                 if (Input.GetAxis("Xbox_5_LT") == 0)
                 {
-                    lt5Auto = false;
                 }
                 else if (Input.GetAxis("Xbox_5_LT") == 1)
                 {
@@ -509,27 +506,24 @@ public class MatchInfo : MonoBehaviour
                 }
                 else if (Input.GetButtonUp("Xbox_6_RB"))
                 {
-                    // AutoScouts[5].NumberOfHatchMid++;
+                    AutoScouts[5].NumberOfHatchMid++;
                     buttonPressed6 = true;
                 }
                 else if (Input.GetButtonUp("Xbox_6_LB"))
                 {
-                    //AutoScouts[5].NumberOfHatchLow++;
+                    AutoScouts[5].NumberOfHatchLow++;
                     buttonPressed6 = true;
                 }
                 if (Input.GetAxis("Xbox_6_RT") == 0)
                 {
-                    rt6Auto = false;
-
                 }
                 else if (Input.GetAxis("Xbox_6_RT") == 1)
                 {
                     buttonPressed6 = true;
-                    //AutoScouts[5].NumberOfHatchHigh++;
+                    AutoScouts[5].NumberOfHatchHigh++;
                 }
                 if (Input.GetAxis("Xbox_6_LT") == 0)
                 {
-                    lt6Auto = false;
                 }
                 else if (Input.GetAxis("Xbox_6_LT") == 1)
                 {
@@ -550,368 +544,432 @@ public class MatchInfo : MonoBehaviour
                     AutoScouts[5].LightOff();
                 }
             }
-            else if (m_state == STATE.TELE)
-            {
+        else if (m_state == STATE.TELE)
+        {
      //TELE
      //controller 1
-                 bool buttonPressed = false;
+            bool buttonPressed = false;
 
-                if (Input.GetButtonUp("Xbox_1_A"))
-                {
+            if (Input.GetButtonUp("Xbox_1_A"))
+            {
                     TeleScouts[0].NumberOfBallsLow++;
                     buttonPressed = true;
-                }
-                else if (Input.GetButtonUp("Xbox_1_B"))
-                {
-                    buttonPressed = true;
-                }
-                else if (Input.GetButtonUp("Xbox_1_X"))
-                {
+            }
+            else if (Input.GetButtonUp("Xbox_1_B"))
+            {
+                 buttonPressed = true;
+            }
+            else if (Input.GetButtonUp("Xbox_1_X"))
+            {
                     TeleScouts[0].NumberOfBallsMid++;
                     buttonPressed = true;
-                }
-                else if (Input.GetButtonUp("Xbox_1_Y"))
-                {
+            }
+            else if (Input.GetButtonUp("Xbox_1_Y"))
+            {
                     TeleScouts[0].NumberOfBallsHigh++;
                     buttonPressed = true;
-                }
-                else if (Input.GetButtonUp("Xbox_1_RB"))
-                {
-                    //TeleScouts[0].NumberOfHatchMid++;
+            }
+            else if (Input.GetButtonUp("Xbox_1_RB"))
+            {
+                    TeleScouts[0].NumberOfHatchMid++;
                     buttonPressed = true;
-                }
-                else if (Input.GetButtonUp("Xbox_1_LB"))
-                {
-                    //TeleScouts[0].NumberOfHatchLow++;
+            }
+            else if (Input.GetButtonUp("Xbox_1_LB"))
+            {
+                    TeleScouts[0].NumberOfHatchLow++;
                     buttonPressed = true;
-                }
-                if (Input.GetAxis("Xbox_1_RT") == 1)
-                {
-                    //TeleScouts[0].NumberOfHatchHigh++;
+            }
+            if (Input.GetAxis("Xbox_1_RT") == 1)
+            {
+                    TeleScouts[0].NumberOfHatchHigh++;
                     buttonPressed = true;
-                }
-                if (Input.GetAxis("Xbox_1_LT") == 0)
-                {
-                    lt1Tele = false;
-                }
-                else if (Input.GetAxis("Xbox_1_LT") == 1)
-                {
+            }
+            if (Input.GetAxis("Xbox_1_LT") == 1)
+            {
                     buttonPressed = true;
-                    /* if (lt1Tele == false && TeleScouts[0].NumberOfCubesInScale > 0)
-                     {
-                         TeleScouts[0].NumberOfCubesInScale--;
-
-                         lt1Tele = true;
-                     }*/
-                }
-                if (buttonPressed)
-                {
+                    TeleScouts[0].climb++;
+                    /*if( == 0)
+                    {
+                       //no climb
+                    }
+                    else if(climb1 == 1)
+                    {
+                        //climb platform
+                    }
+                    else if (climb1 == 2)
+                    {
+                        //climb level 2
+                    }
+                    else if (climb1 == 3)
+                    {
+                        //climb level 3
+                    }*/
+            }
+            if (buttonPressed)
+            {
                     TeleScouts[0].LightOn();
-                }
-                else
-                {
+            }
+            else
+            {
                     TeleScouts[0].LightOff();
-                }
+            }
 
    //controller 2
-                bool buttonPressed2 = false;
+            bool buttonPressed2 = false;
+            //int climb2 = 0;
 
-                if (Input.GetButtonUp("Xbox_2_A"))
-                {
+            if (Input.GetButtonUp("Xbox_2_A"))
+            {
                     TeleScouts[1].NumberOfBallsLow++;
                     buttonPressed2 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_2_B"))
-                {
-                    buttonPressed2 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_2_X"))
-                {
+            }
+            else if (Input.GetButtonUp("Xbox_2_B"))
+            {
+                buttonPressed2 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_2_X"))
+            {
                     TeleScouts[1].NumberOfBallsMid++;
                     buttonPressed2 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_2_Y"))
-                {
+            }
+            else if (Input.GetButtonUp("Xbox_2_Y"))
+            {
                     TeleScouts[1].NumberOfBallsHigh++;
                     buttonPressed2 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_2_RB"))
-                {
-                    //TeleScouts[1].NumberOfHatchMid++;
+            }
+            else if (Input.GetButtonUp("Xbox_2_RB"))
+            {
+                    TeleScouts[1].NumberOfHatchMid++;
                     buttonPressed2 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_2_LB"))
-                {
-                    //TeleScouts[1].NumberOfHatchLow++;
+            }
+            else if (Input.GetButtonUp("Xbox_2_LB"))
+            {
+                    TeleScouts[1].NumberOfHatchLow++;
                     buttonPressed2 = true;
-                }
-                if (Input.GetAxis("Xbox_2_RT") == 1)
-                {
-                    //TeleScouts[1].NumberOfHatchHigh;
+            }
+            if (Input.GetAxis("Xbox_2_RT") == 1)
+            {
+                    TeleScouts[1].NumberOfHatchHigh++;
                     buttonPressed2 = true;
-                }
-                if (Input.GetAxis("Xbox_2_LT") == 0)
-                {
-                    lt2Tele = false;
-                }
-                else if (Input.GetAxis("Xbox_2_LT") == 1)
-                {
+            }
+            if (Input.GetAxis("Xbox_2_LT") == 1)
+            {
                     buttonPressed2 = true;
-                    /* if (lt2Tele == false && TeleScouts[1].NumberOfCubesInScale > 0)
-                     {
-                         TeleScouts[1].NumberOfCubesInScale--;
+                    TeleScouts[1].climb++;
+                    /*if (climb2 == 0)
+                    {
+                        //no climb
+                    }
+                    else if (climb2 == 1)
+                    {
+                        //climb platform
+                    }
+                    else if (climb2 == 2)
+                    {
+                        //climb level 2
+                    }
+                    else if (climb2 == 3)
+                    {
+                        //climb level 3
+                    }*/
+            }
 
-                         lt2Tele = true;
-                     }*/
-                }
-
-                if (buttonPressed2)
-                {
+            if (buttonPressed2)
+            {
                     TeleScouts[1].LightOn();
-                }
-                else
-                {
+            }
+            else
+            {
                     TeleScouts[1].LightOff();
-                }
+            }
 
    //controller 3
-                bool buttonPressed3 = false;
+            bool buttonPressed3 = false;
+            //int climb3 = 0;
 
-                if (Input.GetButtonUp("Xbox_3_A"))
-                {
+            if (Input.GetButtonUp("Xbox_3_A"))
+            {
                     TeleScouts[2].NumberOfBallsLow++;
                     buttonPressed3 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_3_B"))
-                {
+            }
+            else if (Input.GetButtonUp("Xbox_3_B"))
+            {
                     buttonPressed3 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_3_X"))
-                {
+            }
+            else if (Input.GetButtonUp("Xbox_3_X"))
+            {
                     TeleScouts[2].NumberOfBallsMid++;
                     buttonPressed3 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_3_Y"))
-                {
+            }
+            else if (Input.GetButtonUp("Xbox_3_Y"))
+            {
                     TeleScouts[2].NumberOfBallsHigh++;
                     buttonPressed3 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_3_RB"))
-                {
-                    //TeleScouts[2].NumberOfHatchMid++;
+            }
+            else if (Input.GetButtonUp("Xbox_3_RB"))
+            {
+                    TeleScouts[2].NumberOfHatchMid++;
                     buttonPressed3 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_3_LB"))
-                {
-                    //TeleScouts[2].NumberOfHatchLow++;
+            }
+            else if (Input.GetButtonUp("Xbox_3_LB"))
+            {
+                    TeleScouts[2].NumberOfHatchLow++;
                     buttonPressed3 = true;
-                }
-                if (Input.GetAxis("Xbox_3_RT") == 1)
-                {
-                    //TeleScouts[2].NumberOfHatchHigh++;
+            }
+            if (Input.GetAxis("Xbox_3_RT") == 1)
+            {
+                    TeleScouts[2].NumberOfHatchHigh++;
                     buttonPressed2 = true;
-                }
-                if (Input.GetAxis("Xbox_3_LT") == 0)
-                {
-                    lt3Tele = false;
-                }
-                else if (Input.GetAxis("Xbox_3_LT") == 1)
-                {
+            }
+            if (Input.GetAxis("Xbox_3_LT") == 0)
+            {
+            }
+            else if (Input.GetAxis("Xbox_3_LT") == 1)
+            {
                     buttonPressed3 = true;
-                    /* if (lt3Tele == false && TeleScouts[2].NumberOfCubesInScale > 0)
-                     {
-                         TeleScouts[2].NumberOfCubesInScale--;
-
-                         lt3Tele = true;
-                     }*/
-                }
-                if (buttonPressed3)
-                {
+                    TeleScouts[2].climb++;
+                    /*if (climb3 == 0)
+                    {
+                        //no climb
+                    }
+                    else if (climb3 == 1)
+                    {
+                        //climb platform
+                    }
+                    else if (climb3 == 2)
+                    {
+                        //climb level 2
+                    }
+                    else if (climb3 == 3)
+                    {
+                        //climb level 3
+                    }*/
+            }
+            if (buttonPressed3)
+            {
                     TeleScouts[2].LightOn();
-                }
-                else
-                {
+            }
+            else
+            {
                     TeleScouts[2].LightOff();
-                }
+            }
 
     //controller 4
 
-                bool buttonPressed4 = false;
+            bool buttonPressed4 = false;
+           // int climb4 = 0;
 
-                if (Input.GetButtonUp("Xbox_4_A"))
-                {
+            if (Input.GetButtonUp("Xbox_4_A"))
+            {
                     TeleScouts[3].NumberOfBallsLow++;
                     buttonPressed4 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_4_B"))
-                {
+            }
+            else if (Input.GetButtonUp("Xbox_4_B"))
+            {
                     buttonPressed4 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_4_X"))
-                {
+            }
+            else if (Input.GetButtonUp("Xbox_4_X"))
+            {
                     TeleScouts[3].NumberOfBallsMid++;
                     buttonPressed4 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_4_Y"))
-                {
+            }
+            else if (Input.GetButtonUp("Xbox_4_Y"))
+            {
                     TeleScouts[3].NumberOfBallsHigh++;
                     buttonPressed4 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_4_RB"))
-                {
-                    // TeleScouts[3].NumberOfHatchMid++;
+            }
+            else if (Input.GetButtonUp("Xbox_4_RB"))
+            {
+                    TeleScouts[3].NumberOfHatchMid++;
                     buttonPressed4 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_4_LB"))
-                {
-                    // TeleScouts[3].NumberOfHatchLow++;
+            }
+            else if (Input.GetButtonUp("Xbox_4_LB"))
+            {
+                    TeleScouts[3].NumberOfHatchLow++;
                     buttonPressed4 = true;
-                }
-                if (Input.GetAxis("Xbox_4_RT") == 1)
-                {
-                    //TeleScouts[3].NumberOfHatchHigh++;
+            }
+            if (Input.GetAxis("Xbox_4_RT") == 1)
+            {
+                    TeleScouts[3].NumberOfHatchHigh++;
                     buttonPressed4 = true;
-                }
-                if (Input.GetAxis("Xbox_4_LT") == 0)
+            }
+            if (Input.GetAxis("Xbox_4_LT") == 0)
+            {
+            }
+            else if (Input.GetAxis("Xbox_4_LT") == 1)
+            {
+                buttonPressed4 = true;
+                TeleScouts[3].climb++;
+                /*if (climb4 == 0)
                 {
-                    lt4Tele = false;
+                    //no climb
                 }
-                else if (Input.GetAxis("Xbox_4_LT") == 1)
+                else if (climb4 == 1)
                 {
-                    buttonPressed4 = true;
-                    /* if (lt4Tele == false && TeleScouts[3].NumberOfCubesInScale > 0)
-                     {
-                         TeleScouts[3].NumberOfCubesInScale--;                  
-                         lt4Tele = true;
-                     }*/
+                    //climb platform
                 }
-                if (buttonPressed4)
+                else if (climb4 == 2)
                 {
+                    //climb level 2
+                }
+                else if (climb4 == 3)
+                {
+                    //climb level 3
+                }*/
+            }
+            if (buttonPressed4)
+            {
                     TeleScouts[3].LightOn();
-                }
-                else
-                {
+            }
+            else
+            {
                     TeleScouts[3].LightOff();
-                }
+            }
 
     //controller 5
-                bool buttonPressed5 = false;
-
-                if (Input.GetButtonUp("Xbox_5_A"))
-                {
+            bool buttonPressed5 = false;
+            //int climb5 = 0;
+            if (Input.GetButtonUp("Xbox_5_A"))
+            {
                     TeleScouts[4].NumberOfBallsLow++;
                     buttonPressed5 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_5_B"))
-                {
+            }
+            else if (Input.GetButtonUp("Xbox_5_B"))
+            {
                     buttonPressed5 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_5_X"))
-                {
+            }
+            else if (Input.GetButtonUp("Xbox_5_X"))
+            {
                     TeleScouts[4].NumberOfBallsMid++;
                     buttonPressed5 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_5_Y"))
-                {
+            }
+            else if (Input.GetButtonUp("Xbox_5_Y"))
+            {
                     TeleScouts[4].NumberOfBallsHigh++;
                     buttonPressed5 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_5_RB"))
-                {
-                    //TeleScouts[4].NumberOfHatchMid++;
+            }
+            else if (Input.GetButtonUp("Xbox_5_RB"))
+            {
+                    TeleScouts[4].NumberOfHatchMid++;
                     buttonPressed5 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_5_LB"))
-                {
-                    //TeleScouts[4].NumberOfHatchLow++;
+            }
+            else if (Input.GetButtonUp("Xbox_5_LB"))
+            {
+                    TeleScouts[4].NumberOfHatchLow++;
                     buttonPressed5 = true;
-                }
-                if (Input.GetAxis("Xbox_5_RT") == 1)
-                {
-                    // TeleScouts[4].NumberOfHatchHigh++;
+            }
+            if (Input.GetAxis("Xbox_5_RT") == 1)
+            {
+                    TeleScouts[4].NumberOfHatchHigh++;
                     buttonPressed5 = true;
-                }
-                if (Input.GetAxis("Xbox_5_LT") == 0)
+            }
+            if (Input.GetAxis("Xbox_5_LT") == 0)
+            {
+            }
+            else if (Input.GetAxis("Xbox_5_LT") == 1)
+            {
+                 buttonPressed5 = true;
+                TeleScouts[4].climb++;
+               /* if (climb5 == 0)
                 {
-                    lt5Tele = false;
+                    //no climb
                 }
-                else if (Input.GetAxis("Xbox_5_LT") == 1)
+                else if (climb5 == 1)
                 {
-                    buttonPressed5 = true;
+                    //climb platform
                 }
-                if (buttonPressed5)
+                else if (climb5 == 2)
                 {
+                    //climb level 2
+                }
+                else if (climb5 == 3)
+                {
+                    //climb level 3
+                }*/
+            }
+            if (buttonPressed5)
+            {
                     TeleScouts[4].LightOn();
-                }
-                else
-                {
+            }
+            else
+            {
                     TeleScouts[4].LightOff();
-                }
+            }
 
      //controller 6
-                bool buttonPressed6 = false;
-
-                if (Input.GetButtonUp("Xbox_6_A"))
-                {
+            bool buttonPressed6 = false;
+            //int climb6 = 0;
+            if (Input.GetButtonUp("Xbox_6_A"))
+            {
                     TeleScouts[5].NumberOfBallsLow++;
                     buttonPressed6 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_6_B"))
-                {
+            }
+            else if (Input.GetButtonUp("Xbox_6_B"))
+            {
                     buttonPressed6 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_6_X"))
-                {
+            }
+            else if (Input.GetButtonUp("Xbox_6_X"))
+            {
                     TeleScouts[5].NumberOfBallsMid++;
                     buttonPressed6 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_6_Y"))
-                {
+            }
+            else if (Input.GetButtonUp("Xbox_6_Y"))
+            {
                     TeleScouts[5].NumberOfBallsHigh++;
                     buttonPressed6 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_6_RB"))
-                {
-                    //TeleScouts[5].NumberOfHatchMid++;
-                    buttonPressed6 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_6_LB"))
-                {
-                    // TeleScouts[5].NumberOfHatchLow++;
-                    buttonPressed6 = true;
-                }
-                if (Input.GetAxis("Xbox_6_RT") == 0)
-                {
-                    rt6Tele = false;
-                }
-                else if (Input.GetAxis("Xbox_6_RT") == 1)
-                {
-                    //TeleScouts[5].NumberOfHatchHigh++;
-                    buttonPressed6 = true;
-                }
-                if (Input.GetAxis("Xbox_6_LT") == 0)
-                {
-                    lt6Tele = false;
-                }
-                else if (Input.GetAxis("Xbox_6_LT") == 1)
-                {
-                    buttonPressed6 = true;
-                    /*  if (lt6Tele == false && TeleScouts[5].NumberOfCubesInScale > 0)
-                      {
-                          TeleScouts[5].NumberOfCubesInScale--;
-
-                          lt6Tele = true;
-                      }*/
-                }
-                if (buttonPressed6)
-                {
-                    TeleScouts[5].LightOn();
-                }
-                else
-                {
-                    TeleScouts[5].LightOff();
-                }
             }
+            else if (Input.GetButtonUp("Xbox_6_RB"))
+            {
+                    TeleScouts[5].NumberOfHatchMid++;
+                    buttonPressed6 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_6_LB"))
+            {
+                    TeleScouts[5].NumberOfHatchLow++;
+                    buttonPressed6 = true;
+            }
+            if (Input.GetAxis("Xbox_6_RT") == 0)
+            {
+            }
+            else if (Input.GetAxis("Xbox_6_RT") == 1)
+            {
+                    TeleScouts[5].NumberOfHatchHigh++;
+                    buttonPressed6 = true;
+            }
+            if (Input.GetAxis("Xbox_6_LT") == 0)
+            {
+                    
+            }
+            else if (Input.GetAxis("Xbox_6_LT") == 1)
+            {
+                buttonPressed6 = true;
+                TeleScouts[5].climb++;
+               /* if (climb6 == 0)
+                {
+                    //no climb
+                }
+                else if (climb6 == 1)
+                {
+                    //climb platform
+                }
+                else if (climb6 == 2)
+                {
+                    //climb level 2
+                }
+                else if (climb6 == 3)
+                {
+                    //climb level 3
+                }*/
+            }
+            if (buttonPressed6)
+            {
+                    TeleScouts[5].LightOn();
+            }
+            else
+            {
+                TeleScouts[5].LightOff();
+            }
+        }
 
             #endregion
         }

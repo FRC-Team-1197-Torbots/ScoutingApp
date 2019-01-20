@@ -20,9 +20,10 @@ public class Scout : MonoBehaviour
     public int NumberOfBallsLow;
     public int NumberOfBallsMid;
     public int NumberOfBallsHigh;
-    public int NumberOfDisksLow;
-    public int NumberOfDisksMid;
-    public int NumberOfDisksHigh;
+    public int NumberOfHatchLow;
+    public int NumberOfHatchMid;
+    public int NumberOfHatchHigh;
+    public int climb;
 
     [Header("Match Number")]
     public int MatchNumber;
@@ -32,11 +33,12 @@ public class Scout : MonoBehaviour
     public Text TeamNumberText;
 
     public bool CrossBaseline;
-    public bool Climb;
+    //public bool Climb;
     public bool Result;
     public string TeamNumber;
     public string quest;
-    //xbox A = win, xbox B = lost, xbox y = climb, xbox x = vault, xbox rb = switch, xbox lb = scale
+    //xbox A = win, xbox B = lost, xbox y = climb, xbox x = vault, xbox rb = switch, xbox lb = scale 2018
+    //xbox A = BallLow, xbox X = BallMid, xbox Y = BallHigh, xbox LB = HatchLow, xboxRB = HatchMid xbx RT = HatchHigh, xbox b auto baseline 2019 
     // Use this for initialization
     void Awake()
     {
@@ -55,12 +57,13 @@ public class Scout : MonoBehaviour
         NumberOfBallsLow = 0;
         NumberOfBallsMid = 0;
         NumberOfBallsHigh = 0;
-        NumberOfDisksLow = 0;
-        NumberOfDisksMid = 0;
-        NumberOfDisksHigh = 0;
+        NumberOfHatchLow = 0;
+        NumberOfHatchMid = 0;
+        NumberOfHatchHigh = 0;
+        climb = 0;
 
         CrossBaseline = false;
-        Climb = false;
+        //Climb = false;
         Result = false;
 /*
         if(TeamNumberText)
@@ -101,32 +104,57 @@ public class Scout : MonoBehaviour
             Transform score = child.GetChild(1);
             Transform presses = child.GetChild(2);
 
-            if (child.name.Contains("Switch"))
+            if (child.name.Contains("Cargo Low"))
             {
                 score.GetComponent<Text>().text = NumberOfBallsLow.ToString();
                 presses.GetComponent<Text>().text = NumberOfBallsLow.ToString();
             }
-            else if (child.name.Contains("Vault"))
+            else if (child.name.Contains("Cargo High"))
             {
                 score.GetComponent<Text>().text = NumberOfBallsHigh.ToString();
-                presses.GetComponent<Text>().text = NumberOfBallsHigh.ToString();//NumberOfBallsLow.ToString();
+                presses.GetComponent<Text>().text = NumberOfBallsHigh.ToString();
             }
-            else if (child.name.Contains("Scale"))
+            else if (child.name.Contains("Cargo Mid"))
             {
                 score.GetComponent<Text>().text = NumberOfBallsMid.ToString();
                 presses.GetComponent<Text>().text = NumberOfBallsMid.ToString();
             }
+            else if (child.name.Contains("Hatch Low"))
+            {
+                score.GetComponent<Text>().text = NumberOfHatchLow.ToString();
+                presses.GetComponent<Text>().text = NumberOfHatchLow.ToString();
+            }
+            else if (child.name.Contains("Hatch Mid"))
+            {
+                score.GetComponent<Text>().text = NumberOfHatchMid.ToString();
+                presses.GetComponent<Text>().text = NumberOfHatchMid.ToString();
+            }
+            else if (child.name.Contains("Hatch High"))
+            {
+                score.GetComponent<Text>().text = NumberOfHatchHigh.ToString();
+                presses.GetComponent<Text>().text = NumberOfHatchHigh.ToString();
+            }
             else if (child.name.Contains("Climb"))
             {
 
-                if (Climb)
+                if (climb == 1)
                 {
-                    presses.GetComponent<Text>().text = "Climbed";
-                    score.GetComponent<Text>().text = "30";
+                    presses.GetComponent<Text>().text = "Platform";
+                    score.GetComponent<Text>().text = "3";
+                }
+                else if(climb == 2)
+                {
+                    presses.GetComponent<Text>().text = "Lev 2";
+                    score.GetComponent<Text>().text = "6";
+                }
+                else if (climb == 3)
+                {
+                    presses.GetComponent<Text>().text = "Lev 3";
+                    score.GetComponent<Text>().text = "12";
                 }
                 else
                 {
-                    presses.GetComponent<Text>().text = "Not Climbed";
+                    presses.GetComponent<Text>().text = "";
                     score.GetComponent<Text>().text = "0";
                 }
             }
@@ -209,7 +237,7 @@ public class Scout : MonoBehaviour
         Result = false;
     } */
    
-    public void decBallsLow()
+    /*public void decBallsLow()
     {
         NumberOfBallsLow--;
         
@@ -223,5 +251,5 @@ public class Scout : MonoBehaviour
     public void decBallsHigh()
     {
         NumberOfBallsHigh--;
-    }
+    }*/
 }

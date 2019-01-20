@@ -67,9 +67,12 @@ public class Submit : MonoBehaviour
         {
             int teamNum = s.NumberTeam;
             int match = s.MatchNumber;
-            int cubeVault = s.NumberOfBallsHigh;
-            int cubeSwitch = s.NumberOfBallsLow;
-            int cubeScale = s.NumberOfBallsMid;
+            int ballsHigh = s.NumberOfBallsHigh;
+            int ballsLow = s.NumberOfBallsLow;
+            int ballsMid = s.NumberOfBallsMid;
+            int hatchLow = s.NumberOfHatchLow;
+            int hatchMid = s.NumberOfHatchMid;
+            int hatchHigh = s.NumberOfHatchHigh;
             Boolean baseline = s.CrossBaseline;
             String baselineString = "\"Not passed\"";
             if (baseline)
@@ -77,7 +80,8 @@ public class Submit : MonoBehaviour
 
  
             autoData[j] = "INSERT INTO AUTO VALUES" + "(" + teamNum.ToString() + ", " + match.ToString() + ", "
-                    + cubeSwitch.ToString() + ", " + baselineString + ", " + cubeScale.ToString() + ", " + cubeVault.ToString() + ")";
+                    + ballsLow.ToString() + ", " + baselineString + ", " + ballsMid.ToString() + ", " + ballsHigh.ToString() + ", " +
+                    hatchLow.ToString()  + ", " + hatchMid.ToString() + ", " + hatchHigh.ToString() + ", " + ")";
             j++;
             s.NumberTeam = 0;
         }
@@ -88,9 +92,13 @@ public class Submit : MonoBehaviour
         {
             int teamNum = s.NumberTeam;
             int match = s.MatchNumber;
-            int cubeSwitch = s.NumberOfBallsLow;
-            int cubeScale = s.NumberOfBallsMid;
-            int cubeVault = s.NumberOfBallsHigh;
+            int ballsLow = s.NumberOfBallsLow;
+            int ballsMid = s.NumberOfBallsMid;
+            int ballsHigh = s.NumberOfBallsHigh;
+            int hatchLow = s.NumberOfHatchLow;
+            int hatchMid = s.NumberOfHatchMid;
+            int hatchHigh = s.NumberOfHatchHigh;
+
             String outcome = "";
             String climbString = "\"No\"";
             String quest = "\""+ s.quest + "\"";
@@ -103,13 +111,22 @@ public class Submit : MonoBehaviour
             {
                 outcome = "\"Lost\"";
             }
-            if (s.Climb)
+            if (s.climb == 1)
             {
-                climbString = "\"Yes\"";
+                climbString = "\"Plat\"";
+            }
+            else if (s.climb == 2)
+            {
+                climbString = "\"Lev 2\"";
+            }
+            else if(s.climb == 3)
+            {
+                climbString = "\"Lev 3\"";
             }
 
             teleData[i] = "INSERT INTO TELEOP VALUES" + "(" + teamNum + ", " + match.ToString() + ", "
-                + cubeSwitch.ToString() + ", " + cubeVault.ToString() + ", " + cubeScale.ToString() + ", " + climbString
+                + ballsLow.ToString() + ", " + ballsHigh.ToString() + ", " + ballsMid.ToString() + ", " + hatchLow.ToString() + ", " +  
+                hatchMid.ToString() + ", " + hatchHigh.ToString() + ", "+ climbString
                 + ", " + outcome + ", " + quest + ")";
 
             s.NumberTeam = 0;
