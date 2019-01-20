@@ -24,6 +24,7 @@ public class Scout : MonoBehaviour
     public int NumberOfHatchMid;
     public int NumberOfHatchHigh;
     public int climb;
+    public int startPos;
 
     [Header("Match Number")]
     public int MatchNumber;
@@ -61,6 +62,7 @@ public class Scout : MonoBehaviour
         NumberOfHatchMid = 0;
         NumberOfHatchHigh = 0;
         climb = 0;
+        startPos = 0;
 
         CrossBaseline = false;
         //Climb = false;
@@ -133,6 +135,19 @@ public class Scout : MonoBehaviour
             {
                 score.GetComponent<Text>().text = NumberOfHatchHigh.ToString();
                 presses.GetComponent<Text>().text = NumberOfHatchHigh.ToString();
+            }
+            else if(child.name.Contains("Start Pos"))
+            {
+                if(startPos == 1)
+                {
+                    presses.GetComponent<Text>().text = "Platform";
+                    score.GetComponent<Text>().text = "3";
+                }
+                else if(startPos == 2)
+                {
+                    presses.GetComponent<Text>().text = "Lev 2";
+                    score.GetComponent<Text>().text = "6";
+                }
             }
             else if (child.name.Contains("Climb"))
             {
