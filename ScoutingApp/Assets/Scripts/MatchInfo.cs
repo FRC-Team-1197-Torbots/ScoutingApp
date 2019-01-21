@@ -234,11 +234,11 @@ public class MatchInfo : MonoBehaviour
             }
             else if (Input.GetAxis("Xbox_1_RT") == 1)
             {
-                rt1Auto = true;
-                if(rt1Auto == true)
+                buttonPressed = true;
+                if(rt1Auto == false)
                 {
                     AutoScouts[0].NumberOfHatchHigh++;
-                    buttonPressed = true;
+                    rt1Auto = true;
                 }  
             }
             if (Input.GetAxis("Xbox_1_LT") == 0)
@@ -247,11 +247,11 @@ public class MatchInfo : MonoBehaviour
             }
             else if (Input.GetAxis("Xbox_1_LT") == 1)
             {
-                lt1Auto = true;
-                if (lt1Auto == true)
+                buttonPressed = true;
+                if (lt1Auto == false)
                 {
                     AutoScouts[0].startPos++;
-                    buttonPressed = true;
+                    lt1Auto = true;
                 }
             }
             if (buttonPressed)
@@ -294,15 +294,31 @@ public class MatchInfo : MonoBehaviour
                 AutoScouts[1].NumberOfHatchLow++;
                 buttonPressed2 = true;
             }
-            if (Input.GetAxis("Xbox_2_RT") == 1)
+            if (Input.GetAxis("Xbox_2_RT") == 0)
             {
-                AutoScouts[1].NumberOfHatchHigh++;
-                buttonPressed2 = true;
+                rt2Auto = false;
             }
-            if (Input.GetAxis("Xbox_2_LT") == 1)
+            else if (Input.GetAxis("Xbox_2_RT") == 1)
             {
                 buttonPressed2 = true;
-                AutoScouts[1].startPos++;
+                if (rt2Auto == false)
+                {
+                    AutoScouts[1].NumberOfHatchHigh++;
+                    rt2Auto = true;
+                }
+            }
+            if (Input.GetAxis("Xbox_2_LT") == 0)
+            {
+                lt2Auto = false;
+            }
+            else if (Input.GetAxis("Xbox_2_LT") == 1)
+            {
+                buttonPressed2 = true;
+                if (lt2Auto == false)
+                {
+                    AutoScouts[1].startPos++;
+                    lt2Auto = true;
+                }
             }
             if (buttonPressed2)
             {
@@ -314,209 +330,273 @@ public class MatchInfo : MonoBehaviour
             }
 
    //controller 3
-                bool buttonPressed3 = false;
-                if (Input.GetButtonUp("Xbox_3_A"))
-                {
-                    AutoScouts[2].NumberOfBallsLow++;
-                    buttonPressed3 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_3_B"))
-                {
-                    AutoScouts[2].CrossBaseline = true;
-                    buttonPressed3 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_3_X"))
-                {
-                    AutoScouts[2].NumberOfBallsMid++;
-                    buttonPressed3 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_3_Y"))
-                {
-                    AutoScouts[2].NumberOfBallsHigh++;
-                    buttonPressed3 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_3_RB"))
-                {
-                    AutoScouts[2].NumberOfHatchMid++;
-                    buttonPressed3 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_3_LB"))
-                {
-                    AutoScouts[2].NumberOfHatchLow++;
-                    buttonPressed3 = true;
-                }
-                if (Input.GetAxis("Xbox_3_RT") == 1)
+            bool buttonPressed3 = false;
+            if (Input.GetButtonUp("Xbox_3_A"))
+            {
+                AutoScouts[2].NumberOfBallsLow++;
+               buttonPressed3 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_3_B"))
+            {
+                AutoScouts[2].CrossBaseline = true;
+                buttonPressed3 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_3_X"))
+            {
+                AutoScouts[2].NumberOfBallsMid++;
+                buttonPressed3 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_3_Y"))
+            {
+                AutoScouts[2].NumberOfBallsHigh++;
+                buttonPressed3 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_3_RB"))
+            {
+                AutoScouts[2].NumberOfHatchMid++;
+                buttonPressed3 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_3_LB"))
+            {
+                AutoScouts[2].NumberOfHatchLow++;
+                buttonPressed3 = true;
+            }
+            if (Input.GetAxis("Xbox_3_RT") == 0)
+            {
+                rt3Auto = false;
+            }
+            else if (Input.GetAxis("Xbox_3_RT") == 1)
+            {
+                buttonPressed3 = true;
+                if (rt3Auto == false)
                 {
                     AutoScouts[2].NumberOfHatchHigh++;
-                    buttonPressed3 = true; 
-                }
-                if (Input.GetAxis("Xbox_3_LT") == 1)
-                {
-                    buttonPressed3 = true;
-                    AutoScouts[2].startPos++;
-                }
-                if (buttonPressed3)
-                {
-                    AutoScouts[2].LightOn();
-                }
-                else
-                {
-                    AutoScouts[2].LightOff();
-                }
-
-    // controller 4
-                bool buttonPressed4 = false;
-                if (Input.GetButtonUp("Xbox_4_A"))
-                {
-                    AutoScouts[3].NumberOfBallsLow++;
-                    buttonPressed4 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_4_B"))
-                {
-                    AutoScouts[3].CrossBaseline = true;
-                    buttonPressed4 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_4_X"))
-                {
-                    AutoScouts[3].NumberOfBallsMid++;
-                    buttonPressed4 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_4_Y"))
-                {
-                    AutoScouts[3].NumberOfBallsHigh++;
-                    buttonPressed4 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_4_RB"))
-                {
-                    AutoScouts[3].NumberOfHatchMid++;
-                    buttonPressed4 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_4_LB"))
-                {
-                    AutoScouts[3].NumberOfHatchLow++;
-                    buttonPressed4 = true;
-                }
-                if (Input.GetAxis("Xbox_4_RT") == 1)
-                {
-                    buttonPressed4 = true;
-                    AutoScouts[3].NumberOfHatchHigh++;
-                }
-                if (Input.GetAxis("Xbox_4_LT") == 1)
-                {
-                    buttonPressed4 = true;
-                    AutoScouts[3].startPos++;
-                }
-                if (buttonPressed4)
-                {
-                    AutoScouts[3].LightOn();
-                }
-                else
-                {
-                    AutoScouts[3].LightOff();
-                }
-
-    //controller 5
-                bool buttonPressed5 = false;
-                if (Input.GetButtonUp("Xbox_5_A"))
-                {
-                    AutoScouts[4].NumberOfBallsLow++;
-                    buttonPressed5 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_5_B"))
-                {
-                    AutoScouts[4].CrossBaseline = true;
-                    buttonPressed5 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_5_X"))
-                {
-                    AutoScouts[4].NumberOfBallsMid++;
-                    buttonPressed5 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_5_Y"))
-                {
-                    AutoScouts[4].NumberOfBallsHigh++;
-                    buttonPressed5 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_5_RB"))
-                {
-                    AutoScouts[4].NumberOfHatchMid++;
-                    buttonPressed5 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_5_LB"))
-                {
-                    AutoScouts[4].NumberOfHatchLow++;
-                    buttonPressed5 = true;
-                }
-                if (Input.GetAxis("Xbox_5_RT") == 1)
-                {
-                    buttonPressed5 = true;
-                    AutoScouts[4].NumberOfHatchHigh++;
-                }
-                if (Input.GetAxis("Xbox_5_LT") == 1)
-                {
-                    buttonPressed5 = true;
-                    AutoScouts[4].startPos++;
-                }
-                if (buttonPressed5)
-                {
-                    AutoScouts[4].LightOn();
-                }
-                else
-                {
-                    AutoScouts[4].LightOff();
-                }
-
-    //controller 6
-                bool buttonPressed6 = false;
-                if (Input.GetButtonUp("Xbox_6_A"))
-                {
-                    AutoScouts[5].NumberOfBallsLow++;
-                    buttonPressed6 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_6_B"))
-                {
-                    AutoScouts[5].CrossBaseline = true;
-                    buttonPressed6 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_6_X"))
-                {
-                    AutoScouts[5].NumberOfBallsMid++;
-                    buttonPressed6 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_6_Y"))
-                {
-                    AutoScouts[5].NumberOfBallsHigh++;
-                    buttonPressed6 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_6_RB"))
-                {
-                    AutoScouts[5].NumberOfHatchMid++;
-                    buttonPressed6 = true;
-                }
-                else if (Input.GetButtonUp("Xbox_6_LB"))
-                {
-                    AutoScouts[5].NumberOfHatchLow++;
-                    buttonPressed6 = true;
-                }
-                if (Input.GetAxis("Xbox_6_RT") == 1)
-                {
-                    buttonPressed6 = true;
-                    AutoScouts[5].NumberOfHatchHigh++;
-                }
-                if (Input.GetAxis("Xbox_6_LT") == 1)
-                {
-                    buttonPressed6 = true;
-                    AutoScouts[5].startPos++;
-                }
-                if (buttonPressed6)
-                {
-                    AutoScouts[5].LightOn();
-                }
-                else
-                {
-                    AutoScouts[5].LightOff();
+                    rt3Auto = true;
                 }
             }
+            if (Input.GetAxis("Xbox_3_LT") == 0)
+            {
+                lt3Auto = false;
+            }
+            else if (Input.GetAxis("Xbox_3_LT") == 1)
+            {
+                buttonPressed3 = true;
+                if (lt3Auto == false)
+                {
+                    AutoScouts[2].startPos++;
+                    lt3Auto = true;
+                }
+            }
+            if (buttonPressed3)
+            {
+                AutoScouts[2].LightOn();
+            }
+            else
+            {
+                AutoScouts[2].LightOff();
+            }
+
+    // controller 4
+            bool buttonPressed4 = false;
+            if (Input.GetButtonUp("Xbox_4_A"))
+            {
+                AutoScouts[3].NumberOfBallsLow++;
+                buttonPressed4 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_4_B"))
+            {
+                AutoScouts[3].CrossBaseline = true;
+                buttonPressed4 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_4_X"))
+            {
+                AutoScouts[3].NumberOfBallsMid++;
+                buttonPressed4 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_4_Y"))
+            {
+                AutoScouts[3].NumberOfBallsHigh++;
+                buttonPressed4 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_4_RB"))
+            {
+                AutoScouts[3].NumberOfHatchMid++;
+                buttonPressed4 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_4_LB"))
+            {
+                AutoScouts[3].NumberOfHatchLow++;
+                buttonPressed4 = true;
+            }
+            if (Input.GetAxis("Xbox_4_RT") == 0)
+            {
+                rt4Auto = false;
+            }
+            else if (Input.GetAxis("Xbox_4_RT") == 1)
+            {
+                buttonPressed4 = true;
+                if (rt4Auto == false)
+                {
+                    AutoScouts[3].NumberOfHatchHigh++;
+                    rt4Auto = true;
+                }
+            }
+            if (Input.GetAxis("Xbox_4_LT") == 0)
+            {
+                lt4Auto = false;
+            }
+            else if (Input.GetAxis("Xbox_4_LT") == 1)
+            {
+                buttonPressed4 = true;
+                if (lt4Auto == false)
+                {
+                    AutoScouts[3].startPos++;
+                    lt4Auto = true;
+                }
+            }
+            if (buttonPressed4)
+            {
+                AutoScouts[3].LightOn();
+            }
+            else
+            {
+                AutoScouts[3].LightOff();
+            }
+
+    //controller 5
+            bool buttonPressed5 = false;
+            if (Input.GetButtonUp("Xbox_5_A"))
+            {
+                AutoScouts[4].NumberOfBallsLow++;
+                buttonPressed5 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_5_B"))
+            {
+                AutoScouts[4].CrossBaseline = true;
+                buttonPressed5 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_5_X"))
+            {
+                AutoScouts[4].NumberOfBallsMid++;
+                buttonPressed5 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_5_Y"))
+            {
+                AutoScouts[4].NumberOfBallsHigh++;
+                buttonPressed5 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_5_RB"))
+            {
+                AutoScouts[4].NumberOfHatchMid++;
+                buttonPressed5 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_5_LB"))
+            {
+                AutoScouts[4].NumberOfHatchLow++;
+                buttonPressed5 = true;
+            }
+            if (Input.GetAxis("Xbox_5_RT") == 0)
+            {
+                rt5Auto = false;
+            }
+            else if (Input.GetAxis("Xbox_5_RT") == 1)
+            {
+                buttonPressed5 = true;
+                if (rt5Auto == false)
+                {
+                    AutoScouts[4].NumberOfHatchHigh++;
+                    rt5Auto = true;
+                }
+            }
+            if (Input.GetAxis("Xbox_5_LT") == 0)
+            {
+                lt5Auto = false;
+            }
+            else if (Input.GetAxis("Xbox_5_LT") == 1)
+            {
+                buttonPressed5 = true;
+                if (lt5Auto == false)
+                {
+                    AutoScouts[4].startPos++;
+                    lt5Auto = true;
+                }
+            }
+            if (buttonPressed5)
+            {
+                AutoScouts[4].LightOn();
+            }
+            else
+            {
+                AutoScouts[4].LightOff();
+            }
+
+    //controller 6
+            bool buttonPressed6 = false;
+            if (Input.GetButtonUp("Xbox_6_A"))
+            {
+                AutoScouts[5].NumberOfBallsLow++;
+                buttonPressed6 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_6_B"))
+            {
+                AutoScouts[5].CrossBaseline = true;
+                buttonPressed6 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_6_X"))
+            {
+                AutoScouts[5].NumberOfBallsMid++;
+                buttonPressed6 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_6_Y"))
+            {
+                AutoScouts[5].NumberOfBallsHigh++;
+                buttonPressed6 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_6_RB"))
+            {
+                AutoScouts[5].NumberOfHatchMid++;
+                buttonPressed6 = true;
+            }
+            else if (Input.GetButtonUp("Xbox_6_LB"))
+            {
+                AutoScouts[5].NumberOfHatchLow++;
+                buttonPressed6 = true;
+            }
+            if (Input.GetAxis("Xbox_6_RT") == 0)
+            {
+                rt6Auto = false;
+            }
+            else if (Input.GetAxis("Xbox_6_RT") == 1)
+            {
+                buttonPressed6 = true;
+                if (rt6Auto == false)
+                {
+                    AutoScouts[5].NumberOfHatchHigh++;
+                    rt6Auto = true;
+                }
+            }
+            if (Input.GetAxis("Xbox_6_LT") == 0)
+            {
+                lt6Auto = false;
+            }
+            else if (Input.GetAxis("Xbox_6_LT") == 1)
+            {
+                buttonPressed6 = true;
+                if (lt6Auto == false)
+                {
+                    AutoScouts[5].startPos++;
+                    lt6Auto = true;
+                }
+            }
+            if (buttonPressed6)
+            {
+                AutoScouts[5].LightOn();
+            }
+            else
+            {
+                AutoScouts[5].LightOff();
+            }
+        }
         else if (m_state == STATE.TELE)
         {
      //TELE
