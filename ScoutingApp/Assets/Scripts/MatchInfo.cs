@@ -28,7 +28,7 @@ public class MatchInfo : MonoBehaviour
     public GameObject MatchesPanel;
     public GameObject AutoPanel;
 
-   /* //Subtraction Keys
+   //Subtraction Keys
     bool rt1Auto = false;
     bool rt1Tele = false;
     bool rt2Auto = false;
@@ -54,7 +54,7 @@ public class MatchInfo : MonoBehaviour
     bool lt5Tele = false;
     bool lt6Auto = false;
     bool lt6Tele = false;
-    */
+    
     public enum STATE
     {
         PREMATCH, AUTO, TELE
@@ -228,15 +228,31 @@ public class MatchInfo : MonoBehaviour
                 AutoScouts[0].NumberOfHatchLow++;
                 buttonPressed = true;
             }
-            if (Input.GetAxis("Xbox_1_RT") == 1)
+            if (Input.GetAxis("Xbox_1_RT") == 0)
             {
-                AutoScouts[0].NumberOfHatchHigh++;
-                buttonPressed = true;
+                rt1Auto = false;
             }
-            if (Input.GetAxis("Xbox_1_LT") == 1)
+            else if (Input.GetAxis("Xbox_1_RT") == 1)
             {
-                buttonPressed = true;
-                AutoScouts[0].startPos++;
+                rt1Auto = true;
+                if(rt1Auto == true)
+                {
+                    AutoScouts[0].NumberOfHatchHigh++;
+                    buttonPressed = true;
+                }  
+            }
+            if (Input.GetAxis("Xbox_1_LT") == 0)
+            {
+                lt1Auto = false;
+            }
+            else if (Input.GetAxis("Xbox_1_LT") == 1)
+            {
+                lt1Auto = true;
+                if (lt1Auto == true)
+                {
+                    AutoScouts[0].startPos++;
+                    buttonPressed = true;
+                }
             }
             if (buttonPressed)
             {
@@ -536,10 +552,18 @@ public class MatchInfo : MonoBehaviour
                     TeleScouts[0].NumberOfHatchLow++;
                     buttonPressed = true;
             }
-            if (Input.GetAxis("Xbox_1_RT") == 1)
+            if (Input.GetAxis("Xbox_1_RT") == 0)
             {
+                rt1Tele = false;
+            }
+            else if (Input.GetAxis("Xbox_1_RT") == 1)
+            {
+                rt1Tele = true;
+                if (rt1Tele == true)
+                {
                     TeleScouts[0].NumberOfHatchHigh++;
                     buttonPressed = true;
+                }
             }
             if (Input.GetAxis("Xbox_1_LT") == 1)
             {
