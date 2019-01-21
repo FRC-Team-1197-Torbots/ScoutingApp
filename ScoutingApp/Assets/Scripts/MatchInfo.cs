@@ -172,7 +172,7 @@ public class MatchInfo : MonoBehaviour
                 s.climb = 0;
                 s.startPos = 0;
                 s.CrossBaseline = false;
-                s.Result = false;
+                //s.Result = false;
                 s.quest = "";
             }
             foreach (Scout s in TeleScouts)
@@ -184,7 +184,7 @@ public class MatchInfo : MonoBehaviour
                 //s.Climb = false;
                 s.startPos = 0;
                 s.CrossBaseline = false;
-                s.Result = false;
+                //s.Result = false;
                 s.quest = "";
             }
             foreach (InputField t in ScoutNotes)

@@ -35,7 +35,6 @@ public class Scout : MonoBehaviour
 
     public bool CrossBaseline;
     //public bool Climb;
-    public bool Result;
     public string TeamNumber;
     public string quest;
     //xbox A = win, xbox B = lost, xbox y = climb, xbox x = vault, xbox rb = switch, xbox lb = scale 2018
@@ -66,7 +65,6 @@ public class Scout : MonoBehaviour
 
         CrossBaseline = false;
         //Climb = false;
-        Result = false;
 /*
         if(TeamNumberText)
         {
@@ -173,7 +171,7 @@ public class Scout : MonoBehaviour
                     score.GetComponent<Text>().text = "0";
                 }
             }
-            else if (child.name.Contains("Result"))
+            /*else if (child.name.Contains("Result"))
             {
                 if (Result)
                 {
@@ -185,7 +183,7 @@ public class Scout : MonoBehaviour
                     score.GetComponent<Text>().text = "0";
                     presses.GetComponent<Text>().text = "Lose";
                 }
-            }
+            }*/
             else if (child.name.Contains("Baseline"))
             {
                 if (CrossBaseline)

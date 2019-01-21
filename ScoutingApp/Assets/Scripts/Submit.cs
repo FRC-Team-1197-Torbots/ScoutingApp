@@ -98,19 +98,10 @@ public class Submit : MonoBehaviour
             int hatchLow = s.NumberOfHatchLow;
             int hatchMid = s.NumberOfHatchMid;
             int hatchHigh = s.NumberOfHatchHigh;
-
-            String outcome = "";
+            
             String climbString = "\"No\"";
             String quest = "\""+ s.quest + "\"";
                 
-            if (s.Result)
-            { 
-                outcome = "\"Win\"";
-            }
-            else
-            {
-                outcome = "\"Lost\"";
-            }
             if (s.climb == 1)
             {
                 climbString = "\"Plat\"";
@@ -127,7 +118,7 @@ public class Submit : MonoBehaviour
             teleData[i] = "INSERT INTO TELEOP VALUES" + "(" + teamNum + ", " + match.ToString() + ", "
                 + ballsLow.ToString() + ", " + ballsHigh.ToString() + ", " + ballsMid.ToString() + ", " + hatchLow.ToString() + ", " +  
                 hatchMid.ToString() + ", " + hatchHigh.ToString() + ", "+ climbString
-                + ", " + outcome + ", " + quest + ")";
+                 + ", " + quest + ")";
 
             s.NumberTeam = 0;
 
@@ -205,15 +196,14 @@ public class Submit : MonoBehaviour
             int vaultNum = reader.GetInt32(3);
             int scaleNum = reader.GetInt32(4);
             String climb = reader.GetString(5);
-            String teamResult = reader.GetString(6);
+            //String teamResult = reader.GetString(6);
 
             Debug.Log("Team Number: " + teamNum + "\n" +
                       "Match Number: " + matchNum + "\n" +
                       "# of Cubes in Switch: " + switchNum + "\n" +
                       "# of Cubes in Vault: " + vaultNum + "\n" +
                       "# of Cubes in Scale: " + scaleNum + "\n" +
-                      "Climb: " + climb + "\n" +
-                      "Team Result: " + teamResult + "\n");
+                      "Climb: " + climb + "\n");
         }
 
 
