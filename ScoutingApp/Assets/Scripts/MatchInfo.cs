@@ -558,12 +558,10 @@ public class MatchInfo : MonoBehaviour
             }
             else if (Input.GetAxis("Xbox_1_RT") == 1)
             {
-
                 buttonPressed = true;
                 if (rt1Tele == false)
                 {
                     TeleScouts[0].NumberOfHatchHigh++;
-                    
                     rt1Tele = true;
                 }
             }
