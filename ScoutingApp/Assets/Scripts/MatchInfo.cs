@@ -1247,45 +1247,64 @@ public class MatchInfo : MonoBehaviour
     public class Data
     {
         //Auto Variables
-        public int AutoSwitch;
-        public int AutoScale;
+        public int AutoBallLow;
+        public int AutoBallMid;
+        public int AutoBallHigh;
+        public int AutoHatchLow;
+        public int AutoHatchMid;
+        public int AutoHatchHigh;
         public bool AutoCross;
 
-        //Tele Variables
-        public int TeleSwitch;
-        public int TeleVault;
-        public int TeleScale;
+    //Tele Variables
+        public int TeleBallLow;
+        public int TeleBallMid;
+        public int TeleBallHigh;
+        public int TeleHatchLow;
+        public int TeleHatchMid;
+        public int TeleHatchHigh;
         public bool TeleClimb;
-        public bool MatchResult;
 
         public void clear()
         {
             Debug.Log("At clear");
-            AutoSwitch = 0;
-            AutoScale = 0;
+            AutoBallLow = 0;
+            AutoBallMid = 0;
+            AutoBallHigh = 0;
+            AutoHatchLow = 0;
+            AutoHatchMid = 0;
+            AutoHatchHigh = 0;
             AutoCross = false;
 
-            TeleSwitch = 0;
-            TeleVault = 0;
-            TeleScale = 0;
-            TeleClimb = false;
-            MatchResult = false;
+            TeleBallLow = 0;
+            TeleBallMid = 0;
+            TeleBallHigh = 0;
+            TeleHatchLow = 0;
+            TeleHatchMid = 0;
+            TeleHatchHigh = 0;
+            //TeleClimb = false;
         }
 
-        public void EnterAutoData(int switchCubes, int scaleCubes, bool Cross)
+        public void EnterAutoData(int ballLow, int ballMid, int ballHigh, int hatchLow, int hatchMid, int hatchHigh, bool Cross)
         {
-            AutoSwitch = switchCubes;
-            AutoScale = scaleCubes;
+            AutoBallLow = ballLow;
+            AutoBallMid = ballMid;
+            AutoBallHigh = ballHigh;
+            AutoHatchLow = hatchLow;
+            AutoHatchMid = hatchMid;
+            AutoHatchHigh = hatchHigh;
             AutoCross = Cross;
+            
         }
 
-        public void EnterTeleData(int switchCubes, int vaultCubes, int scaleCubes, bool Climb, bool Result)
+        public void EnterTeleData(int ballLow, int ballMid, int ballHigh, int hatchLow, int hatchMid, int HatchHigh, bool Result)
         {
-            TeleSwitch = switchCubes;
-            TeleVault = vaultCubes;
-            TeleScale = scaleCubes;
-            TeleClimb = Climb;
-            MatchResult = Result;
+            TeleBallLow = ballLow;
+            TeleBallMid = ballMid;
+            TeleBallHigh = ballHigh;
+            TeleHatchLow = hatchLow;
+            TeleHatchMid = hatchMid;
+            TeleHatchHigh = HatchHigh;
+            //TeleClimb = Climb;
         }
     }
 
