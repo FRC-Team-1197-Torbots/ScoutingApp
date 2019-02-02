@@ -365,7 +365,7 @@ public class MatchInfo : MonoBehaviour
             {
                 rt3Auto = false;
             }
-            else if (Input.GetAxis("Xbox_3_RT") == 1)
+            else if (Input.GetAxis("Xbox_3_RT") > .5)
             {
                 buttonPressed3 = true;
                 if (rt3Auto == false)
@@ -378,7 +378,7 @@ public class MatchInfo : MonoBehaviour
             {
                 lt3Auto = false;
             }
-            else if (Input.GetAxis("Xbox_3_LT") == 1)
+            else if (Input.GetAxis("Xbox_3_LT") > .5)
             {
                 buttonPressed3 = true;
                 if (lt3Auto == false)
@@ -432,7 +432,7 @@ public class MatchInfo : MonoBehaviour
             {
                 rt4Auto = false;
             }
-            else if (Input.GetAxis("Xbox_4_RT") == 1)
+            else if (Input.GetAxis("Xbox_4_RT") > .5)
             {
                 buttonPressed4 = true;
                 if (rt4Auto == false)
@@ -445,7 +445,7 @@ public class MatchInfo : MonoBehaviour
             {
                 lt4Auto = false;
             }
-            else if (Input.GetAxis("Xbox_4_LT") == 1)
+            else if (Input.GetAxis("Xbox_4_LT") > .5)
             {
                 buttonPressed4 = true;
                 if (lt4Auto == false)
@@ -499,7 +499,7 @@ public class MatchInfo : MonoBehaviour
             {
                 rt5Auto = false;
             }
-            else if (Input.GetAxis("Xbox_5_RT") == 1)
+            else if (Input.GetAxis("Xbox_5_RT") > .5)
             {
                 buttonPressed5 = true;
                 if (rt5Auto == false)
@@ -512,7 +512,7 @@ public class MatchInfo : MonoBehaviour
             {
                 lt5Auto = false;
             }
-            else if (Input.GetAxis("Xbox_5_LT") == 1)
+            else if (Input.GetAxis("Xbox_5_LT") > .5)
             {
                 buttonPressed5 = true;
                 if (lt5Auto == false)
@@ -566,7 +566,7 @@ public class MatchInfo : MonoBehaviour
             {
                 rt6Auto = false;
             }
-            else if (Input.GetAxis("Xbox_6_RT") == 1)
+            else if (Input.GetAxis("Xbox_6_RT") > .5)
             {
                 buttonPressed6 = true;
                 if (rt6Auto == false)
@@ -579,7 +579,7 @@ public class MatchInfo : MonoBehaviour
             {
                 lt6Auto = false;
             }
-            else if (Input.GetAxis("Xbox_6_LT") == 1)
+            else if (Input.GetAxis("Xbox_6_LT") > .5)
             {
                 buttonPressed6 = true;
                 if (lt6Auto == false)
@@ -636,7 +636,7 @@ public class MatchInfo : MonoBehaviour
             {
                 rt1Tele = false;
             }
-            else if (Input.GetAxis("Xbox_1_RT") == 1)
+            else if (Input.GetAxis("Xbox_1_RT") > .5)
             {
                 buttonPressed = true;
                 if (rt1Tele == false)
@@ -650,7 +650,7 @@ public class MatchInfo : MonoBehaviour
                 // TeleScouts[0].climb++;
                 lt1Tele = false;
             }
-            else if(Input.GetAxis("Xbox_1_LT") == 1)
+            else if(Input.GetAxis("Xbox_1_LT") > .5)
             {
                 buttonPressed = true;
                 if(lt1Tele == false)
@@ -706,7 +706,7 @@ public class MatchInfo : MonoBehaviour
             {
                 rt2Tele = false;
             }
-            else if (Input.GetAxis("Xbox_2_RT") == 1)
+            else if (Input.GetAxis("Xbox_2_RT") > .5)
             {
 
                 buttonPressed2 = true;
@@ -722,7 +722,7 @@ public class MatchInfo : MonoBehaviour
                 // TeleScouts[0].climb++;
                 lt2Tele = false;
             }
-            else if (Input.GetAxis("Xbox_2_LT") == 1)
+            else if (Input.GetAxis("Xbox_2_LT") > .5)
             {
                 buttonPressed2 = true;
                 if (lt2Tele == false)
@@ -804,7 +804,7 @@ public class MatchInfo : MonoBehaviour
             {
                 rt3Tele = false;
             }
-            else if (Input.GetAxis("Xbox_3_RT") == 1)
+            else if (Input.GetAxis("Xbox_3_RT") > .5)
             {
 
                 buttonPressed3 = true;
@@ -820,7 +820,7 @@ public class MatchInfo : MonoBehaviour
                 // TeleScouts[0].climb++;
                 lt3Tele = false;
             }
-            else if (Input.GetAxis("Xbox_3_LT") == 1)
+            else if (Input.GetAxis("Xbox_3_LT") > .5)
             {
                 buttonPressed3 = true;
                 if (lt3Tele == false)
@@ -905,7 +905,7 @@ public class MatchInfo : MonoBehaviour
             {
                 rt4Tele = false;
             }
-            else if (Input.GetAxis("Xbox_4_RT") == 1)
+            else if (Input.GetAxis("Xbox_4_RT") > .5)
             {
 
                 buttonPressed4 = true;
@@ -921,7 +921,7 @@ public class MatchInfo : MonoBehaviour
                 // TeleScouts[0].climb++;
                 lt4Tele = false;
             }
-            else if (Input.GetAxis("Xbox_4_LT") == 1)
+            else if (Input.GetAxis("Xbox_4_LT") > .5)
             {
                 buttonPressed4 = true;
                 if (lt4Tele == false)
@@ -1004,7 +1004,7 @@ public class MatchInfo : MonoBehaviour
             {
                 rt5Tele = false;
             }
-            else if (Input.GetAxis("Xbox_5_RT") == 1)
+            else if (Input.GetAxis("Xbox_5_RT") > .5)
             {
 
                 buttonPressed5 = true;
@@ -1020,7 +1020,7 @@ public class MatchInfo : MonoBehaviour
                 // TeleScouts[0].climb++;
                 lt5Tele = false;
             }
-            else if (Input.GetAxis("Xbox_5_LT") == 1)
+            else if (Input.GetAxis("Xbox_5_LT") > .5)
             {
                 buttonPressed5 = true;
                 if (lt5Tele == false)
@@ -1103,7 +1103,7 @@ public class MatchInfo : MonoBehaviour
             {
                 rt6Tele = false;
             }
-            else if (Input.GetAxis("Xbox_6_RT") == 1)
+            else if (Input.GetAxis("Xbox_6_RT") > .5)
             {
 
                 buttonPressed6 = true;
@@ -1119,7 +1119,7 @@ public class MatchInfo : MonoBehaviour
                 // TeleScouts[0].climb++;
                 lt6Tele = false;
             }
-            else if (Input.GetAxis("Xbox_6_LT") == 1)
+            else if (Input.GetAxis("Xbox_6_LT") > .5)
             {
                 buttonPressed6 = true;
                 if (lt6Tele == false)

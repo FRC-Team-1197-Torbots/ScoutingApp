@@ -165,11 +165,6 @@ public class Scout : MonoBehaviour
                     presses.GetComponent<Text>().text = "Lev 3";
                     score.GetComponent<Text>().text = "12";
                 }
-                else
-                {
-                    presses.GetComponent<Text>().text = "";
-                    score.GetComponent<Text>().text = "0";
-                }
             }
             /*else if (child.name.Contains("Result"))
             {

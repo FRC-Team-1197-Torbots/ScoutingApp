@@ -16167,7 +16167,6 @@ GameObject:
   - component: {fileID: 843612302}
   - component: {fileID: 843612304}
   - component: {fileID: 843612303}
-  - component: {fileID: 843612305}
   m_Layer: 5
   m_Name: Red Notes
   m_TagString: Untagged
@@ -16233,17 +16232,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 843612301}
---- !u!114 &843612305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 843612301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba080e03be404e346b03b1244bd3964f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &845906019
 GameObject:
   m_ObjectHideFlags: 0
@@ -16651,7 +16639,7 @@ MonoBehaviour:
   NumberTeam: 0
   team: 
   id: 0
-  Table: {fileID: 0}
+  Table: {fileID: 371288023}
   Auto: 0
   NumberOfBallsLow: 0
   NumberOfBallsMid: 0
@@ -21641,7 +21629,6 @@ GameObject:
   - component: {fileID: 1164312332}
   - component: {fileID: 1164312334}
   - component: {fileID: 1164312333}
-  - component: {fileID: 1164312335}
   m_Layer: 5
   m_Name: 'Blue Notes '
   m_TagString: Untagged
@@ -21707,17 +21694,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1164312331}
---- !u!114 &1164312335
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1164312331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba080e03be404e346b03b1244bd3964f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1164751565
 GameObject:
   m_ObjectHideFlags: 0
@@ -23699,7 +23675,6 @@ GameObject:
   - component: {fileID: 1249659521}
   - component: {fileID: 1249659523}
   - component: {fileID: 1249659522}
-  - component: {fileID: 1249659524}
   m_Layer: 5
   m_Name: Red Notes
   m_TagString: Untagged
@@ -23758,17 +23733,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1249659520}
---- !u!114 &1249659524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1249659520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba080e03be404e346b03b1244bd3964f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1250712913
 GameObject:
   m_ObjectHideFlags: 0
