@@ -180,6 +180,9 @@ public class MatchInfo : MonoBehaviour
                 s.NumberOfBallsLow = 0;
                 s.NumberOfBallsMid = 0;
                 s.NumberOfBallsHigh = 0;
+                s.NumberOfHatchLow = 0;
+                s.NumberOfHatchMid = 0;
+                s.NumberOfHatchHigh = 0;
                 s.climb = 0;
                 //s.Climb = false;
                 s.startPos = 0;
@@ -198,7 +201,7 @@ public class MatchInfo : MonoBehaviour
        //controller 1     
             bool buttonPressed = false;
 
-            if (Input.GetButtonUp("Xbox_1_LB"))
+            if(Input.GetButton("Xbox_1_LB"))
             {
                 if (Input.GetButtonUp("Xbox_1_A"))
                 {
@@ -209,13 +212,14 @@ public class MatchInfo : MonoBehaviour
                 {
                     AutoScouts[0].NumberOfBallsMid++;
                     buttonPressed = true;
-                } else if (Input.GetButtonUp("Xbox_1_Y"))
+                }
+                else if (Input.GetButtonUp("Xbox_1_Y"))
                 {
                     AutoScouts[0].NumberOfBallsHigh++;
                     buttonPressed = true;
                 }
             }
-            else if (Input.GetButtonUp("Xbox_1_RB"))
+            else if(Input.GetButton("Xbox_1_RB"))
             {
                 if (Input.GetButtonUp("Xbox_1_A"))
                 {
@@ -291,7 +295,7 @@ public class MatchInfo : MonoBehaviour
                 AutoScouts[1].CrossBaseline = true;
                 buttonPressed2 = true;
             }
-            else if (Input.GetButtonUp("Xbox_2_LB"))
+            else if (Input.GetButton("Xbox_2_LB"))
             {
                 if (Input.GetButtonUp("Xbox_2_A"))
                 {
@@ -309,7 +313,7 @@ public class MatchInfo : MonoBehaviour
                     buttonPressed2 = true;
                 }
             }
-            else if (Input.GetButtonUp("Xbox_2_RB"))
+            else if (Input.GetButton("Xbox_2_RB"))
             {
                 if (Input.GetButtonUp("Xbox_2_A"))
                 {
@@ -370,7 +374,7 @@ public class MatchInfo : MonoBehaviour
                 AutoScouts[2].CrossBaseline = true;
                 buttonPressed3 = true;
             }
-            else if (Input.GetButtonUp("Xbox_3_LB"))
+            else if (Input.GetButton("Xbox_3_LB"))
             {
                 if (Input.GetButtonUp("Xbox_3_A"))
                 {
@@ -388,7 +392,7 @@ public class MatchInfo : MonoBehaviour
                     buttonPressed3 = true;
                 }
             }
-            else if (Input.GetButtonUp("Xbox_3_RB"))
+            else if (Input.GetButton("Xbox_3_RB"))
             {
                 if (Input.GetButtonUp("Xbox_3_A"))
                 {
@@ -422,7 +426,7 @@ public class MatchInfo : MonoBehaviour
                 AutoScouts[3].CrossBaseline = true;
                 buttonPressed4 = true;
             }
-            else if(Input.GetButtonUp("Xbox_4_LB"))
+            else if(Input.GetButton("Xbox_4_LB"))
             {
                 if (Input.GetButtonUp("Xbox_4_A"))
                 {
@@ -440,7 +444,7 @@ public class MatchInfo : MonoBehaviour
                     buttonPressed4 = true;
                 }
             }
-            else if(Input.GetButtonUp("Xbox_4_RB"))
+            else if(Input.GetButton("Xbox_4_RB"))
             {
                 if (Input.GetButtonUp("Xbox_4_A"))
                 {
@@ -474,7 +478,7 @@ public class MatchInfo : MonoBehaviour
                 AutoScouts[4].CrossBaseline = true;
                 buttonPressed5 = true;
             }
-            while (Input.GetButtonUp("Xbox_5_LB"))
+            while (Input.GetButton("Xbox_5_LB"))
             {
                 if (Input.GetButtonUp("Xbox_5_A"))
                 {
@@ -492,7 +496,7 @@ public class MatchInfo : MonoBehaviour
                     buttonPressed5 = true;
                 }
             }
-            while (Input.GetButtonUp("Xbox_5_RB"))
+            while (Input.GetButton("Xbox_5_RB"))
             {
                 if (Input.GetButtonUp("Xbox_5_A"))
                 {
@@ -526,7 +530,7 @@ public class MatchInfo : MonoBehaviour
                 AutoScouts[5].CrossBaseline = true;
                 buttonPressed6 = true;
             } 
-            else if(Input.GetButtonUp("Xbox_6_LB"))
+            else if(Input.GetButton("Xbox_6_LB"))
             {
                 if (Input.GetButtonUp("Xbox_6_A"))
                 {
@@ -544,7 +548,7 @@ public class MatchInfo : MonoBehaviour
                     buttonPressed6 = true;
                 }
             }
-            else if (Input.GetButtonUp("Xbox_6_RB"))
+            else if (Input.GetButton("Xbox_6_RB"))
             {
                 if (Input.GetButtonUp("Xbox_6_A"))
                 {
@@ -577,7 +581,7 @@ public class MatchInfo : MonoBehaviour
      //controller 1
             bool buttonPressed = false;
 
-            if(Input.GetButtonUp("Xbox_1_LB"))
+            if(Input.GetButton("Xbox_1_LB"))
             {
                 if (Input.GetButtonUp("Xbox_1_A"))
                 {
@@ -595,7 +599,7 @@ public class MatchInfo : MonoBehaviour
                     buttonPressed = true;
                 }
             }
-            else if(Input.GetButtonUp("Xbox_1_RB"))
+            else if(Input.GetButton("Xbox_1_RB"))
             {
                 if (Input.GetButtonUp("Xbox_1_A"))
                 {
@@ -625,7 +629,7 @@ public class MatchInfo : MonoBehaviour
    //controller 2
             bool buttonPressed2 = false;
 
-            if (Input.GetButtonUp("Xbox_2_LB"))
+            if (Input.GetButton("Xbox_2_LB"))
             {
                 if (Input.GetButtonUp("Xbox_2_A"))
                 {
@@ -643,7 +647,7 @@ public class MatchInfo : MonoBehaviour
                     buttonPressed2 = true;
                 }
             }
-            else if (Input.GetButtonUp("Xbox_2_RB"))
+            else if (Input.GetButton("Xbox_2_RB"))
             {
                 if (Input.GetButtonUp("Xbox_2_A"))
                 {
@@ -674,7 +678,7 @@ public class MatchInfo : MonoBehaviour
             bool buttonPressed3 = false;
             //int climb3 = 0;
 
-            if (Input.GetButtonUp("Xbox_3_LB"))
+            if (Input.GetButton("Xbox_3_LB"))
             {
                 if (Input.GetButtonUp("Xbox_3_A"))
                 {
@@ -692,7 +696,7 @@ public class MatchInfo : MonoBehaviour
                     buttonPressed3 = true;
                 }
             }
-            else if (Input.GetButtonUp("Xbox_3_RB"))
+            else if (Input.GetButton("Xbox_3_RB"))
             {
                 if (Input.GetButtonUp("Xbox_3_A"))
                 {
@@ -724,7 +728,7 @@ public class MatchInfo : MonoBehaviour
             bool buttonPressed4 = false;
             // int climb4 = 0;
 
-            if (Input.GetButtonUp("Xbox_4_LB"))
+            if (Input.GetButton("Xbox_4_LB"))
             {
                 if (Input.GetButtonUp("Xbox_4_A"))
                 {
@@ -742,7 +746,7 @@ public class MatchInfo : MonoBehaviour
                     buttonPressed4 = true;
                 }
             }
-            else if (Input.GetButtonUp("Xbox_4_RB"))
+            else if (Input.GetButton("Xbox_4_RB"))
             {
                 if (Input.GetButtonUp("Xbox_4_A"))
                 {
@@ -771,7 +775,7 @@ public class MatchInfo : MonoBehaviour
 
     //controller 5
             bool buttonPressed5 = false;
-            if (Input.GetButtonUp("Xbox_5_LB"))
+            if (Input.GetButton("Xbox_5_LB"))
             {
                 if (Input.GetButtonUp("Xbox_5_A"))
                 {
@@ -789,7 +793,7 @@ public class MatchInfo : MonoBehaviour
                     buttonPressed5 = true;
                 }
             }
-            else if (Input.GetButtonUp("Xbox_5_RB"))
+            else if (Input.GetButton("Xbox_5_RB"))
             {
                 if (Input.GetButtonUp("Xbox_5_A"))
                 {
@@ -818,7 +822,7 @@ public class MatchInfo : MonoBehaviour
 
      //controller 6
             bool buttonPressed6 = false;
-            if (Input.GetButtonUp("Xbox_6_LB"))
+            if (Input.GetButton("Xbox_6_LB"))
             {
                 if (Input.GetButtonUp("Xbox_6_A"))
                 {
@@ -836,7 +840,7 @@ public class MatchInfo : MonoBehaviour
                     buttonPressed = true;
                 }
             }
-            else if (Input.GetButtonUp("Xbox_6_RB"))
+            else if (Input.GetButton("Xbox_6_RB"))
             {
                 if (Input.GetButtonUp("Xbox_6_A"))
                 {
