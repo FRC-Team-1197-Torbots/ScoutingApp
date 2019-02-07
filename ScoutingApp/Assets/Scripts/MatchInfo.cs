@@ -14,7 +14,7 @@ public class MatchInfo : MonoBehaviour
     public Text CurrentMatchText;
 
     private int MatchNumber;
-    private string[] AutoCats = { "Number of Balls Low", "Number of Balls Mid", "Number of Balls High" };//changed this
+    private string[] AutoCats = { "Number of Balls Low", "Number of Balls Mid", "Number of Balls High", };//changed this
     private string[] TeleCats = { "# of Cubes in Switch", "# of Cubes in Vault", "# of Cubes in Scale",
                                     "Climb", "Team Result"};
 
@@ -29,14 +29,14 @@ public class MatchInfo : MonoBehaviour
     public GameObject AutoPanel;
 
    //Subtraction Keys
-    bool rt1Auto = false;
-    bool rt1Tele = false;
-    bool rt2Auto = false;
-    bool rt2Tele = false;
-    bool rt3Auto = false;
-    bool rt3Tele = false;
-    bool rt4Auto = false;
-    bool rt4Tele = false;
+    bool DV1Auto = false;
+    bool DV1Tele = false;
+    bool DV2Auto = false;
+    bool DV2Tele = false;
+    bool DV3Auto = false;
+    bool DV3Tele = false;
+    bool DV4Auto = false;
+    bool DV4Tele = false;
     bool rt5Auto = false;
     bool rt5Tele = false;
     bool rt6Auto = false;
@@ -237,7 +237,17 @@ public class MatchInfo : MonoBehaviour
                     buttonPressed = true;
                 }
             }
-            else if (Input.GetButtonUp("Xbox_1_B"))
+            if(Input.GetAxis("Xbox_1_DV") < 0)
+            {
+                buttonPressed = true;
+                AutoScouts[0].startPos = 1;
+            }
+            else if(Input.GetAxis("Xbox_1_DH") > 0 || Input.GetAxis("Xbox_1_DH") < 0)
+            {
+                buttonPressed = true;
+                AutoScouts[0].startPos = 2;
+            }
+            if (Input.GetButtonUp("Xbox_1_B"))
             {
                 AutoScouts[0].CrossBaseline = true;
                 buttonPressed = true;
@@ -331,6 +341,16 @@ public class MatchInfo : MonoBehaviour
                     buttonPressed2 = true;
                 }
             }
+            if (Input.GetAxis("Xbox_2_DV") < 0)
+            {
+                buttonPressed2 = true;
+                AutoScouts[1].startPos = 1;
+            }
+            else if (Input.GetAxis("Xbox_2_DH") > 0 || Input.GetAxis("Xbox_2_DH") < 0)
+            {
+                buttonPressed2 = true;
+                AutoScouts[1].startPos = 2;
+            }
             /*if (Input.GetAxis("Xbox_2_RT") == 0)
             {
                 rt2Auto = false;
@@ -410,6 +430,16 @@ public class MatchInfo : MonoBehaviour
                     buttonPressed3 = true;
                 }
             }
+            if (Input.GetAxis("Xbox_3_DV") < 0)
+            {
+                buttonPressed3 = true;
+                AutoScouts[2].startPos = 1;
+            }
+            else if (Input.GetAxis("Xbox_3_DH") > 0 || Input.GetAxis("Xbox_3_DH") < 0)
+            {
+                buttonPressed3 = true;
+                AutoScouts[2].startPos = 2;
+            }
             if (buttonPressed3)
             {
                 AutoScouts[2].LightOn();
@@ -461,6 +491,16 @@ public class MatchInfo : MonoBehaviour
                     AutoScouts[3].NumberOfHatchHigh++;
                     buttonPressed4 = true;
                 }
+            }
+            if (Input.GetAxis("Xbox_4_DV") < 0)
+            {
+                buttonPressed4 = true;
+                AutoScouts[3].startPos = 1;
+            }
+            else if (Input.GetAxis("Xbox_4_DH") > 0 || Input.GetAxis("Xbox_4_DH") < 0)
+            {
+                buttonPressed4 = true;
+                AutoScouts[3].startPos = 2;
             }
             if (buttonPressed4)
             {
@@ -514,6 +554,16 @@ public class MatchInfo : MonoBehaviour
                     buttonPressed5 = true;
                 }
             }
+            if (Input.GetAxis("Xbox_5_DV") < 0)
+            {
+                buttonPressed5 = true;
+                AutoScouts[4].startPos = 1;
+            }
+            else if (Input.GetAxis("Xbox_5_DH") > 0 || Input.GetAxis("Xbox_5_DH") < 0)
+            {
+                buttonPressed5 = true;
+                AutoScouts[4].startPos = 2;
+            }
             if (buttonPressed5)
             {
                 AutoScouts[4].LightOn();
@@ -522,7 +572,6 @@ public class MatchInfo : MonoBehaviour
             {
                 AutoScouts[4].LightOff();
             }
-
     //controller 6
             bool buttonPressed6 = false;
             if (Input.GetButtonUp("Xbox_6_B"))
@@ -565,6 +614,16 @@ public class MatchInfo : MonoBehaviour
                     AutoScouts[5].NumberOfHatchHigh++;
                     buttonPressed6 = true;
                 }
+            }
+            if (Input.GetAxis("Xbox_6_DV") < 0)
+            {
+                buttonPressed6 = true;
+                AutoScouts[5].startPos = 1;
+            }
+            else if (Input.GetAxis("Xbox_6_DH") > 0 || Input.GetAxis("Xbox_6_DH") < 0)
+            {
+                buttonPressed6 = true;
+                AutoScouts[5].startPos = 2;
             }
             if (buttonPressed6)
             {
