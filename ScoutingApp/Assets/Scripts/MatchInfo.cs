@@ -29,31 +29,11 @@ public class MatchInfo : MonoBehaviour
     public GameObject AutoPanel;
 
    //Subtraction Keys
-    bool DV1Auto = false;
-    bool DV1Tele = false;
-    bool DV2Auto = false;
-    bool DV2Tele = false;
-    bool DV3Auto = false;
-    bool DV3Tele = false;
-    bool DV4Auto = false;
-    bool DV4Tele = false;
-    bool rt5Auto = false;
-    bool rt5Tele = false;
-    bool rt6Auto = false;
-    bool rt6Tele = false;
+    bool DV1Auto, DV2Auto, DV3Auto, DV4Auto, rt5Auto, rt6Auto = false; //Auto
+    bool DV1Tele, DV2Tele, DV3Tele, DV4Tele, rt5Tele, rt6Tele = false; //Tele
     //LT keys
-    bool lt1Auto = false;
-    bool lt1Tele = false;
-    bool lt2Auto = false;
-    bool lt2Tele = false;
-    bool lt3Auto = false;
-    bool lt3Tele = false;
-    bool lt4Auto = false;
-    bool lt4Tele = false;
-    bool lt5Auto = false;
-    bool lt5Tele = false;
-    bool lt6Auto = false;
-    bool lt6Tele = false;
+    bool lt1Auto, lt2Auto, lt3Auto, lt4Auto, lt5Auto, lt6Auto = false; //Auto
+    bool lt1Tele, lt2Tele, lt3Tele, lt4Tele, lt5Tele, lt6Tele = false; //Tele
     
     public enum STATE
     {
