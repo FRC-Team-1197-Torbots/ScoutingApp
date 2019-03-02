@@ -300,7 +300,7 @@ public class MatchInfo : MonoBehaviour
    //controller 2
             bool buttonPressed2 = false;
             
-            if (Input.GetButtonUp("Xbox_2_B"))
+           if (Input.GetButtonUp("Xbox_2_B"))
             {
                 AutoScouts[1].CrossBaseline = true;
                 buttonPressed2 = true;
@@ -389,7 +389,7 @@ public class MatchInfo : MonoBehaviour
    //controller 3
             bool buttonPressed3 = false;
             
-            if (Input.GetButtonUp("Xbox_3_B"))
+           if (Input.GetButtonUp("Xbox_3_B"))
             {
                 AutoScouts[2].CrossBaseline = true;
                 buttonPressed3 = true;
@@ -518,7 +518,7 @@ public class MatchInfo : MonoBehaviour
                 AutoScouts[4].CrossBaseline = true;
                 buttonPressed5 = true;
             }
-            while (Input.GetButton("Xbox_5_LB"))
+            else if (Input.GetButton("Xbox_5_LB"))
             {
                 if (Input.GetButtonUp("Xbox_5_A"))
                 {
@@ -536,7 +536,7 @@ public class MatchInfo : MonoBehaviour
                     buttonPressed5 = true;
                 }
             }
-            while (Input.GetButton("Xbox_5_RB"))
+            else if(Input.GetButton("Xbox_5_RB"))
             {
                 if (Input.GetButtonUp("Xbox_5_A"))
                 {
