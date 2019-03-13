@@ -43,7 +43,7 @@ public class Submit : MonoBehaviour
         /* Connecting and opening the database
          * Name of the database = [Year][Regional Name]ScoutingData.db
          */
-        String conn = "URI=file:" + Application.dataPath + "/2018BeachBlitzScoutingData.db";
+        String conn = "URI=file:" + Application.dataPath + "/2019LosAngelesScoutingData.db";
         dbconn = new SqliteConnection(conn);
         dbconn.Open();
 
@@ -81,7 +81,7 @@ public class Submit : MonoBehaviour
  
             autoData[j] = "INSERT INTO AUTO VALUES" + "(" + teamNum.ToString() + ", " + match.ToString() + ", "
                     + ballsLow.ToString() + ", " + baselineString + ", " + ballsMid.ToString() + ", " + ballsHigh.ToString() + ", " +
-                    hatchLow.ToString()  + ", " + hatchMid.ToString() + ", " + hatchHigh.ToString() + ", " + ")";
+                    hatchLow.ToString()  + ", " + hatchMid.ToString() + ", " + hatchHigh.ToString()  + ")";
             j++;
             s.NumberTeam = 0;
         }
@@ -115,7 +115,7 @@ public class Submit : MonoBehaviour
                 climbString = "\"Lev 3\"";
             }
 
-            teleData[i] = "INSERT INTO TELEOP VALUES" + "(" + teamNum + ", " + match.ToString() + ", "
+            teleData[i] = "INSERT INTO TELE VALUES" + "(" + teamNum + ", " + match.ToString() + ", "
                 + ballsLow.ToString() + ", " + ballsHigh.ToString() + ", " + ballsMid.ToString() + ", " + hatchLow.ToString() + ", " +  
                 hatchMid.ToString() + ", " + hatchHigh.ToString() + ", "+ climbString
                  + ", " + quest + ")";
@@ -184,11 +184,11 @@ public class Submit : MonoBehaviour
 
         // dbcmd and reader is used for testing SQL queries
 
-        dbcmd = dbconn.CreateCommand();
-        dbcmd.CommandText = "SELECT * FROM TELEOP WHERE TEAM_NUM = 1197";
-        reader = dbcmd.ExecuteReader();
+       // dbcmd = dbconn.CreateCommand();
+        //dbcmd.CommandText = "SELECT * FROM TELE WHERE TEAM_NUM = 1197";
+      //  reader = dbcmd.ExecuteReader();
 
-        while (reader.Read())
+       /* while (reader.Read())
         {
             int teamNum = reader.GetInt32(0);
             int matchNum = reader.GetInt32(1);
@@ -204,7 +204,7 @@ public class Submit : MonoBehaviour
                       "# of Cubes in Vault: " + vaultNum + "\n" +
                       "# of Cubes in Scale: " + scaleNum + "\n" +
                       "Climb: " + climb + "\n");
-        }
+        }*/
 
 
         // Closing and disposing the readers and the commands
