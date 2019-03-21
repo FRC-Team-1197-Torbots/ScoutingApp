@@ -73,16 +73,17 @@ public class Submit : MonoBehaviour
             int hatchLow = s.NumberOfHatchLow;
             int hatchMid = s.NumberOfHatchMid;
             int hatchHigh = s.NumberOfHatchHigh;
+            int startPos = s.startPos;
             Boolean baseline = s.CrossBaseline;
-            String startPosString = "\"No\"";
-            if (s.startPos == 1)
+            //String startPosString = "\"No\"";
+            /*if (s.startPos == 1)
             {
                 startPosString = "\"Plat\"";
             }
             else if (s.climb == 2)
             {
                 startPosString = "\"Lev 2\"";
-            }
+            }*/
             String baselineString = "\"Not passed\"";
             if (baseline)
                 baselineString = "\"Passed\"";
@@ -90,7 +91,7 @@ public class Submit : MonoBehaviour
  
             autoData[j] = "INSERT INTO AUTO VALUES" + "(" + teamNum.ToString() + ", " + match.ToString() + ", "
                     + baselineString + "," + ballsLow.ToString()  + ", " + ballsMid.ToString() + ", " + ballsHigh.ToString() + ", " +
-                    hatchLow.ToString()  + ", " + hatchMid.ToString() + ", " + hatchHigh.ToString()  + "," + startPosString + ")";
+                    hatchLow.ToString()  + ", " + hatchMid.ToString() + ", " + hatchHigh.ToString()  + "," + startPos + ")";
             j++;
             s.NumberTeam = 0;
         }
@@ -107,11 +108,10 @@ public class Submit : MonoBehaviour
             int hatchLow = s.NumberOfHatchLow;
             int hatchMid = s.NumberOfHatchMid;
             int hatchHigh = s.NumberOfHatchHigh;
-            
-            String climbString = "\"No\"";
+            int climb = s.climb;
             String quest = "\""+ s.quest + "\"";
                 
-            if (s.climb == 1)
+            /*if (s.climb == 1)
             {
                 climbString = "\"Plat\"";
             }
@@ -122,11 +122,11 @@ public class Submit : MonoBehaviour
             else if(s.climb == 3)
             {
                 climbString = "\"Lev 3\"";
-            }
+            }*/
 
             teleData[i] = "INSERT INTO TELE VALUES" + "(" + teamNum + ", " + match.ToString() + ", "
                 + ballsLow.ToString() + ", " + ballsMid.ToString() + ", " + ballsHigh.ToString() + ", " + hatchLow.ToString() + ", " +  
-                hatchMid.ToString() + ", " + hatchHigh.ToString() + ", "+ climbString
+                hatchMid.ToString() + ", " + hatchHigh.ToString() + ", "+ climb
                  + ", " + quest + ")";
 
             s.NumberTeam = 0;
