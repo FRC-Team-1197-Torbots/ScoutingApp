@@ -136,7 +136,12 @@ public class Scout : MonoBehaviour
             }
             else if(child.name.Contains("Start Pos"))
             {
-                if(startPos == 1)
+                if (startPos == 0)
+                {
+                    presses.GetComponent<Text>().text = "No";
+                    score.GetComponent<Text>().text = "0";
+                }
+                else if (startPos == 1)
                 {
                     presses.GetComponent<Text>().text = "Platform";
                     score.GetComponent<Text>().text = "3";
@@ -149,8 +154,12 @@ public class Scout : MonoBehaviour
             }
             else if (child.name.Contains("Climb"))
             {
-
-                if (climb == 1)
+                if(climb == 0)
+                {
+                    presses.GetComponent<Text>().text = "No climb";
+                    score.GetComponent<Text>().text = "0";
+                }
+                else if (climb == 1)
                 {
                     presses.GetComponent<Text>().text = "Platform";
                     score.GetComponent<Text>().text = "3";

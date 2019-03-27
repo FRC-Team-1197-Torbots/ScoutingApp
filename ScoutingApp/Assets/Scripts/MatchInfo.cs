@@ -242,10 +242,15 @@ public class MatchInfo : MonoBehaviour
                 buttonPressed = true;
                 AutoScouts[0].startPos = 1;
             }
-            else if(Input.GetAxis("Xbox_1_DH") > 0 || Input.GetAxis("Xbox_1_DH") < 0)
+            else if(Input.GetAxis("Xbox_1_DH") > 0)
             {
                 buttonPressed = true;
                 AutoScouts[0].startPos = 2;
+            }
+            else if (Input.GetAxis("Xbox_1_DH") < 0)
+            {
+                buttonPressed = true;
+                AutoScouts[0].startPos = 0;
             }
             if (Input.GetButtonUp("Xbox_1_B"))
             {
@@ -346,10 +351,15 @@ public class MatchInfo : MonoBehaviour
                 buttonPressed2 = true;
                 AutoScouts[1].startPos = 1;
             }
-            else if (Input.GetAxis("Xbox_2_DH") > 0 || Input.GetAxis("Xbox_2_DH") < 0)
+            else if (Input.GetAxis("Xbox_2_DH") > 0)
             {
                 buttonPressed2 = true;
                 AutoScouts[1].startPos = 2;
+            }
+            else if (Input.GetAxis("Xbox_2_DH") < 0)
+            {
+                buttonPressed2 = true;
+                AutoScouts[1].startPos = 0;
             }
             /*if (Input.GetAxis("Xbox_2_RT") == 0)
             {
@@ -435,10 +445,15 @@ public class MatchInfo : MonoBehaviour
                 buttonPressed3 = true;
                 AutoScouts[2].startPos = 1;
             }
-            else if (Input.GetAxis("Xbox_3_DH") > 0 || Input.GetAxis("Xbox_3_DH") < 0)
+            else if (Input.GetAxis("Xbox_3_DH") > 0)
             {
                 buttonPressed3 = true;
                 AutoScouts[2].startPos = 2;
+            }
+            else if (Input.GetAxis("Xbox_3_DH") < 0)
+            {
+                buttonPressed3 = true;
+                AutoScouts[2].startPos = 0;
             }
             if (buttonPressed3)
             {
@@ -497,10 +512,15 @@ public class MatchInfo : MonoBehaviour
                 buttonPressed4 = true;
                 AutoScouts[3].startPos = 1;
             }
-            else if (Input.GetAxis("Xbox_4_DH") > 0 || Input.GetAxis("Xbox_4_DH") < 0)
+            else if (Input.GetAxis("Xbox_4_DH") > 0)
             {
                 buttonPressed4 = true;
                 AutoScouts[3].startPos = 2;
+            }
+            else if (Input.GetAxis("Xbox_4_DH") < 0)
+            {
+                buttonPressed4 = true;
+                AutoScouts[3].startPos = 0;
             }
             if (buttonPressed4)
             {
@@ -559,10 +579,15 @@ public class MatchInfo : MonoBehaviour
                 buttonPressed5 = true;
                 AutoScouts[4].startPos = 1;
             }
-            else if (Input.GetAxis("Xbox_5_DH") > 0 || Input.GetAxis("Xbox_5_DH") < 0)
+            else if (Input.GetAxis("Xbox_5_DH") > 0)
             {
                 buttonPressed5 = true;
                 AutoScouts[4].startPos = 2;
+            }
+            else if (Input.GetAxis("Xbox_5_DH") < 0)
+            {
+                buttonPressed5 = true;
+                AutoScouts[4].startPos = 0;
             }
             if (buttonPressed5)
             {
@@ -620,10 +645,15 @@ public class MatchInfo : MonoBehaviour
                 buttonPressed6 = true;
                 AutoScouts[5].startPos = 1;
             }
-            else if (Input.GetAxis("Xbox_6_DH") > 0 || Input.GetAxis("Xbox_6_DH") < 0)
+            else if (Input.GetAxis("Xbox_6_DH") > 0)
             {
                 buttonPressed6 = true;
                 AutoScouts[5].startPos = 2;
+            }
+            else if (Input.GetAxis("Xbox_6_DH") < 0)
+            {
+                buttonPressed6 = true;
+                AutoScouts[5].startPos = 0;
             }
             if (buttonPressed6)
             {
@@ -686,10 +716,15 @@ public class MatchInfo : MonoBehaviour
                 buttonPressed = true;
                 TeleScouts[0].climb = 3;
             }
-            else if (Input.GetAxis("Xbox_1_DH") > 0 || Input.GetAxis("Xbox_1_DH") < 0)
+            else if (Input.GetAxis("Xbox_1_DH") > 0)
             {
                 buttonPressed = true;
                 TeleScouts[0].climb = 2;
+            }
+            else if(Input.GetAxis("Xbox_1_DH") < 0)
+            {
+                buttonPressed = true;
+                TeleScouts[0].climb = 0;
             }
             if (buttonPressed)
             {
@@ -749,10 +784,15 @@ public class MatchInfo : MonoBehaviour
                 buttonPressed2 = true;
                 TeleScouts[1].climb = 3;
             }
-            else if (Input.GetAxis("Xbox_2_DH") > 0 || Input.GetAxis("Xbox_2_DH") < 0)
+            else if (Input.GetAxis("Xbox_2_DH") > 0)
             {
                 buttonPressed2 = true;
                 TeleScouts[1].climb = 2;
+            }
+            else if (Input.GetAxis("Xbox_2_DH") < 0)
+            {
+                buttonPressed2 = true;
+                TeleScouts[1].climb = 0;
             }
             if (buttonPressed2)
             {
@@ -813,10 +853,15 @@ public class MatchInfo : MonoBehaviour
                 buttonPressed3 = true;
                 TeleScouts[2].climb = 3;
             }
-            else if (Input.GetAxis("Xbox_3_DH") > 0 || Input.GetAxis("Xbox_3_DH") < 0)
+            else if (Input.GetAxis("Xbox_3_DH") > 0)
             {
                 buttonPressed3 = true;
                 TeleScouts[2].climb = 2;
+            }
+            else if (Input.GetAxis("Xbox_3_DH") < 0)
+            {
+                buttonPressed3 = true;
+                TeleScouts[2].climb = 0;
             }
             if (buttonPressed3)
             {
@@ -878,10 +923,15 @@ public class MatchInfo : MonoBehaviour
                 buttonPressed4 = true;
                 TeleScouts[3].climb = 3;
             }
-            else if (Input.GetAxis("Xbox_4_DH") > 0 || Input.GetAxis("Xbox_4_DH") < 0)
+            else if (Input.GetAxis("Xbox_4_DH") > 0)
             {
                 buttonPressed4 = true;
                 TeleScouts[3].climb = 2;
+            }
+            else if (Input.GetAxis("Xbox_4_DH") < 0)
+            {
+                buttonPressed4 = true;
+                TeleScouts[3].climb = 0;
             }
             if (buttonPressed4)
             {
@@ -940,10 +990,15 @@ public class MatchInfo : MonoBehaviour
                 buttonPressed5 = true;
                 TeleScouts[4].climb = 3;
             }
-            else if (Input.GetAxis("Xbox_5_DH") > 0 || Input.GetAxis("Xbox_5_DH") < 0)
+            else if (Input.GetAxis("Xbox_5_DH") > 0)
             {
                 buttonPressed5 = true;
                 TeleScouts[4].climb = 2;
+            }
+            else if (Input.GetAxis("Xbox_5_DH") < 0)
+            {
+                buttonPressed5 = true;
+                TeleScouts[4].climb = 0;
             }
             if (buttonPressed5)
             {
@@ -1002,10 +1057,15 @@ public class MatchInfo : MonoBehaviour
                 buttonPressed6 = true;
                 TeleScouts[5].climb = 3;
             }
-            else if (Input.GetAxis("Xbox_6_DH") > 0 || Input.GetAxis("Xbox_6_DH") < 0)
+            else if (Input.GetAxis("Xbox_6_DH") > 0)
             {
                 buttonPressed6 = true;
                 TeleScouts[5].climb = 2;
+            }
+            else if (Input.GetAxis("Xbox_6_DH") < 0)
+            {
+                buttonPressed6 = true;
+                TeleScouts[5].climb = 0;
             }
             if (buttonPressed6)
             {
